@@ -1,16 +1,18 @@
 package model;
 
 public class Copy {
+
+    private Book associatedBook;
     private int id;
     private boolean available;
 
-    public Copy(int id, boolean available) {
-        this.id = id;
+    public Copy(Book associatedBook, boolean available) {
+        this.associatedBook = associatedBook;
         this.available = available;
     }
 
-    public int getId() {
-        return id;
+    public Book getAssociatedBook() {
+        return associatedBook;
     }
 
     public boolean isAvailable() {
@@ -23,8 +25,8 @@ public class Copy {
 
     @Override
     public String toString() {
-        return "Copies{" +
-                "id=" + id +
+        return "Copy{" +
+                "associatedBook=" + associatedBook +
                 ", available=" + available +
                 '}';
     }

@@ -2,11 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e47751a2-9ea6-4c63-b674-dff2985f7438" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Copy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/Add Book.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/Add User.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/Background 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/Background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/Books.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/Plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/Rent Book.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/Search.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/Users.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/covers/Cover1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Female Icon 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Female Icon 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Female Icon 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Female Icon 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Female Icon 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Female Icon 6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Male Icon 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Male Icon 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Male Icon 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Male Icon 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Male Icon 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/userIcons/Male Icon 6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Rent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/MainPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/OvalButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/user/SearchPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/user/UsersDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/user/UsersPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/user/addUser/AddUserDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/user/addUser/AddUserPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/user/addUser/IconPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/user/userInfo/SpecialButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/user/userInfo/UserInfoDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/user/userInfo/UserInfoPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Copy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Copy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presenter/Presenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presenter/Presenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +52,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="UML Class" />
         <option value="Class" />
       </list>
     </option>
@@ -34,20 +71,55 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ADMIN/Documents/Intellj Project/4 Semestre/FinalProject/src&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ADMIN/Documents/Intellj Project/4 Semestre/FinalProject&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.plantuml.idea.settings.PlantUmlSettingsPage&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="view.user.userInfo" />
+      <recent name="view.user.addUser" />
+      <recent name="view.user" />
       <recent name="model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject" />
       <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject\src" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject\sources\userIcons" />
+      <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject\sources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="view.user.userInfo" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Presenter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="presenter.Presenter" />
+      <module name="FinalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="presenter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Presenter" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -58,7 +130,15 @@
       <option name="presentableId" value="Default" />
       <updated>1667503944585</updated>
       <workItem from="1667503946438" duration="1724000" />
-      <workItem from="1668474053730" duration="13467000" />
+      <workItem from="1668474053730" duration="14724000" />
+      <workItem from="1668495192799" duration="3709000" />
+      <workItem from="1669152265906" duration="1113000" />
+      <workItem from="1669170395784" duration="6000" />
+      <workItem from="1669390243292" duration="4258000" />
+      <workItem from="1669438254858" duration="2396000" />
+      <workItem from="1669481748995" duration="3000" />
+      <workItem from="1669483210610" duration="9121000" />
+      <workItem from="1669561420345" duration="25376000" />
     </task>
     <servers />
   </component>

@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Library {
     private List<Book> books;
+
+    private List<Copy> copies;
     private List<User> users;
 
     public Library() {
@@ -35,12 +37,10 @@ public class Library {
     public boolean removeUser(String name){
         boolean removed = false;
         for (User user : users) {
-            if (user.getName().equals(name)&&!user.haveRentedBooks()) {
                 users.remove(user);
                 removed = true;
                 break;
             }
-        }
         return removed;
     }
 
@@ -59,7 +59,6 @@ public class Library {
     public void removeCopy(String tittle, int id) {
         for (Book book : books) {
             if (book.getTitle().equals(tittle)) {
-                book.removeCopy(book.getCopy(id));
                 break;
             }
         }
@@ -67,7 +66,7 @@ public class Library {
     public void addCopy(String tittle, int id) {
         for (Book book : books) {
             if (book.getTitle().equals(tittle)) {
-                book.addCopy(new Copy(id, true));
+
                 break;
             }
         }
@@ -76,8 +75,7 @@ public class Library {
     public void rentBook(String userName,String tittle, int id) {
         for (Book book : books) {
             if (book.getTitle().equals(tittle)) {
-                searchUser(userName).addRentedBook(book, book.getCopy(id));
-                book.getCopy(id).setAvailable(false);
+
                 break;
             }
         }
@@ -97,13 +95,44 @@ public class Library {
     public void returnBook(String userName,String tittle, int id) {
         for (Book book : books) {
             if (book.getTitle().equals(tittle)) {
-                searchUser(userName).removeRentedBook(book, book.getCopy(id));
-                book.getCopy(id).setAvailable(true);
                 break;
             }
         }
     }
 
+    public int getNumberOfBooksAvailable() {
+        int numberOfBooksAvailable = 0;
+        for (Book book : books) {
+                numberOfBooksAvailable++;
+            }
+        return numberOfBooksAvailable;
+    }
 
+    public int getNumberOfBooksRented() {
+        int numberOfBooksRented = 0;
+        for (Book book : books) {
+                numberOfBooksRented++;
+            }
+        return numberOfBooksRented;
+    }
+
+    public int getNumberOfBooks() {
+        return books.size();
+    }
+
+    public int getTotalNumberOfCopies() {
+        return getNumberOfBooksAvailable()+getNumberOfBooksRented();
+    }
+
+    public int getNumberOfUsers() {
+        return users.size();
+    }
+
+    public int getNumberOfUsersWithRentedBooks() {
+        int numberOfUsersWithRentedBooks = 0;
+        for (User user : users) {
+        }
+        return numberOfUsersWithRentedBooks;
+    }
 
 }

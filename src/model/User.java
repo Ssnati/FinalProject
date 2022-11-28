@@ -3,11 +3,13 @@ package model;
 import java.util.List;
 
 public class User {
+    private String iconSrc;
     private String name;
     private String email;
     private String address;
     private String phone;
-    private List<Book> rentedBooks;
+
+    private List<Copy> rentedCopies;
 
     public User(String name, String email, String address, String phone) {
         this.name = name;
@@ -48,26 +50,6 @@ public class User {
         this.phone = phone;
     }
 
-    public List<Book> getRentedBooks() {
-        return rentedBooks;
-    }
-
-    public void setRentedBooks(List<Book> rentedBooks) {
-        this.rentedBooks = rentedBooks;
-    }
-
-    public void addRentedBook(Book book, Copy copy) {
-        rentedBooks.add(book);
-        rentedBooks.get(rentedBooks.indexOf(book)).addCopy(copy);
-    }
-
     public void removeRentedBook(Book book, Copy copy) {
-        rentedBooks.get(rentedBooks.indexOf(book)).removeCopy(copy);
-        if (rentedBooks.get(rentedBooks.indexOf(book)).getCopies().isEmpty()) rentedBooks.remove(book);
     }
-
-    public boolean haveRentedBooks(){
-        return !rentedBooks.isEmpty();
-    }
-
 }
