@@ -4,4 +4,5 @@ public class Rent {
     private String rentDate;
     private String returnDate;
     private Copy associatedCopy;
+    private User associatedUser;
 }

@@ -90,7 +90,7 @@ public class UserInfoPanel extends JPanel {
 
     private void addDeleteUserButton(ActionListener listener) {
         deleteUserButton = new JButton("Delete User");
-        deleteUserButton.setUI(new SpecialButton(100, 50,
+        deleteUserButton.setUI(new SpecialButton(140, deleteUserButton.getPreferredSize().height*2,
                 25, 25, new Color(255, 193, 193)));
         deleteUserButton.setBorderPainted(false);
         deleteUserButton.setBackground(new Color(255, 193, 193));

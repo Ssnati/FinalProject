@@ -1,4 +1,4 @@
-package view.user;
+package view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -56,5 +56,9 @@ public class SearchPanel extends JPanel {
         gbc.gridy = 0;
         gbc.gridheight = 2;
         add(addUserButton, gbc);
+    }
+
+    public void setWidthSearchBar(int width) {
+        searchTextField.setColumns(width);
     }
 }

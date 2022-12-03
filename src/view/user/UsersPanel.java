@@ -1,5 +1,7 @@
 package view.user;
 
+import view.SearchPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;

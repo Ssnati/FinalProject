@@ -1,7 +1,6 @@
 package view.user.userInfo;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class UserInfoDialog extends JDialog {
