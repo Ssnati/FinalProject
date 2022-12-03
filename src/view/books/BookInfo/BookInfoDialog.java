@@ -13,7 +13,7 @@ public class BookInfoDialog extends JDialog {
         this.setSize(803,402);
         bookInfoPanel = new BookInfoPanel(listener);
         bookHistoryPanel = new BookHistoryPanel(listener);
-//        getContentPane().add(bookInfoPanel);
+        getContentPane().add(bookInfoPanel);
         getContentPane().add(bookHistoryPanel);
         setLocationRelativeTo(null);
     }

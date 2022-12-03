@@ -35,17 +35,14 @@ public class UsersDialog extends JDialog {
         getContentPane().add(scrollPane);
         setLocationRelativeTo(null);
     }
+
     private void addAddUserDialog(ActionListener listener) {
         AddUserDialog addUserDialog = new AddUserDialog(this, true, listener);
-//        addUserDialog.setVisible(true);
+        addUserDialog.setVisible(true);
     }
 
     private void addUserInfoDialog(ActionListener listener) {
         userInfoDialog = new UserInfoDialog(this, true, listener);
         userInfoDialog.setVisible(true);
-    }
-
-    public String getDialogSize() {
-        return String.valueOf(userInfoDialog.getSize());
     }
 }

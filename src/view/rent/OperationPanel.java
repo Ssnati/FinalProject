@@ -47,7 +47,7 @@ public class OperationPanel extends JPanel {
     }
 
     private void selectButtonFeatures(JButton button, Color color, String source) {
-        Dimension dimension = new Dimension(230, 230);
+//        Dimension dimension = new Dimension(230, 230);
 //        button.setPreferredSize(dimension);
 //        button.setMaximumSize(dimension);
 //        button.setMinimumSize(dimension);

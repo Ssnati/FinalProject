@@ -31,7 +31,7 @@ public class BooksDialog extends JDialog {
 
     private void initComponent(ActionListener listener) {
         addBooksPanel(listener);
-//        addAddBookDialog(listener);
+        addAddBookDialog(listener);
         addBookInfoDialog(listener);
     }
 

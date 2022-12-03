@@ -3,13 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e47751a2-9ea6-4c63-b674-dff2985f7438" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sources/Add Book.png" beforeDir="false" afterPath="$PROJECT_DIR$/sources/Add Book.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sources/Add User.png" beforeDir="false" afterPath="$PROJECT_DIR$/sources/Add User.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presenter/Presenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presenter/Presenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/rent/RentPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/RentPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/rent/ReturnPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/ReturnPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/rent/SelectionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/SelectionDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/rent/SelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/SelectionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/books/BookInfo/BookInfoDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BookInfo/BookInfoDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/books/BooksDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BooksDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/rent/OperationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/OperationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/user/UsersDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/user/UsersDialog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +117,7 @@
       <workItem from="1669867796472" duration="2465000" />
       <workItem from="1669901804313" duration="1575000" />
       <workItem from="1669903570728" duration="28969000" />
-      <workItem from="1670081668359" duration="5813000" />
+      <workItem from="1670081668359" duration="10853000" />
     </task>
     <servers />
   </component>
