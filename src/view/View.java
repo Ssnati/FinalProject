@@ -1,6 +1,7 @@
 package view;
 
 import view.books.BooksDialog;
+import view.rent.SelectionDialog;
 import view.user.UsersDialog;
 
 import javax.swing.*;
@@ -10,6 +11,7 @@ import java.awt.event.MouseListener;
 public class View extends JFrame {
     private BooksDialog booksDialog;
     private UsersDialog usersDialog;
+    private SelectionDialog selectionDialog;
 
     public View(ActionListener actionListener, MouseListener mouseListener) {
         setTitle("Library");
@@ -17,8 +19,11 @@ public class View extends JFrame {
 //        usersDialog = new UsersDialog(this,true, actionListener);
 //        usersDialog.setVisible(true);
 
-        booksDialog = new BooksDialog(this, true,actionListener);
-        booksDialog.setVisible(true);
+//        booksDialog = new BooksDialog(this, true,actionListener);
+//        booksDialog.setVisible(true);
+
+        selectionDialog = new SelectionDialog(this, true, actionListener);
+        selectionDialog.setVisible(true);
 
         getContentPane().add(new MainPanel(actionListener, mouseListener));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

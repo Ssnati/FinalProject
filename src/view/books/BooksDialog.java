@@ -2,6 +2,7 @@ package view.books;
 
 import view.books.BookInfo.BookInfoDialog;
 import view.books.addBook.AddBookDialog;
+import view.rent.SelectionDialog;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -14,6 +15,14 @@ public class BooksDialog extends JDialog {
 
     public BooksDialog(JFrame frame, boolean modal, ActionListener listener) {
         super(frame, modal);
+        setSize(945, 704);
+        setLocationRelativeTo(null);
+        setTitle("Books");
+        initComponent(listener);
+    }
+
+    public BooksDialog(SelectionDialog dialog, boolean modal, ActionListener listener) {
+        super(dialog, modal);
         setSize(945, 704);
         setLocationRelativeTo(null);
         setTitle("Books");
