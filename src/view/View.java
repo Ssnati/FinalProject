@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.util.List;
 
 public class View extends JFrame {
     private MainPanel mainPanel;
@@ -28,13 +29,13 @@ public class View extends JFrame {
         mainPanel = new MainPanel(actionListener, mouseListener);
         getContentPane().add(mainPanel);
 
-        usersDialog = new UsersDialog(this, true, actionListener);
+        usersDialog = new UsersDialog(this, true, actionListener, mouseListener, keyListener);
         usersDialog.setVisible(false);
 
-        booksDialog = new BooksDialog(this, true, actionListener);
+        booksDialog = new BooksDialog(this, true, actionListener, mouseListener, keyListener);
         booksDialog.setVisible(false);
 
-        selectionDialog = new SelectionDialog(this, true, actionListener);
+        selectionDialog = new SelectionDialog(this, true, actionListener, mouseListener, keyListener);
         selectionDialog.setVisible(false);
     }
 
@@ -56,5 +57,97 @@ public class View extends JFrame {
 
     public void showUsersDialog() {
         usersDialog.setVisible(true);
+    }
+
+    public boolean isOneOfMainPanelButtons(JButton button) {
+        return mainPanel.isOneOfButtons(button);
+    }
+
+    public void loadUsers(List<String> users) {
+        usersDialog.loadUsers(users);
+    }
+
+    public void loadBooks(List<String> books) {
+        booksDialog.loadBooks(books);
+    }
+
+    public int getUsersListSize() {
+        return usersDialog.getUsersListSize();
+    }
+
+    public void showUserInfo(String userInfo) {
+        usersDialog.showUserInfo(userInfo);
+    }
+
+    public String getUserInfo(int index) {
+        return usersDialog.getUserInfo(index);
+    }
+
+    public void setTextInSearchFieldUsers() {
+        usersDialog.setTextInSearchFieldUsers();
+    }
+
+    public String getSearchFieldTextUsers() {
+        return usersDialog.getSearchFieldTextUsers();
+    }
+
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog(null, message);
+    }
+
+    public void showAddUserDialog() {
+        usersDialog.showAddUserDialog();
+    }
+
+    public boolean usersDialogIsVisible() {
+        return usersDialog.isVisible();
+    }
+
+    public boolean addUserDialogIsVisible() {
+        return usersDialog.addUserDialogIsVisible();
+    }
+
+    public void setPahToUserIcon(String actionCommand) {
+        usersDialog.setPahToUserIcon(actionCommand);
+    }
+
+    public String getNewUserInfo() {
+        return usersDialog.getNewUserInfo();
+    }
+
+    public boolean userInfoDialogIsVisible() {
+        return usersDialog.userInfoDialogIsVisible();
+    }
+
+    public boolean booksDialogIsVisible() {
+        return booksDialog.isVisible();
+    }
+
+    public boolean selectionDialogIsVisible() {
+        return selectionDialog.isVisible();
+    }
+
+    public void removeUser(int userIndex) {
+        usersDialog.removeUser(userIndex);
+    }
+
+    public void setUserIndex(int userIndex) {
+        usersDialog.setUserIndex(userIndex);
+    }
+
+    public int getUserIndex() {
+        return usersDialog.getUserIndex();
+    }
+
+    public void loadNewUser(String newUserInfo) {
+        usersDialog.loadNewUser(newUserInfo);
+    }
+
+    public void setTextInSearchFieldBooks() {
+        booksDialog.setTextInSearchFieldBooks();
+    }
+
+    public String getSearchFieldTextBooks() {
+        return booksDialog.getSearchFieldTextBooks();
     }
 }

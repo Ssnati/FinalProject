@@ -5,6 +5,8 @@ import view.SearchPanel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,16 +15,17 @@ public class BooksPanel extends JPanel {
     private SearchPanel searchPanel;
     List<JButton> bookButtons;
 
-    public BooksPanel(ActionListener listener) {
+    public BooksPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
         bookButtons = new ArrayList<>();
         setLayout(new GridBagLayout());
         setBackground(new Color(108, 135, 126));
-        initComponents(listener);
+        initComponents(actionListener, mouseListener, keyListener);
     }
 
-    private void initComponents(ActionListener listener) {
+    private void initComponents(ActionListener listener, MouseListener mouseListener, KeyListener keyListener) {
         titleLabel = new JLabel("Book List");
-        searchPanel = new SearchPanel(listener);
+        searchPanel = new SearchPanel(listener, mouseListener, keyListener);
+        searchPanel.setActionCommandAddButton("ADD_BOOK");
         addTitleLabel();
         addSearchPanel(listener);
         addBooksListPanel(listener);
@@ -81,5 +84,19 @@ public class BooksPanel extends JPanel {
         gbc.insets = new Insets(10, 0, 0, 0);
         titleLabel.setFont(new Font("Sans Serif", Font.BOLD, 30));
         add(titleLabel, gbc);
+    }
+
+    public void loadBooks(List<String> books) {
+        for (String boook : books) {
+
+        }
+    }
+
+    public void setTextInSearchFieldBooks() {
+        searchPanel.setTextInSearchField();
+    }
+
+    public String getSearchFieldTextBooks() {
+        return searchPanel.getTextInSearchField();
     }
 }

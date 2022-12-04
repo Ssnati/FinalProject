@@ -30,8 +30,8 @@ public class Library {
         this.users = users;
     }
 
-    public void addUser(String name, String email, String address, String phone) {
-        users.add(new User(name, email, address, phone));
+    public void addUser(String iconSrc,String name, String email, String address, String phone) {
+        users.add(new User(iconSrc,name, email, address, phone));
     }
 
     public boolean removeUser(String name){
@@ -135,4 +135,43 @@ public class Library {
         return numberOfUsersWithRentedBooks;
     }
 
+    public String getUserToView(String userName) {
+        return searchUser(userName).toView();
+    }
+
+    public List<String> searchBooks(String searchFieldText) {
+        return null;
+    }
+
+    public boolean userHasBooks(String userName) {
+        return searchUser(userName).hasBooks();
+    }
+
+    public void deleteUser(String userName) {
+        users.remove(searchUser(userName));
+    }
+
+    public void loadUsers(ArrayList<String> users) {
+        for (String user : users) {
+            String[] userData = user.split(";");
+            addUser(userData[0],userData[1],userData[2],userData[3],userData[4]);
+        }
+    }
+    public List<String> searchUsersToView(String chain) {
+        List<String> usersToView = new ArrayList<>();
+        for (User user : users) {
+            if (user.getName().toLowerCase().contains(chain.toLowerCase())) {
+                usersToView.add(user.toView());
+            }
+        }
+        return usersToView;
+    }
+
+    public List<String> getUsersToView() {
+        List<String> usersToView = new ArrayList<>();
+        for (User user : users) {
+            usersToView.add(user.toView());
+        }
+        return usersToView;
+    }
 }

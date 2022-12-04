@@ -72,4 +72,8 @@ public class MainPanel extends JPanel {
         setOpaque(false);
         super.paint(g);
     }
+
+    public boolean isOneOfButtons(JButton button) {
+        return button == users || button == books || button == rent;
+    }
 }

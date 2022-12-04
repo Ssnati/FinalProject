@@ -1,21 +1,20 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    private String iconSrc;
-    private String name;
-    private String email;
-    private String address;
-    private String phone;
+    private String iconSrc, name, email, address, phone;
 
     private List<Copy> rentedCopies;
 
-    public User(String name, String email, String address, String phone) {
+    public User(String iconSrc, String name, String email, String address, String phone) {
         this.name = name;
         this.email = email;
         this.address = address;
         this.phone = phone;
+        this.iconSrc = iconSrc;
+        rentedCopies = new ArrayList<>();
     }
 
     public String getName() {
@@ -51,5 +50,13 @@ public class User {
     }
 
     public void removeRentedBook(Book book, Copy copy) {
+    }
+
+    public String toView() {
+        return iconSrc + ";" + name + ";" + email + ";" + address + ";" + phone+";"+rentedCopies.size();
+    }
+
+    public boolean hasBooks() {
+        return rentedCopies.size() > 0;
     }
 }

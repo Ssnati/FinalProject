@@ -3,32 +3,62 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
 
 public class SearchPanel extends JPanel {
     private JTextField searchTextField;
-    private JButton addUserButton;
+    private JButton addButton;
+    private JLabel searchLabel;
+    private StringBuilder textInSearchField;
 
-    public SearchPanel(ActionListener listener) {
+    public SearchPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
         setLayout(new GridBagLayout());
-        initComponents(listener);
+        textInSearchField = new StringBuilder();
+        initComponents(actionListener, mouseListener, keyListener);
         setBackground(new Color(0,0,0,0));
     }
 
-    private void initComponents(ActionListener listener) {
+    private void initComponents(ActionListener listener, MouseListener mouseListener, KeyListener keyListener) {
+        searchTextField = new JTextField(14);
+
+        addButton = new JButton(new ImageIcon("sources/Plus.png"));
+
+        searchLabel = new JLabel("Search:");
+        searchLabel.setFont(new Font("Sans Serif", Font.BOLD, 20));
         addSearchLabel();
 
-        addTextField(listener);
-
-        addUserButton = new JButton(new ImageIcon("sources/Plus.png"));
-        addUserButton(listener);
+        searchTextFieldFeatures(listener, keyListener);
+        addSearchTextField();
+        addButtonFeatures(listener, mouseListener);
+        addAddButton();
     }
 
-    private void addTextField(ActionListener listener) {
-        searchTextField = new JTextField(14);
+    private void addButtonFeatures(ActionListener listener, MouseListener mouseListener) {
+        addButton.addActionListener(listener);
+        addButton.addMouseListener(mouseListener);
+        addButton.setBorderPainted(false);
+        addButton.setBackground(new Color(0, 0, 0, 0));
+        addButton.setBorderPainted(false);
+        addButton.setFocusable(false);
+        addButton.setContentAreaFilled(false);
+    }
+
+    private void searchTextFieldFeatures(ActionListener listener, KeyListener keyListener) {
         searchTextField.setFont(new Font("Sans Serif", Font.PLAIN, 20));
         searchTextField.addActionListener(listener);
-        searchTextField.setActionCommand("search");
-        searchTextField.setToolTipText("Search");
+        searchTextField.addKeyListener(keyListener);
+    }
+
+    public void setSearchActionCommand(String actionCommand) {
+        searchTextField.setActionCommand(actionCommand);
+    }
+
+    public void setAddActionCommand(String actionCommand) {
+        addButton.setActionCommand(actionCommand);
+    }
+
+    private void addSearchTextField() {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -36,8 +66,6 @@ public class SearchPanel extends JPanel {
     }
 
     private void addSearchLabel() {
-        JLabel searchLabel = new JLabel("Search:");
-        searchLabel.setFont(new Font("Sans Serif", Font.BOLD, 20));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -45,20 +73,27 @@ public class SearchPanel extends JPanel {
         add(searchLabel, gbc);
     }
 
-    private void addUserButton(ActionListener listener) {
-        addUserButton.addActionListener(listener);
-        addUserButton.setActionCommand("Add User");
-        addUserButton.setBorderPainted(false);
-        addUserButton.setBackground(new Color(0, 0, 0, 0));
-        addUserButton.setFocusable(false);
+    private void addAddButton() {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.gridheight = 2;
-        add(addUserButton, gbc);
+        add(addButton, gbc);
     }
 
     public void setWidthSearchBar(int width) {
         searchTextField.setColumns(width);
+    }
+
+    public void setTextInSearchField() {
+        this.textInSearchField = new StringBuilder(searchTextField.getText());
+    }
+
+    public String getTextInSearchField() {
+        return searchTextField.getText();
+    }
+
+    public void setActionCommandAddButton(String command) {
+        addButton.setActionCommand(command);
     }
 }
