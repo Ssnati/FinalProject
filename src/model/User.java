@@ -17,8 +17,21 @@ public class User {
         rentedCopies = new ArrayList<>();
     }
 
+    public User(String iconSrc, String name, String email, String address, String phone, List<Copy> rentedCopies) {
+        this.iconSrc = iconSrc;
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+        this.rentedCopies = rentedCopies;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public String getIconSrc() {
+        return iconSrc;
     }
 
     public void setName(String name) {

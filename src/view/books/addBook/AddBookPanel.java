@@ -6,6 +6,7 @@ import view.OvalButton;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 
 public class AddBookPanel extends JPanel {
     private final Font defaultFont = new Font("SansSerif", Font.BOLD, 18);
@@ -14,15 +15,25 @@ public class AddBookPanel extends JPanel {
     private JTextField tittleField, authorField, yearField, ISBNField, copiesField;
     private JTextArea descriptionArea;
     private JScrollPane scrollPane;
+    private String pathCover;
 
-    public AddBookPanel(ActionListener listener) {
-        initComponents(listener);
+    public AddBookPanel(ActionListener actionListener, MouseListener mouseListener) {
+        initComponents(actionListener, mouseListener);
         setBackground(new Color(233, 208, 208));
     }
 
-    private void initComponents(ActionListener listener) {
-        addCover = new JButton(new ImageIcon("sources/covers/AddCover.png"));
+    private void initComponents(ActionListener actionListener, MouseListener mouseListener) {
+        pathCover = "sources/covers/AddCover.png";
+        addCover = new JButton(new ImageIcon(pathCover));
+        addCover.addActionListener(actionListener);
+        addCover.addMouseListener(mouseListener);
+        addCover.setActionCommand("ADD_COVER");
+
         saveBook = new JButton("Agregar Libro");
+        saveBook.addActionListener(actionListener);
+        saveBook.addMouseListener(mouseListener);
+        saveBook.setActionCommand("SAVE_BOOK");
+
         tittleLabel = new JButton("Titulo: ");
         descriptionLabel = new JButton("Sinopsis: ");
         authorLabel = new JButton("Autor: ");
@@ -42,7 +53,7 @@ public class AddBookPanel extends JPanel {
 
 
         componentFeatures();
-        addComponents(listener);
+        addComponents(actionListener);
     }
 
     private void componentFeatures() {
@@ -181,5 +192,14 @@ public class AddBookPanel extends JPanel {
         gbc.gridwidth = 1;
         add(copyNumberLabel, gbc);
 
+    }
+
+    public void setPahCoverToNewBook(String bookName) {
+        this.pathCover = bookName;
+        addCover.setIcon(new ImageIcon(new ImageIcon("sources/covers/Cover1.png").getImage().getScaledInstance(136, 219, Image.SCALE_SMOOTH)));
+    }
+
+    public String getNewBookInfo() {
+        return pathCover + ";" + tittleField.getText() + ";" + authorField.getText() + ";" + yearField.getText() + ";" + descriptionArea.getText() + ";" + ISBNField.getText() + ";" + copiesField.getText();
     }
 }

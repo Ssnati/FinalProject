@@ -1,22 +1,25 @@
 package model;
 
 public class Book {
-    private String title;
-    private String author;
-    private String year;
-    private String description;
-    private String coverSource;
-
-
-    public Book(String title, String author, String year, String description, String coverSource) {
+    private String coverSource,title,author,year,description,ISBN;
+    public Book(String coverSource, String title, String author, String year, String description, String ISBN) {
         this.title = title;
         this.author = author;
         this.year = year;
         this.description = description;
         this.coverSource = coverSource;
+        this.ISBN = ISBN;
     }
 
-     public String getTitle() {
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+    }
+
+    public String getTitle() {
         return title;
     }
 
@@ -64,6 +67,11 @@ public class Book {
                 ", year='" + year + '\'' +
                 ", description='" + description + '\'' +
                 ", coverSource='" + coverSource + '\'' +
+                ", ISBN='" + ISBN + '\'' +
                 '}';
+    }
+
+    public String toView() {
+        return coverSource +";"+ title +";"+ author +";"+ year +";"+ description+";"+ ISBN;
     }
 }

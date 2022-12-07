@@ -16,7 +16,6 @@ public class UsersPanel extends JPanel {
     private JLabel titleLabel;
     private SearchPanel searchPanel;
     private List<JButton> userButtons;
-
     private int userIndex;
 
     public UsersPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {

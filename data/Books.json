@@ -1,0 +1,74 @@
+[
+  {
+    "coverSource": "sources/covers/Cover1.png",
+    "title": "1984",
+    "author": "George Orwell",
+    "year": "1949",
+    "description": "En Londres, en el año 1984, Winston Smith trabaja en el Ministerio de la Verdad, encargado de manipular la historia para que coincida con la ideología del Partido. Winston se siente profundamente infeliz y decide rebelarse contra el sistema. Su vida se complica cuando conoce a Julia, una joven que pertenece a la Resistencia. Juntos intentarán huir de la ciudad y de la vigilancia del Partido.",
+    "ISBN": "978-84-206-0310-0"
+  },
+  {
+    "coverSource": "sources/covers/Cover2.png",
+    "title": "Harry Potter y la piedra filosofal",
+    "author": "J.K. Rowling",
+    "year": "1997",
+    "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
+    "ISBN": "978-84-7888-445-2"
+  },
+  {
+    "coverSource": "sources/covers/Cover3.png",
+    "title": "Harry Potter y la cámara secreta",
+    "author": "J.K. Rowling",
+    "year": "1998",
+    "description": "Harry Potter regresa a Hogwarts para comenzar su segundo curso de magia y hechicería. Pero el colegio está envuelto en una atmósfera de misterio y terror. Alguien o algo está atacando a los alumnos y los profesores, y la única pista que hay es una nota escrita en rúnico: «El que se atreve a entrar aquí, se atreve a morir».",
+    "ISBN": "978-84-7888-446-9"
+  },
+  {
+    "coverSource": "sources/covers/Cover4.png",
+    "title": "Harry Potter y el prisionero de Azkaban",
+    "author": "J.K. Rowling",
+    "year": "1999",
+    "description": "El tercer año de estudios de Harry en Hogwarts se ve amenazado por la fuga de Sirius Black de la prisión de Azkaban. Al parecer, se trata de un peligroso mago que fue cómplice de Lord Voldemort y que intentará vengarse de Harry Potter.",
+    "ISBN": "978-84-7888-447-6"
+  },
+  {
+    "coverSource": "sources/covers/Cover5.png",
+    "title": "Harry Potter y el cáliz de fuego",
+    "author": "J.K. Rowling",
+    "year": "2000",
+    "description": "Harry Potter se enfrenta a tiempos duros. Acosado por pesadillas que hacen que su cicatriz duela más que de costumbre, Harry está feliz por escapar de sus sueños inquietos al poder asistir al Campeonato Mundial de Quidditch y estar con sus amigos Ron y Hermione.",
+    "ISBN": "978-84-7888-448-3"
+  },
+  {
+    "coverSource": "sources/covers/Cover6.png",
+    "title": "Harry Potter y la orden del Fénix",
+    "author": "J.K. Rowling",
+    "year": "2003",
+    "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+    "ISBN": "978-84-7888-449-0"
+  },
+  {
+    "coverSource": "sources/covers/Cover7.png",
+    "title": "Harry Potter y el misterio del príncipe",
+    "author": "J.K. Rowling",
+    "year": "2005",
+    "description": "Harry Potter y el misterio del príncipe es la sexta entrega de la saga de Harry Potter. En esta ocasión, Harry se enfrenta a un nuevo curso en Hogwarts, donde se enfrentará a los problemas de la adolescencia, a los problemas de la guerra y a los problemas de la vida. Además, Harry se enfrentará a un nuevo enemigo, Lord Voldemort, que ha vuelto más poderoso que nunca.",
+    "ISBN": "978-84-7888-450-6"
+  },
+  {
+    "coverSource": "sources/covers/Cover8.png",
+    "title": "Harry Potter y las reliquias de la muerte",
+    "author": "J.K. Rowling",
+    "year": "2007",
+    "description": "Harry Potter y las reliquias de la muerte es la séptima y última entrega de la saga de Harry Potter. En esta ocasión, Harry se enfrenta a un nuevo curso en Hogwarts, donde se enfrentará a los problemas de la adolescencia, a los problemas de la guerra y a los problemas de la vida. Además, Harry se enfrentará a un nuevo enemigo, Lord Voldemort, que ha vuelto más poderoso que nunca.",
+    "ISBN": "978-84-7888-451-3"
+  },
+  {
+    "coverSource": "sources/covers/Cover9.png",
+    "title": "El Señor de los Anillos, la comunidad del anillo",
+    "author": "J.R.R. Tolkien",
+    "year": "1954",
+    "description": "En la adormecida e idílica Comarca, un joven hobbit recibe un encargo: custodiar el Anillo Único y emprender el viaje para su destrucción en la Grieta del Destino. Acompañado por magos, hombres, elfos y enanos, atravesará la Tierra Media y se internará en las sombras de Mordor, perseguido siempre por las huestes de Sauron, el Señor Oscuro, dispuesto a recuperar su creación para establecer el dominio definitivo del Mal.",
+    "ISBN": "978-84-7888-452-0"
+  }
+]

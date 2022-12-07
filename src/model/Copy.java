@@ -6,8 +6,15 @@ public class Copy {
     private int id;
     private boolean available;
 
-    public Copy(Book associatedBook, boolean available) {
+    public Copy(Book associatedBook, int id) {
         this.associatedBook = associatedBook;
+        this.id = id;
+        this.available = true;
+    }
+
+    public Copy(Book associatedBook, int id, boolean available) {
+        this.associatedBook = associatedBook;
+        this.id = id;
         this.available = available;
     }
 
@@ -29,5 +36,9 @@ public class Copy {
                 "associatedBook=" + associatedBook +
                 ", available=" + available +
                 '}';
+    }
+
+    public int getId() {
+        return id;
     }
 }

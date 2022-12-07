@@ -8,7 +8,7 @@ public class OvalButton extends BasicButtonUI {
     private int width, height, arcWidth, arcHeight;
     private Color backgroundColor;
 
-    public OvalButton(int width, int height, int arcWidth, int arcHeight,Color backgroundColor) {
+    public OvalButton(int width, int height, int arcWidth, int arcHeight, Color backgroundColor) {
         this.width = width;
         this.height = height;
         this.arcWidth = arcWidth;

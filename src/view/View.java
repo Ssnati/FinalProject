@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public class View extends JFrame {
@@ -47,7 +48,7 @@ public class View extends JFrame {
         mainPanel.mouseExitButton(button);
     }
 
-    public void showRentDialog() {
+    public void selectionDialog() {
         selectionDialog.setVisible(true);
     }
 
@@ -149,5 +150,141 @@ public class View extends JFrame {
 
     public String getSearchFieldTextBooks() {
         return booksDialog.getSearchFieldTextBooks();
+    }
+
+    public int getBooksListSize() {
+        return booksDialog.getBooksListSize();
+    }
+
+    public void setBookIndex(int bookIndex) {
+        booksDialog.setBookIndex(bookIndex);
+    }
+
+    public void showBookInfo(String bookToView) {
+        booksDialog.showBookInfo(bookToView);
+    }
+
+    public String getBookName(String actionCommand) {
+        return booksDialog.getBookName(actionCommand);
+    }
+
+    public boolean booksInfoDialogIsVisible() {
+        return booksDialog.booksInfoDialogIsVisible();
+    }
+
+    public String getSelectedBook() {
+        return booksDialog.getSelectedBook();
+    }
+
+    public void showHistoryDialog(List<String> rentHistory) {
+        booksDialog.showHistoryDialog(rentHistory);
+    }
+
+    public int getIdToRemove(List<Integer> list) throws NumberFormatException {
+        try {
+            return (int) JOptionPane.showInputDialog(null, "Select copy Id", "Remove Copy", JOptionPane.QUESTION_MESSAGE, null, list.toArray(), list.get(0));
+        } catch (NullPointerException e) {
+            return -1;
+        }
+    }
+
+    public int getNewId() {
+        int newId;
+        Object id = JOptionPane.showInputDialog(null, "Enter new copy Id", "Add Copy", JOptionPane.QUESTION_MESSAGE);
+        if (id == null) {
+            newId = 0;
+        } else {
+            try {
+                newId = Integer.parseInt(id.toString());
+            } catch (NumberFormatException e) {
+                newId = -1;
+            }
+        }
+        if (newId < 0) {
+            newId = -1;
+        }
+        return newId;
+    }
+
+    public void showAddBookDialog() {
+        booksDialog.showAddBookDialog();
+    }
+
+    public boolean addBookDialogIsVisible() {
+        return booksDialog.addBookDialogIsVisible();
+    }
+
+    public void setPahCoverToNewBook(String bookName) {
+        booksDialog.setPahCoverToNewBook(bookName);
+    }
+
+    public String getNewBookInfo() {
+        return booksDialog.getNewBookInfo();
+    }
+
+    public void loadNewBook(String newBookInfo) {
+        booksDialog.loadNewBook(newBookInfo);
+    }
+
+    public void showRentDialog() {
+        selectionDialog.showRentDialog();
+    }
+
+    public void showReturnDialog() {
+        selectionDialog.showReturnDialog();
+    }
+    public boolean rentPanelIsVisible() {
+        return selectionDialog.rentPanelIsVisible();
+    }
+
+    public boolean returnPanelIsVisible() {
+        return selectionDialog.returnPanelIsVisible();
+    }
+    public void showOperationUsersDialog() {
+        selectionDialog.showOperationUsersDialog();
+    }
+
+    public void showOperationBooksDialog() {
+        selectionDialog.showOperationBooksDialog();
+    }
+
+    public boolean rentDialogIsVisible() {
+        return selectionDialog.rentDialogIsVisible();
+    }
+
+    public boolean showRentDialogIsVisible() {
+        return selectionDialog.showRentDialogIsVisible();
+    }
+
+    public boolean operationPanelIsVisible() {
+        return selectionDialog.operationPanelIsVisible();
+    }
+
+    public void setOperationCommand(String actionCommand) {
+        selectionDialog.setOperationCommand(actionCommand);
+    }
+
+    public String getOperationDialog() {
+        return selectionDialog.getOperationDialog();
+    }
+
+    public void setUserSelectedPath(String userImageSource) {
+selectionDialog.setUserSelectedPath(userImageSource);
+    }
+
+    public void closeUsersDialog() {
+        usersDialog.setVisible(false);
+    }
+
+    public void setBookSelectedPath(String bookImageSource) {
+        selectionDialog.setBookSelectedPath(bookImageSource);
+    }
+
+    public int getIdToRent(List<Integer> books) {
+        return getIdToRemove(books);
+    }
+
+    public void closeBooksDialog() {
+        booksDialog.setVisible(false);
     }
 }

@@ -24,7 +24,7 @@ public class BooksDialog extends JDialog {
         initComponent(listener, mouseListener, keyListener);
     }
 
-    public BooksDialog(SelectionDialog dialog, boolean modal, ActionListener listener, MouseListener mouseListener, KeyListener keyListener) {
+    public BooksDialog(JDialog dialog, boolean modal, ActionListener listener, MouseListener mouseListener, KeyListener keyListener) {
         super(dialog, modal);
         setSize(945, 704);
         setLocationRelativeTo(null);
@@ -34,17 +34,17 @@ public class BooksDialog extends JDialog {
 
     private void initComponent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
         addBooksPanel(actionListener, mouseListener, keyListener);
-        addAddBookDialog(actionListener);
-        addBookInfoDialog(actionListener);
+        addAddBookDialog(actionListener, mouseListener);
+        addBookInfoDialog(actionListener, mouseListener);
     }
 
-    private void addBookInfoDialog(ActionListener listener) {
-        bookInfoDialog = new BookInfoDialog(this, true, listener);
+    private void addBookInfoDialog(ActionListener actionListener, MouseListener mouseListener) {
+        bookInfoDialog = new BookInfoDialog(this, true, actionListener, mouseListener);
         bookInfoDialog.setVisible(false);
     }
 
-    private void addAddBookDialog(ActionListener listener) {
-        addBookDialog = new AddBookDialog(this, true, listener);
+    private void addAddBookDialog(ActionListener actionListener, MouseListener mouseListener) {
+        addBookDialog = new AddBookDialog(this, true, actionListener, mouseListener);
         addBookDialog.setVisible(false);
     }
 
@@ -57,6 +57,7 @@ public class BooksDialog extends JDialog {
 
     public void loadBooks(List<String> books) {
         booksPanel.loadBooks(books);
+        booksPanel.updateUI();
     }
 
     public void setTextInSearchFieldBooks() {
@@ -65,5 +66,63 @@ public class BooksDialog extends JDialog {
 
     public String getSearchFieldTextBooks() {
         return booksPanel.getSearchFieldTextBooks();
+    }
+
+    public int getBooksListSize() {
+        return booksPanel.getBooksListSize();
+    }
+
+    public void setBookIndex(int bookIndex) {
+        booksPanel.setBookIndex(bookIndex);
+    }
+
+    public String getPathToBook(String actionCommand) {
+        return booksPanel.getIconPath(actionCommand);
+    }
+
+    public void showBookInfo(String bookToView) {
+        bookInfoDialog.showBookInfo(bookToView);
+        bookInfoDialog.setVisible(true);
+    }
+
+    public String getBookName(String actionCommand) {
+        return booksPanel.getBookName(actionCommand);
+    }
+
+    public boolean booksInfoDialogIsVisible() {
+        return bookInfoDialog.isVisible();
+    }
+
+    public String getSelectedBook() {
+        return booksPanel.getSelectedBook();
+    }
+
+    public void deleteBook() {
+        booksPanel.deleteBook();
+    }
+
+    public void showHistoryDialog(List<String> rentHistory) {
+        bookInfoDialog.showHistoryDialog(rentHistory);
+    }
+
+    public void showAddBookDialog() {
+        addBookDialog.setVisible(true);
+    }
+
+    public boolean addBookDialogIsVisible() {
+        return addBookDialog.isVisible();
+    }
+
+    public void setPahCoverToNewBook(String bookName) {
+        addBookDialog.setPahCoverToNewBook(bookName);
+    }
+
+    public String getNewBookInfo() {
+        return addBookDialog.getNewBookInfo();
+    }
+
+    public void loadNewBook(String newBookInfo) {
+        booksPanel.loadNewBook(newBookInfo);
+        booksPanel.updateUI();
     }
 }
