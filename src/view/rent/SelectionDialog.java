@@ -1,15 +1,18 @@
 package view.rent;
 
+import view.View;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 public class SelectionDialog extends JDialog {
     private SelectionPanel selectionPanel;
     private OperationDialog operationDialog;
 
-    public SelectionDialog(JFrame frame, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+    public SelectionDialog(JFrame frame, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) throws IOException {
         super(frame, modal);
         setTitle("Selection");
         this.setSize(744,338);
@@ -17,7 +20,7 @@ public class SelectionDialog extends JDialog {
         setLocationRelativeTo(null);
     }
 
-    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) throws IOException {
         selectionPanel = new SelectionPanel(actionListener, mouseListener);
         operationDialog = new OperationDialog(this, true, actionListener, mouseListener, keyListener);
         operationDialog.setVisible(false);
@@ -81,5 +84,17 @@ public class SelectionDialog extends JDialog {
 
     public void setBookSelectedPath(String bookImageSource) {
         operationDialog.setBookSelectedPath(bookImageSource);
+    }
+
+    public void showFileChooser() {
+
+    }
+
+    public void clearOperationPanel() {
+        operationDialog.clearOperationPanel();
+    }
+
+    public boolean operationDialogIsVisible() {
+        return operationDialog.isVisible();
     }
 }

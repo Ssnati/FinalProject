@@ -5,45 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e47751a2-9ea6-4c63-b674-dff2985f7438" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Books.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Copies.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Experimento.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Rents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Users.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/gson-2.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/covers/Cover2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/covers/Cover3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/covers/Cover4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/covers/Cover5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/covers/Cover6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/covers/Cover7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/covers/Cover8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/persistence/Persistence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/books/BookInfo/BookHistoryDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/rent/MidPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/rent/OperationDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/covers/Cover1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/covers/Cover10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/covers/Cover11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/covers/Cover9.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Books.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/Books.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Copies.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/Copies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Experimento.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Rents.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/Rents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/respaldo/Books.json" beforeDir="false" afterPath="$PROJECT_DIR$/respaldo/Books.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/respaldo/Copies.json" beforeDir="false" afterPath="$PROJECT_DIR$/respaldo/Copies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/respaldo/Experimento.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/respaldo/Rents.json" beforeDir="false" afterPath="$PROJECT_DIR$/respaldo/Rents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/covers/Cover1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Copy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Copy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Rent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Rent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/Persistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistence/Persistence.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presenter/Presenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presenter/Presenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/OvalButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/OvalButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SearchPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/books/BookInfo/BookHistoryPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BookInfo/BookHistoryPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/BookInfo/BookInfoDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BookInfo/BookInfoDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/BookInfo/BookInfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BookInfo/BookInfoPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/BooksDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BooksDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/BooksPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BooksPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/addBook/AddBookDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/addBook/AddBookDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/addBook/AddBookPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/addBook/AddBookPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/rent/MidPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/MidPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/rent/OperationDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/OperationDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/rent/OperationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/OperationPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/rent/SelectionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/SelectionDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/rent/SelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/SelectionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/user/UsersDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/user/UsersDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/user/UsersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/user/UsersPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/user/userInfo/UserInfoDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/user/userInfo/UserInfoDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/user/userInfo/UserInfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/user/userInfo/UserInfoPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,20 +66,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultPlantUmlFileTemplate": "UML Class",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "create.test.in.the.same.root": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/ADMIN/Documents/Intellj Project/4 Semestre/FinalProject/sources/covers",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.completion"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ADMIN/Documents/Intellj Project/4 Semestre/FinalProject/sources/covers&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="view.rent" />
@@ -94,10 +90,10 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject\sources\covers" />
+      <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject\respaldo" />
+      <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject" />
       <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject\lib" />
       <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject\sources" />
-      <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject" />
-      <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ADMIN\Documents\Intellj Project\4 Semestre\FinalProject\sources" />
@@ -108,7 +104,7 @@
       <recent name="view.user.userInfo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Persistence">
+  <component name="RunManager" selected="Application.Presenter">
     <configuration name="Persistence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="persistence.Persistence" />
       <module name="FinalProject" />
@@ -137,8 +133,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Persistence" />
         <item itemvalue="Application.Presenter" />
+        <item itemvalue="Application.Persistence" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +172,9 @@
       <workItem from="1670356864967" duration="3246000" />
       <workItem from="1670362346332" duration="1539000" />
       <workItem from="1670364458730" duration="2613000" />
-      <workItem from="1670385812696" duration="11297000" />
+      <workItem from="1670385812696" duration="25734000" />
+      <workItem from="1670425964711" duration="6122000" />
+      <workItem from="1670447108077" duration="14038000" />
     </task>
     <servers />
   </component>
@@ -199,30 +197,69 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/view/user/UsersPanel.java</url>
-          <line>124</line>
+          <line>125</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/view/View.java</url>
-          <line>247</line>
+          <line>254</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/Library.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/Library.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/Library.java</url>
+          <line>294</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/Library.java</url>
+          <line>283</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/presenter/Presenter.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="21" />
+          <line>183</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/Library.java</url>
+          <line>368</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/presenter/Presenter.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/model/Library.java</url>
-          <line>221</line>
+          <line>274</line>
           <properties class="model.Library" method="getRentedCopies">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.ConcurrentModificationException" package="java.util" />
+          <option name="timeStamp" value="29" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/model/Library.java" line="116">
+        <watch expression="((java.util.ArrayList)((Library)this).copies).get(43)" custom="model.Library,java.util.ArrayList" />
+      </inline-watch>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -3,12 +3,13 @@ package view.books.addBook;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 public class AddBookDialog extends JDialog {
 
     private AddBookPanel addBookPanel;
 
-    public AddBookDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener) {
+    public AddBookDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener) throws IOException {
         super(dialog, modal);
         setTitle("Add Book");
         this.setSize(431,749);
@@ -24,5 +25,9 @@ public class AddBookDialog extends JDialog {
 
     public String getNewBookInfo() {
         return addBookPanel.getNewBookInfo();
+    }
+
+    public AddBookPanel getAddBookPanel() {
+        return addBookPanel;
     }
 }

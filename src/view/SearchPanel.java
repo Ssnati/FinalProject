@@ -37,10 +37,10 @@ public class SearchPanel extends JPanel {
     private void addButtonFeatures(ActionListener listener, MouseListener mouseListener) {
         addButton.addActionListener(listener);
         addButton.addMouseListener(mouseListener);
-        addButton.setBorderPainted(false);
+        addButton.setUI(new OvalButton(addButton.getPreferredSize().width, addButton.getPreferredSize().height,0,0,new Color(0,0,0,0)));
         addButton.setBackground(new Color(0, 0, 0, 0));
-        addButton.setBorderPainted(false);
         addButton.setFocusable(false);
+        addButton.setBorderPainted(false);
         addButton.setContentAreaFilled(false);
     }
 

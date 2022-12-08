@@ -30,6 +30,42 @@ public class BooksPanel extends JPanel {
         initComponents(keyListener);
     }
 
+    public JLabel getTitleLabel() {
+        return titleLabel;
+    }
+
+    public void setTitleLabel(JLabel titleLabel) {
+        this.titleLabel = titleLabel;
+    }
+
+    public SearchPanel getSearchPanel() {
+        return searchPanel;
+    }
+
+    public void setSearchPanel(SearchPanel searchPanel) {
+        this.searchPanel = searchPanel;
+    }
+
+    public List<JButton> getBookButtons() {
+        return bookButtons;
+    }
+
+    public void setBookButtons(List<JButton> bookButtons) {
+        this.bookButtons = bookButtons;
+    }
+
+    public int getBookIndex() {
+        return bookIndex;
+    }
+
+    public HashMap<String, String> getBookInfo() {
+        return bookInfo;
+    }
+
+    public void setBookInfo(HashMap<String, String> bookInfo) {
+        this.bookInfo = bookInfo;
+    }
+
     private void initComponents(KeyListener keyListener) {
         titleLabel = new JLabel("Book List");
         searchPanel = new SearchPanel(actionListener, mouseListener, keyListener);

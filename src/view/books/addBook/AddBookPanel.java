@@ -4,9 +4,16 @@ import view.OakButton;
 import view.OvalButton;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class AddBookPanel extends JPanel {
     private final Font defaultFont = new Font("SansSerif", Font.BOLD, 18);
@@ -17,12 +24,16 @@ public class AddBookPanel extends JPanel {
     private JScrollPane scrollPane;
     private String pathCover;
 
-    public AddBookPanel(ActionListener actionListener, MouseListener mouseListener) {
+    public AddBookPanel(ActionListener actionListener, MouseListener mouseListener) throws IOException {
         initComponents(actionListener, mouseListener);
         setBackground(new Color(233, 208, 208));
     }
 
-    private void initComponents(ActionListener actionListener, MouseListener mouseListener) {
+    public String getPathCover() {
+        return pathCover;
+    }
+
+    private void initComponents(ActionListener actionListener, MouseListener mouseListener) throws IOException {
         pathCover = "sources/covers/AddCover.png";
         addCover = new JButton(new ImageIcon(pathCover));
         addCover.addActionListener(actionListener);
@@ -54,6 +65,23 @@ public class AddBookPanel extends JPanel {
 
         componentFeatures();
         addComponents(actionListener);
+    }
+
+    private void addFileChooser(int pathNumber) throws IOException {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG Images", "jpg", "png");
+        fileChooser.setFileFilter(filter);
+        fileChooser.showOpenDialog(this);
+        File file = fileChooser.getSelectedFile();
+        if (file != null) {
+            String path = "sources/covers/Cover" + pathNumber+file.getName().substring(file.getName().lastIndexOf("."));
+            Path pathDestiny = Paths.get(path);
+            Path pathOrigen = Paths.get(file.getAbsolutePath());
+            Files.copy(pathOrigen, pathDestiny, StandardCopyOption.REPLACE_EXISTING);
+            setPahCoverToNewBook(path);
+            fileChooser.setVisible(false);
+        }
     }
 
     private void componentFeatures() {
@@ -196,10 +224,29 @@ public class AddBookPanel extends JPanel {
 
     public void setPahCoverToNewBook(String bookName) {
         this.pathCover = bookName;
-        addCover.setIcon(new ImageIcon(new ImageIcon("sources/covers/Cover1.png").getImage().getScaledInstance(136, 219, Image.SCALE_SMOOTH)));
+        System.out.println(pathCover);
+//        addCover.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\Intellj Project\\4 Semestre\\FinalProject\\sources\\covers\\Cover12.jpg").getImage().getScaledInstance(136, 219, Image.SCALE_SMOOTH)));
+        addCover.setIcon(new ImageIcon(new ImageIcon(pathCover).getImage().getScaledInstance(136, 219, Image.SCALE_SMOOTH)));
     }
 
     public String getNewBookInfo() {
         return pathCover + ";" + tittleField.getText() + ";" + authorField.getText() + ";" + yearField.getText() + ";" + descriptionArea.getText() + ";" + ISBNField.getText() + ";" + copiesField.getText();
+    }
+    public void showFileChooser(int pathNumber){
+        try {
+            addFileChooser(pathNumber);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cleanFields() {
+        tittleField.setText("");
+        authorField.setText("");
+        yearField.setText("");
+        descriptionArea.setText("");
+        ISBNField.setText("");
+        copiesField.setText("");
+        addCover.setIcon(new ImageIcon("sources/covers/AddCover.png"));
     }
 }

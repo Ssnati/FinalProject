@@ -19,6 +19,7 @@ public class UsersPanel extends JPanel {
     private int userIndex;
 
     public UsersPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+        userIndex = -1;
         userButtons = new ArrayList<>();
         this.actionListener = actionListener;
         this.mouseListener = mouseListener;
@@ -99,7 +100,7 @@ public class UsersPanel extends JPanel {
         userButton.setActionCommand("USER_" + index);
         userButton.setBorderPainted(false);
         userButton.setFocusable(false);
-        userButton.setBackground(new Color(255, 0, 0));
+        userButton.setBackground(Color.red);
         userButton.setFont(new Font("Sans Serif", Font.PLAIN, 13));
         userButtons.add(userButton);
     }
@@ -139,5 +140,9 @@ public class UsersPanel extends JPanel {
     public void loadNewUser(String newUserInfo) {
         addUser(newUserInfo, userButtons.size());
         setButtonCoordinates();
+    }
+
+    public JComponent getSearchPanel() {
+        return searchPanel;
     }
 }

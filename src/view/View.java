@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 
 public class View extends JFrame {
@@ -16,8 +16,9 @@ public class View extends JFrame {
     private BooksDialog booksDialog;
     private UsersDialog usersDialog;
     private SelectionDialog selectionDialog;
+    private int copyId;
 
-    public View(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+    public View(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) throws IOException {
         setTitle("Library");
         setSize(1220, 600);
         initContent(actionListener, mouseListener, keyListener);
@@ -26,7 +27,7 @@ public class View extends JFrame {
         setVisible(true);
     }
 
-    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) throws IOException {
         mainPanel = new MainPanel(actionListener, mouseListener);
         getContentPane().add(mainPanel);
 
@@ -69,7 +70,8 @@ public class View extends JFrame {
     }
 
     public void loadBooks(List<String> books) {
-        booksDialog.loadBooks(books);
+        booksDialog.getBooksPanel().loadBooks(books);
+        booksDialog.getBooksPanel().updateUI();
     }
 
     public int getUsersListSize() {
@@ -97,7 +99,7 @@ public class View extends JFrame {
     }
 
     public void showAddUserDialog() {
-        usersDialog.showAddUserDialog();
+        usersDialog.getAddUserDialog().setVisible(true);
     }
 
     public boolean usersDialogIsVisible() {
@@ -180,11 +182,13 @@ public class View extends JFrame {
         booksDialog.showHistoryDialog(rentHistory);
     }
 
-    public int getIdToRemove(List<Integer> list) throws NumberFormatException {
+    public int getIdToRemove(List<Integer> list) throws NumberFormatException, IndexOutOfBoundsException{
         try {
             return (int) JOptionPane.showInputDialog(null, "Select copy Id", "Remove Copy", JOptionPane.QUESTION_MESSAGE, null, list.toArray(), list.get(0));
         } catch (NullPointerException e) {
             return -1;
+        } catch (IndexOutOfBoundsException e) {
+            return -2;
         }
     }
 
@@ -224,6 +228,7 @@ public class View extends JFrame {
 
     public void loadNewBook(String newBookInfo) {
         booksDialog.loadNewBook(newBookInfo);
+        closeAddBookDialog();
     }
 
     public void showRentDialog() {
@@ -233,6 +238,7 @@ public class View extends JFrame {
     public void showReturnDialog() {
         selectionDialog.showReturnDialog();
     }
+
     public boolean rentPanelIsVisible() {
         return selectionDialog.rentPanelIsVisible();
     }
@@ -240,6 +246,7 @@ public class View extends JFrame {
     public boolean returnPanelIsVisible() {
         return selectionDialog.returnPanelIsVisible();
     }
+
     public void showOperationUsersDialog() {
         selectionDialog.showOperationUsersDialog();
     }
@@ -269,7 +276,7 @@ public class View extends JFrame {
     }
 
     public void setUserSelectedPath(String userImageSource) {
-selectionDialog.setUserSelectedPath(userImageSource);
+        selectionDialog.setUserSelectedPath(userImageSource);
     }
 
     public void closeUsersDialog() {
@@ -286,5 +293,44 @@ selectionDialog.setUserSelectedPath(userImageSource);
 
     public void closeBooksDialog() {
         booksDialog.setVisible(false);
+    }
+
+    public String printSizeUserInfoDialog() {
+        //call the method to get the size of user info dialog and return it with getters and setters
+        return usersDialog.printSizeUserInfoDialog();
+        //return usersDialog.userInfoDialog.printSize();
+    }
+
+    public void showFileChooser(int pathNumber) {
+        booksDialog.showFileChooser(pathNumber);
+    }
+
+    public String getNewBookPathCover() {
+        //get the object from the dialog and return it
+        return booksDialog.getBookPathCover();
+    }
+
+    public void closeAddBookDialog() {
+        booksDialog.closeAddBookDialog();
+    }
+
+    public void setCopyId(int copyId) {
+        this.copyId = copyId;
+    }
+
+    public int getCopyId() {
+        return copyId;
+    }
+
+    public void clearOperationPanel() {
+        selectionDialog.clearOperationPanel();
+    }
+
+    public boolean operationDialogIsVisible() {
+        return selectionDialog.operationDialogIsVisible();
+    }
+
+    public int getBookIndex() {
+        return booksDialog.getBookIndex();
     }
 }

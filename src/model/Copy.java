@@ -22,6 +22,14 @@ public class Copy {
         return associatedBook;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setAssociatedBook(Book associatedBook) {
+        this.associatedBook = associatedBook;
+    }
+
     public boolean isAvailable() {
         return available;
     }
@@ -41,4 +49,5 @@ public class Copy {
     public int getId() {
         return id;
     }
+
 }

@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 public class OperationDialog extends JDialog {
     private UsersDialog usersDialog;
@@ -15,7 +16,7 @@ public class OperationDialog extends JDialog {
     private MidPanel midPanel;
     private String operation;
 
-    public OperationDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+    public OperationDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) throws IOException {
         super(dialog, modal);
         setTitle("Operation");
         this.setSize(744, 338);
@@ -24,7 +25,7 @@ public class OperationDialog extends JDialog {
         setLocationRelativeTo(null);
     }
 
-    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) throws IOException {
         midPanel = new MidPanel(actionListener, mouseListener);
         addMidPanel();
 
@@ -94,5 +95,9 @@ public class OperationDialog extends JDialog {
 
     public void setBookSelectedPath(String bookImageSource) {
         midPanel.setBookSelectedPath(bookImageSource);
+    }
+
+    public void clearOperationPanel() {
+        midPanel.clearOperationPanel();
     }
 }

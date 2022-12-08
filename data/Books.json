@@ -1,6 +1,6 @@
 [
   {
-    "coverSource": "sources/covers/Cover1.png",
+    "coverSource": "sources/covers/Cover1.jpg",
     "title": "1984",
     "author": "George Orwell",
     "year": "1949",
@@ -8,7 +8,7 @@
     "ISBN": "978-84-206-0310-0"
   },
   {
-    "coverSource": "sources/covers/Cover2.png",
+    "coverSource": "sources/covers/Cover2.jpg",
     "title": "Harry Potter y la piedra filosofal",
     "author": "J.K. Rowling",
     "year": "1997",
@@ -16,7 +16,7 @@
     "ISBN": "978-84-7888-445-2"
   },
   {
-    "coverSource": "sources/covers/Cover3.png",
+    "coverSource": "sources/covers/Cover3.jpg",
     "title": "Harry Potter y la cámara secreta",
     "author": "J.K. Rowling",
     "year": "1998",
@@ -24,7 +24,7 @@
     "ISBN": "978-84-7888-446-9"
   },
   {
-    "coverSource": "sources/covers/Cover4.png",
+    "coverSource": "sources/covers/Cover4.jpg",
     "title": "Harry Potter y el prisionero de Azkaban",
     "author": "J.K. Rowling",
     "year": "1999",
@@ -32,7 +32,7 @@
     "ISBN": "978-84-7888-447-6"
   },
   {
-    "coverSource": "sources/covers/Cover5.png",
+    "coverSource": "sources/covers/Cover5.jpg",
     "title": "Harry Potter y el cáliz de fuego",
     "author": "J.K. Rowling",
     "year": "2000",
@@ -40,7 +40,7 @@
     "ISBN": "978-84-7888-448-3"
   },
   {
-    "coverSource": "sources/covers/Cover6.png",
+    "coverSource": "sources/covers/Cover6.jpg",
     "title": "Harry Potter y la orden del Fénix",
     "author": "J.K. Rowling",
     "year": "2003",
@@ -48,7 +48,7 @@
     "ISBN": "978-84-7888-449-0"
   },
   {
-    "coverSource": "sources/covers/Cover7.png",
+    "coverSource": "sources/covers/Cover7.jpg",
     "title": "Harry Potter y el misterio del príncipe",
     "author": "J.K. Rowling",
     "year": "2005",
@@ -56,7 +56,7 @@
     "ISBN": "978-84-7888-450-6"
   },
   {
-    "coverSource": "sources/covers/Cover8.png",
+    "coverSource": "sources/covers/Cover8.jpg",
     "title": "Harry Potter y las reliquias de la muerte",
     "author": "J.K. Rowling",
     "year": "2007",
@@ -64,11 +64,27 @@
     "ISBN": "978-84-7888-451-3"
   },
   {
-    "coverSource": "sources/covers/Cover9.png",
+    "coverSource": "sources/covers/Cover9.jpg",
     "title": "El Señor de los Anillos, la comunidad del anillo",
     "author": "J.R.R. Tolkien",
     "year": "1954",
     "description": "En la adormecida e idílica Comarca, un joven hobbit recibe un encargo: custodiar el Anillo Único y emprender el viaje para su destrucción en la Grieta del Destino. Acompañado por magos, hombres, elfos y enanos, atravesará la Tierra Media y se internará en las sombras de Mordor, perseguido siempre por las huestes de Sauron, el Señor Oscuro, dispuesto a recuperar su creación para establecer el dominio definitivo del Mal.",
     "ISBN": "978-84-7888-452-0"
+  },
+  {
+    "coverSource": "sources/covers/Cover10.jpg",
+    "title": "El Señor de los Anillos, las dos torres",
+    "author": "J.R.R. Tolkien",
+    "year": "1954",
+    "description": "La Comunidad del Anillo ha sido destruida, pero el Anillo Único sigue en poder de Sauron, el Señor Oscuro. Mientras Frodo y Sam siguen su camino hacia Mordor, Aragorn, Legolas y Gimli se unen a la Compañía de Boromir para rescatar a Merry y Pippin, secuestrados por los orcos. Mientras, Gandalf se enfrenta a un poderoso enemigo en la Montaña de la Niebla.",
+    "ISBN": "978-84-7888-453-7"
+  },
+  {
+    "coverSource": "sources/covers/Cover11.jpg",
+    "title": "El Señor de los Anillos, el retorno del rey",
+    "author": "J.R.R. Tolkien",
+    "year": "1955",
+    "description": "El Señor Oscuro, Sauron, ha recuperado su poder y ha reunido un ejército de orcos y hombres para conquistar la Tierra Media. Mientras, Frodo y Sam continúan su viaje hacia Mordor, donde el Anillo Único debe ser destruido. Aragorn, Legolas y Gimli se unen a la Compañía de Boromir para rescatar a Merry y Pippin, secuestrados por los orcos. Mientras, Gandalf se enfrenta a un poderoso enemigo en la Montaña de la Niebla.",
+    "ISBN": "978-84-7888-454-4"
   }
 ]

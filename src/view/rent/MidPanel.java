@@ -43,11 +43,20 @@ public class MidPanel extends JPanel {
 
     public void setUserSelectedPath(String userImageSource) {
         rentPanel.setUserInfo(userImageSource);
+        returnPanel.setUserInfo(userImageSource);
         rentPanel.updateUI();
+        returnPanel.updateUI();
     }
 
     public void setBookSelectedPath(String bookImageSource) {
         rentPanel.setBookInfo(bookImageSource);
+        returnPanel.setBookInfo(bookImageSource);
         rentPanel.updateUI();
+        returnPanel.updateUI();
+    }
+
+    public void clearOperationPanel() {
+        rentPanel.clearFields();
+        returnPanel.clearFields();
     }
 }

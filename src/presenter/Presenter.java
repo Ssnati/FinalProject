@@ -6,6 +6,7 @@ import view.View;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,24 +16,14 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
     private View view;
 
     public Presenter() {
-        library = new Library();
-        view = new View(this, this, this);
-        ArrayList<String> users = new ArrayList<>();
-        users.add("sources/userIcons/Male Icon 1.png;Santiago1;santiago1@gmail.com;Cra 9 #3-01;3212004072;0");
-        users.add("sources/userIcons/Male Icon 2.png;Daniel2;santiago2@gmail.com;Cra 9 #3-01;3212004072;2");
-        users.add("sources/userIcons/Male Icon 3.png;Camilo3;santiago3@gmail.com;Cra 9 #3-01;3212004072;3");
-        users.add("sources/userIcons/Male Icon 4.png;Julian4;santiago4@gmail.com;Cra 9 #3-01;3212004072;4");
-        users.add("sources/userIcons/Male Icon 5.png;Esteban5;santiago5@gmail.com;Cra 9 #3-01;3212004072;5");
-        users.add("sources/userIcons/Male Icon 6.png;Sebastian6;santiago6@gmail.com;Cra 9 #3-01;3212004072;6");
-        view.loadUsers(users);
-        library.loadUsers(users);
-        ArrayList<String> books = new ArrayList<>();
-        books.add("sources/covers/Cover1.png;The Lord of the Rings;J.R.R. Tolkien;2001;The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies sold.;978-84-376-0494-7");
-        books.add("sources/covers/Cover1.png;Harry Potter and the Philosopher's Stone;J.K. Rowling;2001;Harry Potter and the Philosopher's Stone is a fantasy novel written by British author J. K. Rowling. The first novel in the Harry Potter series and Rowling's debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry makes close friends and a few enemies during his first year at the school, and with the help of his friends, he faces an attempted comeback by the dark wizard Lord Voldemort, who killed Harry's parents, but failed to kill Harry when he was just 15 months old.;978-84-376-0494-7");
-        books.add("sources/covers/Cover1.png;Harry Potter and the Chamber of Secrets;J.K. Rowling;2001;Harry Potter and the Chamber of Secrets is a fantasy novel written by British author J. K. Rowling and the second novel in the Harry Potter series. The plot follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, during which a series of messages on the walls of the school's corridors warn that the \"Chamber of Secrets\" has been opened and that the \"heir of Slytherin\" would kill all pupils who do not come from all-magical families. These threats are found after attacks which leave residents of the school petrified. Throughout the year, Harry and his friends Ron and Hermione investigate the attacks.;978-84-376-0494-7");
-        books.add("sources/covers/Cover1.png;Harry Potter and the Prisoner of Azkaban;J.K. Rowling;2001;Harry Potter and the Prisoner of Azkaban is a fantasy novel written by British author J. K. Rowling and the third in the Harry Potter series. The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban who they believe is one of Lord Voldemort's old allies.;978-84-376-0494-7");
-        view.loadBooks(books);
-        library.loadBooks(books);
+        try {
+            library = new Library();
+            view = new View(this, this, this);
+        } catch (IOException e) {
+            view.showMessage("Error " + e.getMessage());
+        }
+        view.loadUsers(library.getUsersToView());
+        view.loadBooks(library.getBooksToView());
     }
 
     public static void main(String[] args) {
@@ -51,6 +42,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
         if (e.getActionCommand().equals("BOOKS")) {
             view.showBooksDialog();
         }
+        view.loadBooks(library.getBooksToView());
         if (view.selectionDialogIsVisible()) selectionMenu(e);
         else if (view.usersDialogIsVisible()) usersMenu(e);
         else if (view.booksDialogIsVisible()) booksMenu(e);
@@ -58,18 +50,25 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
 
     private void selectionMenu(ActionEvent e) {
         showSelectionMenu(e);
-        if (view.operationPanelIsVisible()&& view.getOperationDialog().equals("RENT_DIALOG")) rentMenu(e);
-        else if (view.operationPanelIsVisible()&& view.getOperationDialog().equals("RETURN_DIALOG")) returnMenu(e);
-    }
+        if (view.operationPanelIsVisible()) operationMenu(e);
 
-    private void rentPrincipalMenu(ActionEvent e) {
-
+        System.out.println("User: " + view.getUserIndex() + " Copy: " + view.getCopyId());
+        if (e.getActionCommand().equals("RENT_BOOK")) {
+            System.out.println("Action: " + view.getOperationDialog());
+            if ((view.getUserIndex() < 0) || view.getCopyId() == 0)view.showMessage("Select a user and a book");
+            else library.rentBook(view.getUserInfo(view.getUserIndex()), view.getBookName("BOOK_"+view.getBookIndex()), view.getCopyId());
+        } else if (e.getActionCommand().equals("RETURN_BOOK")) {
+            System.out.println("Action: " + view.getOperationDialog());
+            if ((view.getUserIndex() < 0) || view.getCopyId() == 0)view.showMessage("Select a user and a book");
+            else library.returnBook(view.getUserInfo(view.getUserIndex()), view.getBookName("BOOK_"+view.getBookIndex()), view.getCopyId());
+        }
+        //        else if (view.operationPanelIsVisible() && view.getOperationDialog().equals("RETURN_DIALOG")) returnMenu(e);
     }
 
     private void returnMenu(ActionEvent e) {
         view.showOperationUsersDialog();
         System.out.println(e.getActionCommand() + " Esta en el rentMenu");
-        if(e.getActionCommand().equals("SELECT_USER_TO_RETURN")) view.showUsersDialog();
+        if (e.getActionCommand().equals("SELECT_USER_TO_RETURN")) view.showUsersDialog();
         else if (e.getActionCommand().equals("SELECT_BOOK_TO_RENT")) view.showBooksDialog();
         else if (e.getActionCommand().equals("RENT")) view.showOperationUsersDialog();
         if (view.usersDialogIsVisible()) {
@@ -81,8 +80,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
                     break;
                 }
             }
-        }
-        else if (view.booksDialogIsVisible()&&!e.getActionCommand().equals("ADD_BOOK")) {
+        } else if (view.booksDialogIsVisible() && !e.getActionCommand().equals("ADD_BOOK")) {
             view.setBookSelectedPath(library.getBookImageSource(view.getBookName(e.getActionCommand())));
 //            view.getIdToRent(library.getAvailableListCopies(view.getBookName(e.getActionCommand())));
             int[] availableCopies = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -93,39 +91,84 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
         }
     }
 
-    private void rentMenu(ActionEvent e) {
-        System.out.println(e.getActionCommand() + " Esta en el rentMenu");
-        if(e.getActionCommand().equals("SELECT_USER_TO_RENT")) view.showUsersDialog();
-        else if (e.getActionCommand().equals("SELECT_BOOK_TO_RENT")) view.showBooksDialog();
-        else if (e.getActionCommand().equals("RENT")) view.showOperationUsersDialog();
-        if (view.usersDialogIsVisible()) {
-            for (int i = 0; i < view.getUsersListSize(); i++) {
-                if (e.getActionCommand().equals("USER_" + i)) {
-                    view.setUserSelectedPath(library.getUserImageSource((view.getUserInfo(i))));
-                    view.closeUsersDialog();
-                    System.out.println("USER_" + i);
-                    break;
-                }
+    private void operationMenu(ActionEvent e) {
+        selectData(e);
+
+        if (e.getActionCommand().equals("ADD_BOOK")) view.showAddBookDialog();
+        if (e.getActionCommand().equals("ADD_USER")) {
+            view.showAddUserDialog();
+            System.out.println("ADD_USER");
+        }
+        if (view.usersDialogIsVisible()) selectUserToRent(e);
+        else if (view.booksDialogIsVisible() && !e.getActionCommand().equals("ADD_BOOK")) selectBookToRent(e);
+    }
+
+    private void selectBookToRent(ActionEvent e) {
+        view.setBookSelectedPath(library.getBookImageSource(view.getBookName(e.getActionCommand())));
+        List<Integer> copiesList = new ArrayList<>();
+        if (view.getOperationDialog().equals("RENT_DIALOG")) {
+            copiesList = library.getAvailableListCopies(view.getBookName(e.getActionCommand()));
+        } else if (view.getOperationDialog().equals("RETURN_DIALOG")) {
+            copiesList = library.getUserRentedListCopies(view.getUserInfo(view.getUserIndex()), view.getBookName(e.getActionCommand()));
+        }
+//            view.getIdToRent(library.getAvailableListCopies(view.getBookName(e.getActionCommand())));
+//        int[] availableCopies = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//        Arrays.stream(availableCopies).forEach(copiesList::add);
+        int i = view.getIdToRent(copiesList);
+        if (i != -1) {
+            if (i == -2) {
+                view.showMessage("No hay copias disponibles");
+            } else {
+                view.setCopyId(i);
+                view.closeBooksDialog();
             }
         }
-        else if (view.booksDialogIsVisible()&&!e.getActionCommand().equals("ADD_BOOK")) {
-            view.setBookSelectedPath(library.getBookImageSource(view.getBookName(e.getActionCommand())));
-//            view.getIdToRent(library.getAvailableListCopies(view.getBookName(e.getActionCommand())));
-            int[] availableCopies = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-            ArrayList<Integer> copiesList = new ArrayList<>();
-            Arrays.stream(availableCopies).forEach(copiesList::add);
-            view.getIdToRent(copiesList);
-            view.closeBooksDialog();
+    }
+
+    private void selectUserToRent(ActionEvent e) {
+        for (int i = 0; i < view.getUsersListSize(); i++) {
+            if (e.getActionCommand().equals("USER_" + i)) {
+                view.setUserIndex(i);
+                view.setUserSelectedPath(library.getUserImageSource((view.getUserInfo(i))));
+                view.closeUsersDialog();
+                System.out.println("USER_" + i);
+                break;
+            }
+        }
+    }
+
+    private void selectData(ActionEvent e) {
+        System.out.println(e.getActionCommand() + " Esta en el operation Menu: " + view.getOperationDialog());
+        if (e.getActionCommand().equals("SELECT_USER_TO_RENT")) view.showUsersDialog();
+        else if (e.getActionCommand().equals("SELECT_BOOK_TO_RENT")) {
+            if (view.getOperationDialog().equals("RETURN_DIALOG")) {
+                int index = view.getUserIndex();
+                if (index != -1) {
+                    List<String> books = library.getUserRentedBooksToView(view.getUserInfo(index));
+
+                    System.out.println("Libros del usuario: " + books);
+                    System.out.println("Usuario seleccionado: " + view.getUserInfo(index));
+
+                    if (books.size() > 0) {
+                        view.loadBooks(books);
+                        view.showBooksDialog();
+                    } else {
+                        view.showMessage("El usuario no tiene libros alquilados");
+                    }
+                } else {
+                    view.showMessage("Select a user first");
+                }
+            } else view.showBooksDialog();
         }
     }
 
     private void showSelectionMenu(ActionEvent e) {
-        if (e.getActionCommand().equals("RENT_DIALOG")) {
-            view.setOperationCommand("RENT_DIALOG");
-            view.showRentDialog();
-        } else if (e.getActionCommand().equals("RETURN_DIALOG")) {
-            view.setOperationCommand("RETURN_DIALOG");
-            view.showReturnDialog();
+        if (e.getActionCommand().equals("RENT_DIALOG") || e.getActionCommand().equals("RETURN_DIALOG")) {
+            view.clearOperationPanel();
+            view.setOperationCommand(e.getActionCommand());
+
+            if (e.getActionCommand().equals("RENT_DIALOG")) view.showRentDialog();
+            else if (e.getActionCommand().equals("RETURN_DIALOG")) view.showReturnDialog();
         }
     }
 
@@ -138,8 +181,9 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
     private void addBookMenu(ActionEvent e) {
         if (view.addBookDialogIsVisible()) {
             if (e.getActionCommand().equals("ADD_COVER")) {
-                System.out.println(view.getNewUserInfo());
-                view.setPahCoverToNewBook(view.getSelectedBook());
+                view.showFileChooser(library.getNewPath());
+                System.out.println(view.getNewBookInfo());
+                view.setPahCoverToNewBook(view.getNewBookPathCover());
             }
             if (e.getActionCommand().equals("SAVE_BOOK")) {
                 if (newBookIsValid(view.getNewBookInfo())) {
@@ -168,7 +212,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
             if (i != 0) {
                 if (i == -1) {
                     view.showMessage("El id no es valido");
-                } else if (library.copyExist(i)) view.showMessage("The copy already exist");
+                } else if (library.copyExist(view.getSelectedBook(), i)) view.showMessage("The copy already exist");
                 else {
                     library.addCopy(view.getSelectedBook(), i);
                     view.showBookInfo(library.getBookToView(view.getSelectedBook()));
@@ -176,14 +220,10 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
             }
         }
         if (e.getActionCommand().equals("REMOVE_COPY")) {
-            int[] copies = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-            ArrayList<Integer> copiesList = new ArrayList<>();
-            Arrays.stream(copies).forEach(copiesList::add);
-            int i = view.getIdToRemove(copiesList);
+            int i = view.getIdToRemove(library.getAvailableListCopies(view.getSelectedBook()));
             if (i != -1) {
                 library.removeCopy(view.getSelectedBook(), i);
                 view.showBookInfo(library.getBookToView(view.getSelectedBook()));
-//            view.showBookInfo("sources/covers/Cover1.png;The Lord of the Rings;J.R.R. Tolkien;2001;The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies sold.;978-84-376-0494-7;1;9");
             }
         }
     }
@@ -266,6 +306,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
                 view.loadUsers(library.getUsersToView());
                 view.showMessage("El usuario ha sido eliminado");
             }
+            System.out.println(view.printSizeUserInfoDialog());
         }
     }
 

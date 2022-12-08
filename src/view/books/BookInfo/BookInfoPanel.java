@@ -28,7 +28,7 @@ public class BookInfoPanel extends JPanel {
         bookAvailableCopiesLabel = new JLabel("<html><body><b>Available Copies:</b> 9</body></html>");
         bookTotalCopiesLabel = new JLabel("<html><body><b>Total Copies:</b> 18</body></html>");
 
-        coverButton = new JButton(new ImageIcon(new ImageIcon("sources/covers/Cover1.png").getImage().getScaledInstance(136, 219, Image.SCALE_AREA_AVERAGING)));
+        coverButton = new JButton(new ImageIcon(new ImageIcon("sources/covers/Cover1.jpg").getImage().getScaledInstance(136, 219, Image.SCALE_AREA_AVERAGING)));
         coverButtonFeatures();
         deleteButton = new JButton("<html><body>Borrar Libro</body></html>");
         deleteButton.setActionCommand("DELETE_BOOK");
@@ -84,19 +84,19 @@ public class BookInfoPanel extends JPanel {
 
     private void setBreakLines(JLabel label) {
         String text = label.getText().replace("<html><body>", "");
-        text = text.replace("</body></html>", "");
-        for (int i = 0; i < text.length(); i++) {
-            if ((i % 100 == 0) && (i != 0)) {
-                boolean isSpace = false;
-                while (!isSpace) {
-                    if (text.charAt(i) == ' ') {
-                        text = text.substring(0, i) + "<br>" + text.substring(i);
-                        isSpace = true;
-                    } else i++;
-                }
+        String[] words = text.split(" ");
+        String newText = "";
+        int lineLength = 0;
+        for (String word : words) {
+            newText += word + " ";
+            lineLength += word.length();
+            if (lineLength > 70) {
+                newText += "<br>";
+                lineLength = 0;
             }
         }
-        label.setText("<html><body>" + text + "</html></body>");
+        newText = "<html><body>" + newText + "</body></html>";
+        label.setText(newText);
     }
 
     private void coverButtonFeatures() {

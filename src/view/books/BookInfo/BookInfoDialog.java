@@ -21,6 +21,7 @@ public class BookInfoDialog extends JDialog {
 
     public void showBookInfo(String bookToView) {
         bookInfoPanel.showBookInfo(bookToView);
+        bookInfoPanel.updateUI();
     }
 
     public void showHistoryDialog(List<String> rentHistory) {

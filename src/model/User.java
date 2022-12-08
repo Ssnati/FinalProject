@@ -26,6 +26,18 @@ public class User {
         this.rentedCopies = rentedCopies;
     }
 
+    public List<Copy> getRentedCopies() {
+        return rentedCopies;
+    }
+
+    public void setRentedCopies(List<Copy> rentedCopies) {
+        this.rentedCopies = rentedCopies;
+    }
+
+    public void setIconSrc(String iconSrc) {
+        this.iconSrc = iconSrc;
+    }
+
     public String getName() {
         return name;
     }
@@ -71,5 +83,13 @@ public class User {
 
     public boolean hasBooks() {
         return rentedCopies.size() > 0;
+    }
+
+    public List<String> getRentedBooksToView() {
+        List<String> rentedBooks = new ArrayList<>();
+        for (Copy copy : rentedCopies) {
+            rentedBooks.add(copy.getAssociatedBook().toView());
+        }
+        return rentedBooks;
     }
 }

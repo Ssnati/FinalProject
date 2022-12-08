@@ -9,7 +9,7 @@ public class UserInfoDialog extends JDialog {
     public UserInfoDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener) {
         super(dialog, modal);
         setTitle("User Info");
-        this.setSize(308,330);
+        this.setSize(510,333);
         userInfoPanel = new UserInfoPanel(actionListener, mouseListener);
         getContentPane().add(userInfoPanel);
         setLocationRelativeTo(null);
@@ -17,5 +17,9 @@ public class UserInfoDialog extends JDialog {
 
     public void showUserInfo(String userInfo) {
         userInfoPanel.showUserInfo(userInfo);
+    }
+
+    public String printSize() {
+        return "Width: " + getPreferredSize().width + " Height: " + getPreferredSize().height;
     }
 }

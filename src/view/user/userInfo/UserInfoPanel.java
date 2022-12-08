@@ -121,4 +121,8 @@ public class UserInfoPanel extends JPanel {
         phoneLabel.setText("Phone: " + info[4]);
         rentedBooksLabel.setText("Rented Books: " + info[5]);
     }
+
+    public String printSize() {
+        return "Width: " + getWidth() + " Height: " + getHeight();
+    }
 }

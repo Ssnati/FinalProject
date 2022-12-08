@@ -1,9 +1,11 @@
 package view.user;
 
+import view.books.BooksPanel;
 import view.user.addUser.AddUserDialog;
 import view.user.userInfo.UserInfoDialog;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
@@ -113,6 +115,19 @@ public class UsersDialog extends JDialog {
     public void loadNewUser(String newUserInfo) {
         usersPanel.loadNewUser(newUserInfo);
         addUserDialog.clearFields();
+        addUserDialog.setVisible(false);
         usersPanel.updateUI();
+    }
+
+    public String printSizeUserInfoDialog() {
+        return userInfoDialog.printSize();
+    }
+
+    public AddUserDialog getAddUserDialog() {
+        return addUserDialog;
+    }
+
+    public UsersPanel getUsersPanel() {
+        return usersPanel;
     }
 }
