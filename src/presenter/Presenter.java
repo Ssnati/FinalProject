@@ -12,13 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Presenter implements ActionListener, MouseListener, KeyListener, WindowListener {
+    private PrivateProperties properties;
     private Library library;
     private View view;
 
     public Presenter() {
         try {
-            library = new Library();
-            view = new View(this, this, this, this, new PrivateProperties());
+            properties = new PrivateProperties();
+            library = new Library(properties);
+            view = new View(this, this, this, this, properties);
         } catch (IOException e) {
             view.showMessage("Error " + e.getMessage());
         }
@@ -32,6 +34,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        System.out.println("actionPerformed: " + e.getActionCommand());
         if (e.getActionCommand().equals("RENT")) {
             view.selectionDialog();
         }
@@ -39,6 +42,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
             view.showUsersDialog();
         }
         if (e.getActionCommand().equals("BOOKS")) {
+            view.loadBooks(library.getBooksToView());
             view.showBooksDialog();
         }
         view.showPlusButton();
@@ -150,7 +154,10 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
                 } else {
                     view.showMessage("Select a user first");
                 }
-            } else view.showBooksDialog();
+            } else {
+                view.loadBooks(library.getBooksToView());
+                view.showBooksDialog();
+            }
         }
     }
 
@@ -188,6 +195,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
                     System.out.println(view.getNewBookInfo());
                     view.showMessage("El libro se ha agregado correctamente");
                 }
+                view.showMessage("Introduce todos los datos");
                 System.out.println("SAVE_BOOK");
             }
         }
@@ -281,13 +289,16 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
         try {
             System.out.println(newBookInfo);
             String[] bookInfo = newBookInfo.split(";");
-            isValid = !bookInfo[0].equals("") || bookInfo[1].equals("") || bookInfo[2].equals("") || bookInfo[3].equals("") || bookInfo[4].equals("") || bookInfo[5].equals("") || bookInfo[6].equals("");
-            if (isValid) {
-                int i = Integer.parseInt(bookInfo[4]);
-                int j = Integer.parseInt(bookInfo[6]);
-                isValid = i > 0 && j > 0;
+            if (bookInfo.length == 7) {
+                if (bookInfo[0].length() > 0 && bookInfo[1].length() > 0 && bookInfo[2].length() > 0 && bookInfo[3].length() > 0 && bookInfo[4].length() > 0 && bookInfo[5].length() > 0 && Integer.parseInt(bookInfo[6]) > 0) {
+                    int i = Integer.parseInt(bookInfo[4]);
+                    int j = Integer.parseInt(bookInfo[6]);
+                    if (i > 0 && j > 0) {
+                        isValid = true;
+                    }
+                }
             }
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (Exception e) {
             view.showMessage("The book info is not valid");
         }
         return isValid;
@@ -302,7 +313,6 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
                 view.loadUsers(library.getUsersToView());
                 view.showMessage("El usuario ha sido eliminado");
             }
-            System.out.println(view.printSizeUserInfoDialog());
         }
     }
 
@@ -411,10 +421,12 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
 
     @Override
     public void windowClosing(WindowEvent e) {
-        try {
-            library.saveData();
-        } catch (IOException ex) {
-            view.showMessage("Error al guardar los datos");
+        if (e.getSource() instanceof JFrame) {
+            try {
+                library.saveData();
+            } catch (IOException ex) {
+                view.showMessage("Error al guardar los datos");
+            }
         }
     }
 

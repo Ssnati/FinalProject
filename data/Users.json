@@ -5,7 +5,20 @@
     "email": "jhonDoe@gmail.com",
     "address": "1234 Main Street, New York, NY 10001",
     "phone": "1234567890",
-    "rentedCopies": []
+    "rentedCopies": [
+      {
+        "associatedBook": {
+          "coverSource": "sources/covers/Cover2.jpg",
+          "title": "Harry Potter y la piedra filosofal",
+          "author": "J.K. Rowling",
+          "year": "1997",
+          "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
+          "ISBN": "978-84-7888-445-2"
+        },
+        "id": 2,
+        "available": false
+      }
+    ]
   },
   {
     "iconSrc": "sources/userIcons/Female Icon 2.png",

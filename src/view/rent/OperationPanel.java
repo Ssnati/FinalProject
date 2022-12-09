@@ -32,7 +32,7 @@ public class OperationPanel extends JPanel {
         returnButton = new JButton(properties.btn_txt_returnActionButton());
 
         selectButtonFeatures(selectUserButton, new Color(136, 164, 187), properties.src_AddUserIcon(), properties.ac_selectUserButtonToRent());
-        selectButtonFeatures(selectBookButton, new Color(108, 135, 126), properties.src_AddCoverPath(), properties.ac_selectBookButtonToRent());
+        selectButtonFeatures(selectBookButton, new Color(108, 135, 126), properties.src_AddBookIcon(), properties.ac_selectBookButtonToRent());
 
         actionButtonFeatures(rentButton, true, false, true, false, properties.ac_rentBookButton());
         actionButtonFeatures(returnButton, false, true, false, true, properties.ac_returnBookButton());
@@ -128,6 +128,6 @@ public class OperationPanel extends JPanel {
 
     public void clearFields() {
         selectUserButton.setIcon(new ImageIcon(new ImageIcon(properties.src_AddUserIcon()).getImage().getScaledInstance(110, 165, Image.SCALE_DEFAULT)));
-        selectBookButton.setIcon(new ImageIcon(new ImageIcon(properties.src_AddCoverPath()).getImage().getScaledInstance(110, 165, Image.SCALE_DEFAULT)));
+        selectBookButton.setIcon(new ImageIcon(new ImageIcon(properties.src_AddBookIcon()).getImage().getScaledInstance(110, 165, Image.SCALE_DEFAULT)));
     }
 }

@@ -1,11 +1,13 @@
 package model;
 
 import persistence.Persistence;
+import persistence.PrivateProperties;
 
 import java.io.IOException;
 import java.util.*;
 
 public class Library {
+    private final PrivateProperties properties;
     private List<Book> books;
 
     private List<Copy> copies;
@@ -13,13 +15,14 @@ public class Library {
 
     private List<Rent> rents;
 
-    public Library() throws IOException {
-        books = new Persistence().getBooks();
-        copies = new Persistence().getCopies();
+    public Library(PrivateProperties properties) throws IOException {
+        this.properties = properties;
+        books = new Persistence(properties).getBooks();
+        copies = new Persistence(properties).getCopies();
         setBooksToCopies();
-        users = new Persistence().getUsers();
+        users = new Persistence(properties).getUsers();
         setCopiesListToUsers();
-        rents = new Persistence().getRents();
+        rents = new Persistence(properties).getRents();
         setCopiesToRents();
         setUsersToRents();
     }
@@ -37,7 +40,7 @@ public class Library {
     private void setCopiesToRents() {
         for (Rent rent : rents) {
             for (Copy copy : copies) {
-                if (rent.getAssociatedCopy().getAssociatedBook().getTitle().equals(copy.getAssociatedBook().getTitle())) {
+                if (rent.getAssociatedCopy().getAssociatedBook().getTitle().equals(copy.getAssociatedBook().getTitle())&&rent.getAssociatedCopy().getId()==copy.getId()&&rent.getAssociatedCopy().isAvailable()==copy.isAvailable()) {
                     rent.setAssociatedCopy(copy);
                 }
             }
@@ -45,16 +48,13 @@ public class Library {
     }
 
     private void setCopiesListToUsers() {
-        List<Copy> listOfCopies = new ArrayList<>();
         for (User user : users) {
-            for (Copy copy : copies) {
-                for (Copy userCopy : user.getRentedCopies()) {
-                    if (copy.getId() == userCopy.getId()) {
-                        listOfCopies.add(copy);
-                        user.setRentedCopies(listOfCopies);
-                    }
-                }
+            List<Copy> copies = new ArrayList<>();
+            for (Copy userCopy : user.getRentedCopies()) {
+                if (!userCopy.isAvailable())
+                    copies.add(searchCopy(userCopy.getAssociatedBook().getTitle(),userCopy.getId()));
             }
+            user.setRentedCopies(copies);
         }
     }
 
@@ -76,39 +76,12 @@ public class Library {
         this.books = books;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
     public void addUser(String iconSrc, String name, String email, String address, String phone) {
         users.add(new User(iconSrc, name, email, address, phone));
     }
 
-    public boolean removeUser(String name) {
-        boolean removed = false;
-        for (User user : users) {
-            users.remove(user);
-            removed = true;
-            break;
-        }
-        return removed;
-    }
-
     public void addBook(String coverSource, String tittle, String author, String year, String description, String ISBN) {
         books.add(new Book(coverSource, tittle, author, year, description, ISBN));
-    }
-
-    public void removeBook(String tittle) {
-        for (Book book : books) {
-            if (book.getTitle().equals(tittle)) {
-                books.remove(book);
-                break;
-            }
-        }
     }
 
     public void removeCopy(String tittle, int id) {
@@ -126,10 +99,12 @@ public class Library {
     }
 
     public void rentBook(String userName, String tittle, int id) {
-        User user = searchUser(userName);
         Copy copy = searchCopy(tittle, id);
         copy.setAvailable(false);
+
+        User user = searchUser(userName);
         user.addRentedCopy(copy);
+
         Calendar calendar = Calendar.getInstance();
         rents.add(new Rent(calendar.get(Calendar.DAY_OF_MONTH) + "/" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR), "En prestamo", copy, user));
     }
@@ -163,58 +138,20 @@ public class Library {
         System.out.println("Libro retornado en la libreria: " + tittle + " " + id+ " " + userName);
         User user = searchUser(userName);
         Copy copy = searchCopy(tittle, id);
-        user.removeRentedCopy(copy);
         for (Rent rent : rents) {
             if (rent.getAssociatedCopy().getId() == copy.getId() && rent.getAssociatedUser().equals(user)) {
+                copy.setAvailable(true);
+                user.removeRentedCopy(copy);
+                rent.getAssociatedCopy().setAvailable(true);
                 Calendar calendar = Calendar.getInstance();
                 rent.setReturnDate(calendar.get(Calendar.DAY_OF_MONTH) + "/" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR));
-                copy.setAvailable(true);
                 break;
             }
         }
     }
 
-    public int getNumberOfBooksAvailable() {
-        int numberOfBooksAvailable = 0;
-        for (Book book : books) {
-            numberOfBooksAvailable++;
-        }
-        return numberOfBooksAvailable;
-    }
-
-    public int getNumberOfBooksRented() {
-        int numberOfBooksRented = 0;
-        for (Book book : books) {
-            numberOfBooksRented++;
-        }
-        return numberOfBooksRented;
-    }
-
-    public int getNumberOfBooks() {
-        return books.size();
-    }
-
-    public int getTotalNumberOfCopies() {
-        return getNumberOfBooksAvailable() + getNumberOfBooksRented();
-    }
-
-    public int getNumberOfUsers() {
-        return users.size();
-    }
-
-    public int getNumberOfUsersWithRentedBooks() {
-        int numberOfUsersWithRentedBooks = 0;
-        for (User user : users) {
-        }
-        return numberOfUsersWithRentedBooks;
-    }
-
     public String getUserToView(String userName) {
         return searchUser(userName).toView();
-    }
-
-    public List<String> searchBooks(String searchFieldText) {
-        return null;
     }
 
     public boolean userHasBooks(String userName) {
@@ -223,13 +160,6 @@ public class Library {
 
     public void deleteUser(String userName) {
         users.remove(searchUser(userName));
-    }
-
-    public void loadUsers(ArrayList<String> users) {
-        for (String user : users) {
-            String[] userData = user.split(";");
-            addUser(userData[0], userData[1], userData[2], userData[3], userData[4]);
-        }
     }
 
     public List<String> searchUsersToView(String chain) {
@@ -303,13 +233,6 @@ public class Library {
             }
         }
         return rentedCopies;
-    }
-
-    public void loadBooks(ArrayList<String> books) {
-        for (String book : books) {
-            String[] bookData = book.split(";");
-            addBook(bookData[0], bookData[1], bookData[2], bookData[3], bookData[4], bookData[5]);
-        }
     }
 
     public boolean bookHasRentals(String bookName) {
@@ -398,26 +321,15 @@ public class Library {
 
     public List<Integer> getUserRentedListCopies(String userName, String bookName) {
         List<Integer> rentedCopies = new ArrayList<>();
-        for (Copy copy : copies) {
-            for (Rent rent : rents) {
-                if (copy.getAssociatedBook().equals(searchBook(bookName)) && rent.getAssociatedCopy().equals(copy) && rent.getAssociatedUser().equals(searchUser(userName))) {
-                    rentedCopies.add(copy.getId());
-                }
+        User user = searchUser(userName);
+        Book book = searchBook(bookName);
+        for(Copy copy : user.getRentedCopies()){
+            if(copy.getAssociatedBook().equals(book)&&!copy.isAvailable()){
+                rentedCopies.add(copy.getId());
             }
         }
         Collections.sort(rentedCopies);
         return rentedCopies;
-    }
-
-    private Copy searchCopiesToLoad(String bookName) {
-        Copy copyToSearch = null;
-        for (Copy copy : copies) {
-            if (copy.getAssociatedBook().equals(searchBook(bookName))) {
-                copyToSearch = copy;
-                break;
-            }
-        }
-        return copyToSearch;
     }
 
     public List<String> getUserRentedBooksToView(String userName) {
@@ -431,6 +343,6 @@ public class Library {
     }
 
     public void saveData() throws IOException {
-        new Persistence().saveData(users, books, copies, rents);
+        new Persistence(properties).saveData(users, books, copies, rents);
     }
 }

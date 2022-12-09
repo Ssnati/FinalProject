@@ -95,6 +95,7 @@ public class BookHistoryPanel extends JPanel {
     }
 
     public void showHistory(List<String> rentHistory) {
+        tableModel.setRowCount(0);
         for (String s : rentHistory) {
             String[] data = s.split(properties.getSplitter());
             tableModel.addRow(data);

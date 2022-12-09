@@ -44,7 +44,7 @@ public class BooksPanel extends JPanel {
 
     private void initComponents(KeyListener keyListener) {
         titleLabel = new JLabel(properties.lbl_txt_tittleBooksPanel());
-        searchPanel = new SearchPanel(actionListener, mouseListener, keyListener);
+        searchPanel = new SearchPanel(actionListener, mouseListener, keyListener, properties);
         searchPanel.setActionCommandAddButton(properties.ac_pnl_addBook());
         addTitleLabel();
         addSearchPanel();
@@ -160,5 +160,9 @@ public class BooksPanel extends JPanel {
 
     public void showPlusButton() {
         searchPanel.showPlusButton();
+    }
+
+    public void clearByOperationPanel() {
+        bookIndex = 0;
     }
 }

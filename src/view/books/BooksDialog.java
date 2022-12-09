@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 
 public class BooksDialog extends JDialog {
@@ -29,9 +30,10 @@ public class BooksDialog extends JDialog {
         return bookInfoDialog;
     }
 
-    public BooksDialog(JFrame frame, boolean modal, ActionListener listener, MouseListener mouseListener, KeyListener keyListener, PrivateProperties properties) throws IOException {
+    public BooksDialog(JFrame frame, boolean modal, ActionListener listener, MouseListener mouseListener, KeyListener keyListener, WindowListener windowListener, PrivateProperties properties) throws IOException {
         super(frame, modal);
         this.properties = properties;
+        addWindowListener(windowListener);
         setSize(945, 704);
         setLocationRelativeTo(null);
         setTitle(properties.getBooksDialogTitle());

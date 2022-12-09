@@ -26,20 +26,20 @@ public class View extends JFrame {
         addWindowListener(windowListener);
         setTitle(properties.getApplicationName());
         setSize(1220, 600);
-        initContent(actionListener, mouseListener, keyListener);
+        initContent(actionListener, mouseListener, keyListener,windowListener);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
-    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) throws IOException {
+    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener, WindowListener windowListener) throws IOException {
         mainPanel = new MainPanel(actionListener, mouseListener, properties);
         getContentPane().add(mainPanel);
 
         usersDialog = new UsersDialog(this, true, actionListener, mouseListener, keyListener, properties);
         usersDialog.setVisible(false);
 
-        booksDialog = new BooksDialog(this, true, actionListener, mouseListener, keyListener, properties);
+        booksDialog = new BooksDialog(this, true, actionListener, mouseListener, keyListener,windowListener, properties);
         booksDialog.setVisible(false);
 
         selectionDialog = new SelectionDialog(this, true, actionListener, mouseListener, keyListener, properties);
@@ -81,7 +81,7 @@ public class View extends JFrame {
     }
 
     public int getUsersListSize() {
-        return usersDialog.getUsersListSize();
+        return usersDialog.getUsersPanel().getUsersListSize();
     }
 
     public void showUserInfo(String userInfo) {
@@ -89,15 +89,15 @@ public class View extends JFrame {
     }
 
     public String getUserInfo(int index) {
-        return usersDialog.getUserInfo(index);
+        return usersDialog.getUsersPanel().getUserInfo(index);
     }
 
     public void setTextInSearchFieldUsers() {
-        usersDialog.setTextInSearchFieldUsers();
+        usersDialog.getUsersPanel().setTextInSearchFieldUsers();
     }
 
     public String getSearchFieldTextUsers() {
-        return usersDialog.getSearchFieldTextUsers();
+        return usersDialog.getUsersPanel().getSearchFieldTextUsers();
     }
 
     public void showMessage(String message) {
@@ -117,11 +117,11 @@ public class View extends JFrame {
     }
 
     public void setPahToUserIcon(String actionCommand) {
-        usersDialog.setPahToUserIcon(actionCommand);
+        usersDialog.getAddUserDialog().setPahToUserIcon(actionCommand);
     }
 
     public String getNewUserInfo() {
-        return usersDialog.getNewUserInfo();
+        return usersDialog.getAddUserDialog().getNewUserInfo();
     }
 
     public boolean userInfoDialogIsVisible() {
@@ -137,11 +137,11 @@ public class View extends JFrame {
     }
 
     public void setUserIndex(int userIndex) {
-        usersDialog.setUserIndex(userIndex);
+        usersDialog.getUsersPanel().setUserIndex(userIndex);
     }
 
     public int getUserIndex() {
-        return usersDialog.getUserIndex();
+        return usersDialog.getUsersPanel().getUserIndex();
     }
 
     public void loadNewUser(String newUserInfo) {
@@ -187,7 +187,7 @@ public class View extends JFrame {
 
     public int getIdToRemove(List<Integer> list) throws NumberFormatException, IndexOutOfBoundsException {
         try {
-            return (int) JOptionPane.showInputDialog(null, "Select copy Id", "Remove Copy", JOptionPane.QUESTION_MESSAGE, null, list.toArray(), list.get(0));
+            return (int) JOptionPane.showInputDialog(null, properties.txt_SelectCopyId(), properties.txt_RemoveCopy(), JOptionPane.QUESTION_MESSAGE, null, list.toArray(), list.get(0));
         } catch (NullPointerException e) {
             return -1;
         } catch (IndexOutOfBoundsException e) {
@@ -197,7 +197,7 @@ public class View extends JFrame {
 
     public int getNewId() {
         int newId;
-        Object id = JOptionPane.showInputDialog(null, "Enter new copy Id", "Add Copy", JOptionPane.QUESTION_MESSAGE);
+        Object id = JOptionPane.showInputDialog(null, properties.txt_EnterNewCopyId(), properties.txt_AddCopy(), JOptionPane.QUESTION_MESSAGE);
         if (id == null) {
             newId = 0;
         } else {
@@ -274,11 +274,6 @@ public class View extends JFrame {
         booksDialog.setVisible(false);
     }
 
-    public String printSizeUserInfoDialog() {
-        return usersDialog.printSizeUserInfoDialog();
-        //return usersDialog.userInfoDialog.printSize();
-    }
-
     public void showFileChooser(int pathNumber) {
         booksDialog.getAddBookDialog().getAddBookPanel().showFileChooser(pathNumber);
         booksDialog.getAddBookDialog().getAddBookPanel().updateUI();
@@ -303,6 +298,9 @@ public class View extends JFrame {
 
     public void clearOperationPanel() {
         selectionDialog.getOperationDialog().getMidPanel().clearOperationPanel();
+        usersDialog.getUsersPanel().clearByOperationPanel();
+        booksDialog.getBooksPanel().clearByOperationPanel();
+        copyId = 0;
     }
 
 

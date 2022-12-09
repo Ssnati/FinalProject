@@ -1,5 +1,7 @@
 package view;
 
+import persistence.PrivateProperties;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -7,12 +9,14 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 
 public class SearchPanel extends JPanel {
+    private final PrivateProperties properties;
     private JTextField searchTextField;
     private JButton addButton;
     private JLabel searchLabel;
     private StringBuilder textInSearchField;
 
-    public SearchPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+    public SearchPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener, PrivateProperties properties) {
+        this.properties = properties;
         setLayout(new GridBagLayout());
         textInSearchField = new StringBuilder();
         initComponents(actionListener, mouseListener, keyListener);
@@ -22,9 +26,9 @@ public class SearchPanel extends JPanel {
     private void initComponents(ActionListener listener, MouseListener mouseListener, KeyListener keyListener) {
         searchTextField = new JTextField(14);
 
-        addButton = new JButton(new ImageIcon("sources/Plus.png"));
+        addButton = new JButton(new ImageIcon(properties.src_AddButton()));
 
-        searchLabel = new JLabel("Search:");
+        searchLabel = new JLabel(properties.lbl_txt_searchLabel());
         searchLabel.setFont(new Font("Sans Serif", Font.BOLD, 20));
         addSearchLabel();
 
@@ -48,14 +52,6 @@ public class SearchPanel extends JPanel {
         searchTextField.setFont(new Font("Sans Serif", Font.PLAIN, 20));
         searchTextField.addActionListener(listener);
         searchTextField.addKeyListener(keyListener);
-    }
-
-    public void setSearchActionCommand(String actionCommand) {
-        searchTextField.setActionCommand(actionCommand);
-    }
-
-    public void setAddActionCommand(String actionCommand) {
-        addButton.setActionCommand(actionCommand);
     }
 
     private void addSearchTextField() {

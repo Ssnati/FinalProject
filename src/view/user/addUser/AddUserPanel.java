@@ -1,47 +1,52 @@
 package view.user.addUser;
 
+import persistence.PrivateProperties;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
 public class AddUserPanel extends JPanel {
+    private final PrivateProperties properties;
     private JLabel nameLabel,mailLabel,addressLabel,phoneLabel;
     private JTextField nameTextField,mailTextField,addressTextField,phoneTextField;
     private IconPanel iconPanel;
     private JButton saveUserButton;
+    private final Font labelsFont = new Font("Sans Serif", Font.BOLD, 20), textFieldsFont = new Font("Sans Serif", Font.PLAIN, 20);
 
-    public AddUserPanel(ActionListener actionListener, MouseListener mouseListener) {
-        setBackground(Color.black);
+    public AddUserPanel(ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) {
+        this.properties = properties;
         setLayout(new GridBagLayout());
+        setBackground(Color.black);
         initComponents(actionListener, mouseListener);
     }
 
     private void initComponents(ActionListener actionListener, MouseListener mouseListener) {
-        nameLabel = new JLabel("Name:");
+        nameLabel = new JLabel(properties.btn_txt_userPanelName());
         addNameLabel();
         nameTextField = new JTextField(14);
         addNameTextField();
-        mailLabel = new JLabel("Mail:");
+        mailLabel = new JLabel(properties.btn_txt_userInfoPanelEmail());
         addMailLabel();
         mailTextField = new JTextField(14);
         addMailTextField();
-        addressLabel = new JLabel("Address:");
+        addressLabel = new JLabel(properties.btn_txt_userInfoPanelAddress());
         addAddressLabel();
         addressTextField = new JTextField(14);
         addAddressTextField();
-        phoneLabel = new JLabel("Phone:");
+        phoneLabel = new JLabel(properties.btn_txt_userInfoPanelPhone());
         addPhoneLabel();
         phoneTextField = new JTextField(14);
         addPhoneTextField();
-        iconPanel = new IconPanel(actionListener, mouseListener);
+        iconPanel = new IconPanel(actionListener, mouseListener, properties);
         addIconPanel();
-        saveUserButton = new JButton("Save");
+        saveUserButton = new JButton(properties.btn_txt_userInfoPanelSaveUserButton());
         addSaveUserButton(actionListener, mouseListener);
     }
 
     private void addNameLabel() {
-        nameLabel.setFont(new Font("Sans Serif", Font.BOLD, 20));
+        nameLabel.setFont(labelsFont);
         nameLabel.setForeground(Color.white);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -50,7 +55,7 @@ public class AddUserPanel extends JPanel {
     }
 
     private void addNameTextField() {
-        nameTextField.setFont(new Font("Sans Serif", Font.PLAIN, 20));
+        nameTextField.setFont(textFieldsFont);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -58,7 +63,7 @@ public class AddUserPanel extends JPanel {
     }
 
     private void addMailLabel() {
-        mailLabel.setFont(new Font("Sans Serif", Font.BOLD, 20));
+        mailLabel.setFont(labelsFont);
         mailLabel.setForeground(Color.white);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -67,7 +72,7 @@ public class AddUserPanel extends JPanel {
     }
 
     private void addMailTextField() {
-        mailTextField.setFont(new Font("Sans Serif", Font.PLAIN, 20));
+        mailTextField.setFont(textFieldsFont);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -75,7 +80,7 @@ public class AddUserPanel extends JPanel {
     }
 
     private void addAddressLabel() {
-        addressLabel.setFont(new Font("Sans Serif", Font.BOLD, 20));
+        addressLabel.setFont(labelsFont);
         addressLabel.setForeground(Color.white);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -84,7 +89,7 @@ public class AddUserPanel extends JPanel {
     }
 
     private void addAddressTextField() {
-        addressTextField.setFont(new Font("Sans Serif", Font.PLAIN, 20));
+        addressTextField.setFont(textFieldsFont);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 5;
@@ -92,7 +97,7 @@ public class AddUserPanel extends JPanel {
     }
 
     private void addPhoneLabel() {
-        phoneLabel.setFont(new Font("Sans Serif", Font.BOLD, 20));
+        phoneLabel.setFont(labelsFont);
         phoneLabel.setForeground(Color.white);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -101,7 +106,7 @@ public class AddUserPanel extends JPanel {
     }
 
     private void addPhoneTextField() {
-        phoneTextField.setFont(new Font("Sans Serif", Font.PLAIN, 20));
+        phoneTextField.setFont(textFieldsFont);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 7;
@@ -120,8 +125,8 @@ public class AddUserPanel extends JPanel {
     private void addSaveUserButton(ActionListener actionListener, MouseListener mouseListener) {
         saveUserButton.addActionListener(actionListener);
         saveUserButton.addMouseListener(mouseListener);
-        saveUserButton.setActionCommand("SAVE_USER");
-        saveUserButton.setFont(new Font("Sans Serif", Font.BOLD, 20));
+        saveUserButton.setActionCommand(properties.ac_userInfoPanelSaveUserButton());
+        saveUserButton.setFont(labelsFont);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 7;
@@ -129,7 +134,7 @@ public class AddUserPanel extends JPanel {
     }
 
     public String getNewUserInfo() {
-        return  iconPanel.getSelectedIconPath()+";"+nameTextField.getText() + ";" + mailTextField.getText() + ";" + addressTextField.getText() + ";" + phoneTextField.getText();
+        return  iconPanel.getSelectedIconPath()+properties.getSplitter()+nameTextField.getText() + properties.getSplitter() + mailTextField.getText() + properties.getSplitter() + addressTextField.getText() + properties.getSplitter() + phoneTextField.getText();
     }
 
     public void setPahToUserIcon(String actionCommand) {

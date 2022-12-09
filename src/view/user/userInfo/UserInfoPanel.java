@@ -1,5 +1,7 @@
 package view.user.userInfo;
 
+import persistence.PrivateProperties;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -8,26 +10,28 @@ import java.awt.event.MouseListener;
 public class UserInfoPanel extends JPanel {
     private JLabel imageIcon, nameLabel, emailLabel, addressLabel, phoneLabel, rentedBooksLabel;
     private JButton deleteUserButton;
+    private final PrivateProperties properties;
 
-    public UserInfoPanel(ActionListener actionListener, MouseListener mouseListener) {
+    public UserInfoPanel(ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) {
+        this.properties = properties;
         setLayout(new GridBagLayout());
         setBackground(new java.awt.Color(231, 90, 30));
         initComponents(actionListener, mouseListener);
     }
 
     private void initComponents(ActionListener actionListener, MouseListener mouseListener) {
-        imageIcon = new JLabel(new ImageIcon("sources/userIcons/Male Icon 1.png"));
-        nameLabel = new JLabel("Name: Santiago");
+        imageIcon = new JLabel(new ImageIcon());
+        nameLabel = new JLabel();
         setLabelProperties(nameLabel);
-        emailLabel = new JLabel("Email: Santiago@uptc.edu.co");
+        emailLabel = new JLabel();
         setLabelProperties(emailLabel);
-        addressLabel = new JLabel("Address: Cra 1 # 2 - 3");
+        addressLabel = new JLabel();
         setLabelProperties(addressLabel);
-        phoneLabel = new JLabel("Phone: 123456789");
+        phoneLabel = new JLabel();
         setLabelProperties(phoneLabel);
-        rentedBooksLabel = new JLabel("Rented Books: 0");
+        rentedBooksLabel = new JLabel();
         setLabelProperties(rentedBooksLabel);
-        deleteUserButton = new JButton("Delete User");
+        deleteUserButton = new JButton(properties.btn_txt_deleteUserButton());
         setDeleteUserButtonProperties(actionListener, mouseListener);
         addImageIcon();
         addNameLabel();
@@ -39,7 +43,7 @@ public class UserInfoPanel extends JPanel {
     }
 
     private void setDeleteUserButtonProperties(ActionListener actionListener, MouseListener mouseListener) {
-        deleteUserButton.setUI(new SpecialButton(140, deleteUserButton.getPreferredSize().height * 2,
+        deleteUserButton.setUI(new SpecialButton(deleteUserButton.getPreferredSize().width*29/20, deleteUserButton.getPreferredSize().height * 2,
                 25, 25, new Color(255, 193, 193)));
         deleteUserButton.setBorderPainted(false);
         deleteUserButton.setBackground(new Color(255, 193, 193));
@@ -48,7 +52,7 @@ public class UserInfoPanel extends JPanel {
         deleteUserButton.setContentAreaFilled(false);
         deleteUserButton.addActionListener(actionListener);
         deleteUserButton.addMouseListener(mouseListener);
-        deleteUserButton.setActionCommand("DELETE_USER");
+        deleteUserButton.setActionCommand(properties.ac_deleteUserButtonUserInfoPanel());
     }
 
     private void setLabelProperties(JLabel label) {
@@ -113,16 +117,12 @@ public class UserInfoPanel extends JPanel {
     }
 
     public void showUserInfo(String userInfo) {
-        String[] info = userInfo.split(";");
+        String[] info = userInfo.split(properties.getSplitter());
         imageIcon.setIcon(new ImageIcon(info[0]));
-        nameLabel.setText("Name: " + info[1]);
-        emailLabel.setText("Email: " + info[2]);
-        addressLabel.setText("Address: " + info[3]);
-        phoneLabel.setText("Phone: " + info[4]);
-        rentedBooksLabel.setText("Rented Books: " + info[5]);
-    }
-
-    public String printSize() {
-        return "Width: " + getWidth() + " Height: " + getHeight();
+        nameLabel.setText(properties.btn_txt_userPanelName() + info[1]);
+        emailLabel.setText(properties.btn_txt_userInfoPanelEmail() + info[2]);
+        addressLabel.setText(properties.btn_txt_userInfoPanelAddress() + info[3]);
+        phoneLabel.setText(properties.btn_txt_userInfoPanelPhone() + info[4]);
+        rentedBooksLabel.setText(properties.btn_txt_userPanelRentedBooks() + info[5]);
     }
 }

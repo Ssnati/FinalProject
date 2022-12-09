@@ -32,25 +32,25 @@ public class BookInfoPanel extends JPanel {
         bookAvailableCopiesLabel = new JLabel();
         bookTotalCopiesLabel = new JLabel();
 
-        coverButton = new JButton(new ImageIcon(new ImageIcon("sources/covers/Add Book.png").getImage().getScaledInstance(136, 219, Image.SCALE_AREA_AVERAGING)));
+        coverButton = new JButton(new ImageIcon(new ImageIcon(properties.src_AddBookIcon()).getImage().getScaledInstance(136, 219, Image.SCALE_AREA_AVERAGING)));
         coverButtonFeatures();
-        deleteButton = new JButton("<html><body>"+properties.btn_txt_deleteBookButton()+"</body></html>");
-        deleteButton.setActionCommand("DELETE_BOOK");
+        deleteButton = new JButton("<html><body>" + properties.btn_txt_deleteBookButton() + "</body></html>");
+        deleteButton.setActionCommand(properties.ac_deleteBook());
         deleteButton.addActionListener(actionListener);
         deleteButton.addMouseListener(mouseListener);
 
-        historyButton = new JButton("<html><body><center>"+properties.btn_txt_historyBookButton()+"</center></body></html>");
-        historyButton.setActionCommand("HISTORY_BOOK");
+        historyButton = new JButton("<html><body><center>" + properties.btn_txt_historyBookButton() + "</center></body></html>");
+        historyButton.setActionCommand(properties.ac_historyBook());
         historyButton.addActionListener(actionListener);
         historyButton.addMouseListener(mouseListener);
 
-        addCopyButton = new JButton("<html><body>"+properties.btn_txt_addCopyBookButton()+"</body></html>");
-        addCopyButton.setActionCommand("ADD_COPY");
+        addCopyButton = new JButton("<html><body>" + properties.btn_txt_addCopyBookButton() + "</body></html>");
+        addCopyButton.setActionCommand(properties.ac_addCopyBook());
         addCopyButton.addActionListener(actionListener);
         addCopyButton.addMouseListener(mouseListener);
 
-        removeCopyButton = new JButton("<html><body>"+properties.btn_txt_removeCopyBookButton()+"</body></html>");
-        removeCopyButton.setActionCommand("REMOVE_COPY");
+        removeCopyButton = new JButton("<html><body>" + properties.btn_txt_removeCopyBookButton() + "</body></html>");
+        removeCopyButton.setActionCommand(properties.ac_removeCopyBook());
         removeCopyButton.addActionListener(actionListener);
         removeCopyButton.addMouseListener(mouseListener);
 
@@ -180,12 +180,13 @@ public class BookInfoPanel extends JPanel {
         String[] bookInfo = bookToView.split(properties.getSplitter());
         coverButton.setIcon(new ImageIcon(new ImageIcon(bookInfo[0]).getImage().getScaledInstance(136, 219, Image.SCALE_AREA_AVERAGING)));
         bookTitleLabel.setText(bookInfo[1]);
-        bookAuthorLabel.setText("<html><body><b>Author:</b> " + bookInfo[2] + "</body></html>");
-        bookYearLabel.setText("<html><body><b>Year:</b> " + bookInfo[3] + "</body></html>");
-        bookDescriptionLabel.setText("<html><body><b>Book Description:</b> " + bookInfo[4] + "</body></html>");
+        bookAuthorLabel.setText("<html><body><b>" + properties.btn_txt_bookInfoPanelAuthor() + "</b> " + bookInfo[2] + "</body></html>");
+        bookYearLabel.setText("<html><body><b>" + properties.btn_txt_bookInfoPanelYear() + "</b> " + bookInfo[3] + "</body></html>");
+        bookDescriptionLabel.setText("<html><body><b>" + properties.btn_txt_bookInfoPanelDescription() + "</b> " + bookInfo[4] + "</body></html>");
         setBreakLines(bookDescriptionLabel);
-        bookISBNLabel.setText("<html><body><b>ISBN:</b> " + bookInfo[5] + "</body></html>");
-        bookAvailableCopiesLabel.setText("<html><body><b>Available Copies:</b> " + bookInfo[6] + "</body></html>");
-        bookTotalCopiesLabel.setText("<html><body><b>Total Copies:</b> " + bookInfo[7] + "</body></html>");
+        bookISBNLabel.setText("<html><body><b>" + properties.btn_txt_bookInfoPanelISBN() + "</b> " + bookInfo[5] + "</body></html>");
+        bookAvailableCopiesLabel.setText("<html><body><b>" + properties.btn_txt_bookInfoPanelAvailableCopies() + "</b> " + bookInfo[6] + "</body></html>");
+        bookTotalCopiesLabel.setText("<html><body><b>" + properties.btn_txt_bookInfoPanelTotalCopies() + "</b> " + bookInfo[7] + "</body></html>");
     }
 }
+

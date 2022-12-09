@@ -228,4 +228,168 @@ public class PrivateProperties {
     public String ac_returnBookButton() {
         return properties.getProperty("ac_returnBookButtonActionCommand");
     }
+
+    public String getUsersDialogTitle() {
+        return properties.getProperty("usersDialogTitle");
+    }
+
+    public String lbl_txt_tittleUserPanel() {
+        return properties.getProperty("lbl_txt_tittleUserPanel");
+    }
+
+    public String ac_addUser() {
+        return properties.getProperty("ac_addUserActionCommand");
+    }
+
+    public String btn_txt_userPanelName() {
+        return properties.getProperty("btn_txt_userPanelName");
+    }
+
+    public String btn_txt_userPanelRentedBooks() {
+        return properties.getProperty("btn_txt_userPanelRentedBooks");
+    }
+
+    public String ac_UserButtons_() {
+        return properties.getProperty("ac_UserButtons_ActionCommand");
+    }
+
+    public String getUserInfoDialogTitle() {
+        return properties.getProperty("userInfoDialogTitle");
+    }
+
+    public String ac_deleteUserButtonUserInfoPanel() {
+        return properties.getProperty("ac_deleteUserButtonUserInfoPanelActionCommand");
+    }
+
+    public String btn_txt_userInfoPanelEmail() {
+        return properties.getProperty("btn_txt_userInfoPanelEmail");
+    }
+
+    public String btn_txt_userInfoPanelPhone() {
+        return properties.getProperty("btn_txt_userInfoPanelPhone");
+    }
+
+    public String btn_txt_userInfoPanelAddress() {
+        return properties.getProperty("btn_txt_userInfoPanelAddress");
+    }
+
+    public String getAddUserDialogTitle() {
+        return properties.getProperty("addUserDialogTitle");
+    }
+
+    public String btn_txt_userInfoPanelSaveUserButton() {
+        return properties.getProperty("btn_txt_userInfoPanelSaveUserButton");
+    }
+
+    public String ac_userInfoPanelSaveUserButton() {
+        return properties.getProperty("ac_userInfoPanelSaveUserButtonActionCommand");
+    }
+
+    public String lbl_txt_icon() {
+        return properties.getProperty("lbl_txt_icon");
+    }
+
+    public String src_IconMaleBase() {
+        return properties.getProperty("src_iconMaleBase");
+    }
+
+    public String ac_maleIcon_() {
+        return properties.getProperty("ac_maleIcon_ActionCommand");
+    }
+
+    public String src_IconFemaleBase() {
+        return properties.getProperty("src_iconFemaleBase");
+    }
+
+    public String ac_femaleIcon_() {
+        return properties.getProperty("ac_femaleIcon_ActionCommand");
+    }
+
+    public String src_AddButton() {
+        return properties.getProperty("src_addButton");
+    }
+
+    public String lbl_txt_searchLabel() {
+        return properties.getProperty("lbl_txt_searchLabel");
+    }
+
+    public String txt_SelectCopyId() {
+        return properties.getProperty("txt_SelectCopyId");
+    }
+
+    public String txt_RemoveCopy() {
+        return properties.getProperty("txt_RemoveCopy");
+    }
+
+    public String txt_EnterNewCopyId() {
+        return properties.getProperty("txt_EnterNewCopyId");
+    }
+
+    public String txt_AddCopy() {
+        return properties.getProperty("txt_AddCopy");
+    }
+
+    public String src_AddBookIcon() {
+        return properties.getProperty("src_addBookIcon");
+    }
+
+    public String ac_deleteBook() {
+        return properties.getProperty("ac_deleteBookActionCommand");
+    }
+
+    public String ac_historyBook() {
+        return properties.getProperty("ac_historyBookActionCommand");
+    }
+
+    public String ac_addCopyBook() {
+        return properties.getProperty("ac_addCopyBookActionCommand");
+    }
+
+    public String ac_removeCopyBook() {
+        return properties.getProperty("ac_removeCopyBookActionCommand");
+    }
+
+    public String btn_txt_bookInfoPanelAuthor() {
+        return properties.getProperty("btn_txt_bookInfoPanelAuthor");
+    }
+
+    public String btn_txt_bookInfoPanelYear() {
+        return properties.getProperty("btn_txt_bookInfoPanelYear");
+    }
+
+    public String btn_txt_bookInfoPanelDescription() {
+        return properties.getProperty("btn_txt_bookInfoPanelDescription");
+    }
+
+    public String btn_txt_bookInfoPanelISBN() {
+        return properties.getProperty("btn_txt_bookInfoPanelISBN");
+    }
+
+    public String btn_txt_bookInfoPanelAvailableCopies() {
+        return properties.getProperty("btn_txt_bookInfoPanelAvailableCopies");
+    }
+
+    public String btn_txt_bookInfoPanelTotalCopies() {
+        return properties.getProperty("btn_txt_bookInfoPanelTotalCopies");
+    }
+
+    public String getBooksPath() {
+        return properties.getProperty("booksPath");
+    }
+
+    public String getUsersPath() {
+        return properties.getProperty("usersPath");
+    }
+
+    public String getCopiesPath() {
+        return properties.getProperty("copiesPath");
+    }
+
+    public String getRentsPath() {
+        return properties.getProperty("rentsPath");
+    }
+
+    public String btn_txt_deleteUserButton() {
+        return properties.getProperty("btn_txt_deleteUserButton");
+    }
 }

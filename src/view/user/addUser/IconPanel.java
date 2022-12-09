@@ -1,5 +1,7 @@
 package view.user.addUser;
 
+import persistence.PrivateProperties;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -8,11 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IconPanel extends JPanel {
+    private final PrivateProperties properties;
     private JLabel iconLabel;
     private List<JButton> maleIcons, femaleIcons;
     private String selectedIconPath;
 
-    public IconPanel(ActionListener actionListener, MouseListener mouseListener) {
+    public IconPanel(ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) {
+        this.properties = properties;
         setBackground(new Color(191, 189, 189));
         setLayout(new GridBagLayout());
         initComponents(actionListener, mouseListener);
@@ -21,7 +25,7 @@ public class IconPanel extends JPanel {
     private void initComponents(ActionListener actionListener, MouseListener mouseListener) {
         maleIcons = new ArrayList<>();
         femaleIcons = new ArrayList<>();
-        iconLabel = new JLabel("Icono:");
+        iconLabel = new JLabel(properties.lbl_txt_icon());
         addIconLabel();
         addMaleIcon(actionListener, mouseListener);
         addFemaleIcon(actionListener, mouseListener);
@@ -39,11 +43,11 @@ public class IconPanel extends JPanel {
     private void addMaleIcon(ActionListener actionListener, MouseListener mouseListener) {
         for (int i = 0; i < 6; i++) {
             JButton icon = new JButton();
-            Image image = new ImageIcon("sources/userIcons/Male Icon " + (i + 1) + ".png").getImage();
+            Image image = new ImageIcon(properties.src_IconMaleBase() + (i + 1) + "."+properties.fc_extension_2()).getImage();
             icon.setIcon(new ImageIcon(image.getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
             icon.addActionListener(actionListener);
             icon.addMouseListener(mouseListener);
-            icon.setActionCommand("MALE_ICON_" + (i + 1));
+            icon.setActionCommand(properties.ac_maleIcon_() + (i + 1));
             icon.setBorderPainted(false);
             icon.setBackground(new Color(0, 0, 0, 0));
             icon.setFocusable(false);
@@ -56,11 +60,11 @@ public class IconPanel extends JPanel {
     private void addFemaleIcon(ActionListener actionListener, MouseListener mouseListener) {
         for (int i = 0; i < 6; i++) {
             JButton icon = new JButton();
-            Image image = new ImageIcon("sources/userIcons/Female Icon " + (i + 1) + ".png").getImage();
+            Image image = new ImageIcon(properties.src_IconFemaleBase() + (i + 1) + "."+properties.fc_extension_2()).getImage();
             icon.setIcon(new ImageIcon(image.getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
             icon.addActionListener(actionListener);
             icon.addMouseListener(mouseListener);
-            icon.setActionCommand("FEMALE_ICON_" + (i + 1));
+            icon.setActionCommand(properties.ac_femaleIcon_() + (i + 1));
             icon.setBorderPainted(false);
             icon.setFocusable(false);
             icon.setContentAreaFilled(false);
@@ -84,14 +88,14 @@ public class IconPanel extends JPanel {
             if (icon.getActionCommand().equals(actionCommand)){
                 int pathNumber =  maleIcons.indexOf(icon) + 1;
                 icon.setBorderPainted(true);
-                path = "sources/userIcons/Male Icon " + pathNumber + ".png";
+                path = properties.src_IconMaleBase() + pathNumber + "."+properties.fc_extension_2();
             }
         }
         for (JButton icon : femaleIcons) {
             if (icon.getActionCommand().equals(actionCommand)){
                 int pathNumber =  femaleIcons.indexOf(icon) + 1;
                 icon.setBorderPainted(true);
-                path = "sources/userIcons/Female Icon " + pathNumber + ".png";
+                path = properties.src_IconFemaleBase() + pathNumber + "."+properties.fc_extension_2();
             }
         }
         System.out.println(path);

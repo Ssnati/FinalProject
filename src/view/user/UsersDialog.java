@@ -10,29 +10,22 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.util.List;
 public class UsersDialog extends JDialog {
+    private final PrivateProperties properties;
     private UsersPanel usersPanel;
     private UserInfoDialog userInfoDialog;
     private AddUserDialog addUserDialog;
     private JScrollPane scrollPane;
 
-    public void setUsersPanel(UsersPanel usersPanel) {
-        this.usersPanel = usersPanel;
-    }
-
     public UserInfoDialog getUserInfoDialog() {
         return userInfoDialog;
     }
 
-    public void setUserInfoDialog(UserInfoDialog userInfoDialog) {
-        this.userInfoDialog = userInfoDialog;
+    public UsersPanel getUsersPanel() {
+        return usersPanel;
     }
 
-    public void setAddUserDialog(AddUserDialog addUserDialog) {
-        this.addUserDialog = addUserDialog;
-    }
-
-    public JScrollPane getScrollPane() {
-        return scrollPane;
+    public AddUserDialog getAddUserDialog() {
+        return addUserDialog;
     }
 
     public void setScrollPane(JScrollPane scrollPane) {
@@ -41,22 +34,15 @@ public class UsersDialog extends JDialog {
 
     public UsersDialog(JFrame frame, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener, PrivateProperties properties) {
         super(frame, modal);
-        setTitle("Users");
-        setSize(382, 723);
-        initContent(actionListener, mouseListener, keyListener);
-        setLocationRelativeTo(null);
-    }
-
-    public UsersDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
-        super(dialog, modal);
-        setTitle("Users");
+        this.properties = properties;
+        setTitle(properties.getUsersDialogTitle());
         setSize(382, 723);
         initContent(actionListener, mouseListener, keyListener);
         setLocationRelativeTo(null);
     }
 
     private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
-        usersPanel = new UsersPanel(actionListener, mouseListener, keyListener);
+        usersPanel = new UsersPanel(actionListener, mouseListener, keyListener, properties);
         scrollPane = new JScrollPane(usersPanel);
         scrollPane.getVerticalScrollBar().setUnitIncrement(8);
 
@@ -66,12 +52,12 @@ public class UsersDialog extends JDialog {
     }
 
     private void addAddUserDialog(ActionListener actionListener, MouseListener mouseListener) {
-        addUserDialog = new AddUserDialog(this, true, actionListener, mouseListener);
+        addUserDialog = new AddUserDialog(this, true, actionListener, mouseListener, properties);
         addUserDialog.setVisible(false);
     }
 
     private void addUserInfoDialog(ActionListener actionListener, MouseListener mouseListener) {
-        userInfoDialog = new UserInfoDialog(this, true, actionListener, mouseListener);
+        userInfoDialog = new UserInfoDialog(this, true, actionListener, mouseListener, properties);
         userInfoDialog.setVisible(false);
     }
 
@@ -80,58 +66,17 @@ public class UsersDialog extends JDialog {
         usersPanel.updateUI();
     }
 
-    public int getUsersListSize() {
-        return usersPanel.getUsersListSize();
-    }
-
     public void showUserInfo(String userInfo) {
         userInfoDialog.showUserInfo(userInfo);
         userInfoDialog.setVisible(true);
-    }
-
-    public String getUserInfo(int index) {
-        return usersPanel.getUserInfo(index);
-    }
-
-    public void setTextInSearchFieldUsers() {
-        usersPanel.setTextInSearchFieldUsers();
-    }
-
-    public String getSearchFieldTextUsers() {
-        return usersPanel.getSearchFieldTextUsers();
-    }
-
-    public void showAddUserDialog() {
-        addUserDialog.setVisible(true);
     }
 
     public boolean addUserDialogIsVisible() {
         return addUserDialog.isVisible();
     }
 
-    public void setPahToUserIcon(String actionCommand) {
-        addUserDialog.setPahToUserIcon(actionCommand);
-    }
-
-    public String getNewUserInfo() {
-        return addUserDialog.getNewUserInfo();
-    }
-
     public boolean userInfoDialogIsVisible() {
         return userInfoDialog.isVisible();
-    }
-
-    public void removeUser(int userIndex) {
-        usersPanel.removeUser(userIndex);
-        usersPanel.updateUI();
-    }
-
-    public void setUserIndex(int userIndex) {
-        usersPanel.setUserIndex(userIndex);
-    }
-
-    public int getUserIndex() {
-        return usersPanel.getUserIndex();
     }
 
     public void loadNewUser(String newUserInfo) {
@@ -139,18 +84,6 @@ public class UsersDialog extends JDialog {
         addUserDialog.clearFields();
         addUserDialog.setVisible(false);
         usersPanel.updateUI();
-    }
-
-    public String printSizeUserInfoDialog() {
-        return userInfoDialog.printSize();
-    }
-
-    public AddUserDialog getAddUserDialog() {
-        return addUserDialog;
-    }
-
-    public UsersPanel getUsersPanel() {
-        return usersPanel;
     }
 
     public void updateUsersPanel() {

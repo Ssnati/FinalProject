@@ -1,7 +1,44 @@
 [
   {
-    "rentDate": "01/01/2019",
-    "returnDate": "01/02/2019",
+    "rentDate": "9/12/2022",
+    "returnDate": "9/12/2022",
+    "associatedCopy": {
+      "associatedBook": {
+        "coverSource": "sources/covers/Cover5.jpg",
+        "title": "Harry Potter y el cáliz de fuego",
+        "author": "J.K. Rowling",
+        "year": "2000",
+        "description": "Harry Potter se enfrenta a tiempos duros. Acosado por pesadillas que hacen que su cicatriz duela más que de costumbre, Harry está feliz por escapar de sus sueños inquietos al poder asistir al Campeonato Mundial de Quidditch y estar con sus amigos Ron y Hermione.",
+        "ISBN": "978-84-7888-448-3"
+      },
+      "id": 5,
+      "available": true
+    },
+    "associatedUser": {
+      "iconSrc": "sources/userIcons/Male Icon 1.png",
+      "name": "John Doe",
+      "email": "jhonDoe@gmail.com",
+      "address": "1234 Main Street, New York, NY 10001",
+      "phone": "1234567890",
+      "rentedCopies": [
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover2.jpg",
+            "title": "Harry Potter y la piedra filosofal",
+            "author": "J.K. Rowling",
+            "year": "1997",
+            "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
+            "ISBN": "978-84-7888-445-2"
+          },
+          "id": 2,
+          "available": false
+        }
+      ]
+    }
+  },
+  {
+    "rentDate": "9/12/2022",
+    "returnDate": "9/12/2022",
     "associatedCopy": {
       "associatedBook": {
         "coverSource": "sources/covers/Cover9.jpg",
@@ -11,32 +48,32 @@
         "description": "En la adormecida e idílica Comarca, un joven hobbit recibe un encargo: custodiar el Anillo Único y emprender el viaje para su destrucción en la Grieta del Destino. Acompañado por magos, hombres, elfos y enanos, atravesará la Tierra Media y se internará en las sombras de Mordor, perseguido siempre por las huestes de Sauron, el Señor Oscuro, dispuesto a recuperar su creación para establecer el dominio definitivo del Mal.",
         "ISBN": "978-84-7888-452-0"
       },
-      "id": 9,
+      "id": 2,
       "available": true
     },
     "associatedUser": {
-      "iconSrc": "sources/userIcons/Male Icon 1.png",
-      "name": "John Doe",
-      "email": "jhonDoe@gmail.com",
-      "address": "1234 Main Street, New York, NY 10001",
-      "phone": "1234567890",
+      "iconSrc": "sources/userIcons/Female Icon 2.png",
+      "name": "Jane Smith",
+      "email": "janeSmith@gmail.com",
+      "address": "4321 Park Avenue, Los Angeles, CA 90001",
+      "phone": "8765432",
       "rentedCopies": []
     }
   },
   {
-    "rentDate": "01/01/2020",
-    "returnDate": "01/02/2020",
+    "rentDate": "9/12/2022",
+    "returnDate": "En prestamo",
     "associatedCopy": {
       "associatedBook": {
-        "coverSource": "sources/covers/Cover9.jpg",
-        "title": "El Señor de los Anillos, la comunidad del anillo",
-        "author": "J.R.R. Tolkien",
-        "year": "1954",
-        "description": "En la adormecida e idílica Comarca, un joven hobbit recibe un encargo: custodiar el Anillo Único y emprender el viaje para su destrucción en la Grieta del Destino. Acompañado por magos, hombres, elfos y enanos, atravesará la Tierra Media y se internará en las sombras de Mordor, perseguido siempre por las huestes de Sauron, el Señor Oscuro, dispuesto a recuperar su creación para establecer el dominio definitivo del Mal.",
-        "ISBN": "978-84-7888-452-0"
+        "coverSource": "sources/covers/Cover2.jpg",
+        "title": "Harry Potter y la piedra filosofal",
+        "author": "J.K. Rowling",
+        "year": "1997",
+        "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
+        "ISBN": "978-84-7888-445-2"
       },
-      "id": 9,
-      "available": true
+      "id": 2,
+      "available": false
     },
     "associatedUser": {
       "iconSrc": "sources/userIcons/Male Icon 1.png",
@@ -44,7 +81,20 @@
       "email": "jhonDoe@gmail.com",
       "address": "1234 Main Street, New York, NY 10001",
       "phone": "1234567890",
-      "rentedCopies": []
+      "rentedCopies": [
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover2.jpg",
+            "title": "Harry Potter y la piedra filosofal",
+            "author": "J.K. Rowling",
+            "year": "1997",
+            "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
+            "ISBN": "978-84-7888-445-2"
+          },
+          "id": 2,
+          "available": false
+        }
+      ]
     }
   }
 ]

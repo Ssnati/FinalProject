@@ -1,5 +1,6 @@
 package view.user;
 
+import persistence.PrivateProperties;
 import view.SearchPanel;
 
 import javax.swing.*;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsersPanel extends JPanel {
+    private final PrivateProperties properties;
     private MouseListener mouseListener;
     private ActionListener actionListener;
     private JLabel titleLabel;
@@ -18,8 +20,9 @@ public class UsersPanel extends JPanel {
     private List<JButton> userButtons;
     private int userIndex;
 
-    public UsersPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+    public UsersPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener, PrivateProperties properties) {
         userIndex = -1;
+        this.properties = properties;
         userButtons = new ArrayList<>();
         this.actionListener = actionListener;
         this.mouseListener = mouseListener;
@@ -29,7 +32,7 @@ public class UsersPanel extends JPanel {
     }
 
     private void initComponents(KeyListener keyListener) {
-        titleLabel = new JLabel("User List");
+        titleLabel = new JLabel(properties.lbl_txt_tittleUserPanel());
         addTitleLabel();
         addSearchPanel(actionListener, mouseListener, keyListener);
     }
@@ -43,8 +46,8 @@ public class UsersPanel extends JPanel {
     }
 
     private void addSearchPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
-        searchPanel = new SearchPanel(actionListener, mouseListener, keyListener);
-        searchPanel.setActionCommandAddButton("ADD_USER");
+        searchPanel = new SearchPanel(actionListener, mouseListener, keyListener, properties);
+        searchPanel.setActionCommandAddButton(properties.ac_addUser());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -89,15 +92,15 @@ public class UsersPanel extends JPanel {
     }
 
     private void addUser(String user, int index) {
-        String[] userArray = user.split(";");
+        String[] userArray = user.split(properties.getSplitter());
         JButton userButton = new JButton(new ImageIcon(userArray[0]));
-        userButton.setText("<html><center>Name: " + userArray[1] + "<br>Rented Books: " + userArray[5] + "</center></html>");
+        userButton.setText("<html><center>"+properties.btn_txt_userPanelName() + userArray[1] +"<br>"+ properties.btn_txt_userPanelRentedBooks() + userArray[5] + "</center></html>");
         userButton.setHorizontalTextPosition(SwingConstants.CENTER);
         userButton.setVerticalTextPosition(SwingConstants.BOTTOM);
         userButton.setPreferredSize(new Dimension(136, 176));
         userButton.addActionListener(actionListener);
         userButton.addMouseListener(mouseListener);
-        userButton.setActionCommand("USER_" + index);
+        userButton.setActionCommand(properties.ac_UserButtons_() + index);
         userButton.setBorderPainted(false);
         userButton.setFocusable(false);
         userButton.setBackground(Color.red);
@@ -110,7 +113,7 @@ public class UsersPanel extends JPanel {
     }
 
     public String getUserInfo(int index) {
-        String text = userButtons.get(index).getText().replace("<html><center>Name: ", "");
+        String text = userButtons.get(index).getText().replace("<html><center>"+properties.btn_txt_userPanelName(), "");
         return text.substring(0, text.indexOf("<br>"));
     }
 
@@ -120,13 +123,6 @@ public class UsersPanel extends JPanel {
 
     public String getSearchFieldTextUsers() {
         return searchPanel.getTextInSearchField();
-    }
-
-    public void removeUser(int userIndex) {
-        JButton button = userButtons.get(userIndex);
-        userButtons.set(userIndex, null);
-        setButtonCoordinates();
-        remove(button);
     }
 
     public void setUserIndex(int userIndex) {
@@ -142,15 +138,15 @@ public class UsersPanel extends JPanel {
         setButtonCoordinates();
     }
 
-    public JComponent getSearchPanel() {
-        return searchPanel;
-    }
-
     public void hidePlusButtons() {
         searchPanel.hidePlusButtons();
     }
 
     public void showPlusButton() {
         searchPanel.showPlusButton();
+    }
+
+    public void clearByOperationPanel() {
+        userIndex = -1;
     }
 }
