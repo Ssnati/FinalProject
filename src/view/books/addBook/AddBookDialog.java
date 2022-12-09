@@ -1,5 +1,7 @@
 package view.books.addBook;
 
+import persistence.PrivateProperties;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
@@ -9,7 +11,7 @@ public class AddBookDialog extends JDialog {
 
     private AddBookPanel addBookPanel;
 
-    public AddBookDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener) throws IOException {
+    public AddBookDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) throws IOException {
         super(dialog, modal);
         setTitle("Add Book");
         this.setSize(431,749);

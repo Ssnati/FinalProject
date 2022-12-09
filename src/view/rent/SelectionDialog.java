@@ -1,6 +1,6 @@
 package view.rent;
 
-import view.View;
+import persistence.PrivateProperties;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -12,7 +12,7 @@ public class SelectionDialog extends JDialog {
     private SelectionPanel selectionPanel;
     private OperationDialog operationDialog;
 
-    public SelectionDialog(JFrame frame, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) throws IOException {
+    public SelectionDialog(JFrame frame, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener, PrivateProperties properties) throws IOException {
         super(frame, modal);
         setTitle("Selection");
         this.setSize(744,338);
@@ -52,18 +52,6 @@ public class SelectionDialog extends JDialog {
 
     public boolean returnPanelIsVisible() {
         return operationDialog.returnPanelIsVisible();
-    }
-
-    public void showOperationUsersDialog() {
-        operationDialog.showOperationUsersDialog();
-    }
-
-    public void showOperationBooksDialog() {
-        operationDialog.showOperationBooksDialog();
-    }
-
-    public boolean showRentDialogIsVisible() {
-        return operationDialog.showRentDialogIsVisible();
     }
 
     public boolean operationPanelIsVisible() {

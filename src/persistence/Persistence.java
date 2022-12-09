@@ -1,10 +1,12 @@
 package persistence;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 import model.*;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -139,5 +141,21 @@ public class Persistence {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void saveData(List<User> users, List<Book> books, List<Copy> copies, List<Rent> rents) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        FileWriter userWriter = new FileWriter("data/Users.json");
+        userWriter.write(gson.toJson(users));
+        userWriter.close();
+        FileWriter bookWriter = new FileWriter("data/Books.json");
+        bookWriter.write(gson.toJson(books));
+        bookWriter.close();
+        FileWriter copyWriter = new FileWriter("data/Copies.json");
+        copyWriter.write(gson.toJson(copies));
+        copyWriter.close();
+        FileWriter rentWriter = new FileWriter("data/Rents.json");
+        rentWriter.write(gson.toJson(rents));
+        rentWriter.close();
     }
 }

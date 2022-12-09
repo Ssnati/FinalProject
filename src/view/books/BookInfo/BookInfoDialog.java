@@ -1,5 +1,7 @@
 package view.books.BookInfo;
 
+import persistence.PrivateProperties;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
@@ -9,13 +11,13 @@ public class BookInfoDialog extends JDialog {
     private BookInfoPanel bookInfoPanel;
     private BookHistoryDialog bookHistoryDialog;
 
-    public BookInfoDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener) {
+    public BookInfoDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) {
         super(dialog, modal);
-        setTitle("Book Info");
+        setTitle(properties.getBookInfoDialogTitle());
         this.setSize(803,402);
-        bookInfoPanel = new BookInfoPanel(actionListener, mouseListener);
+        bookInfoPanel = new BookInfoPanel(actionListener, mouseListener, properties);
         getContentPane().add(bookInfoPanel);
-        bookHistoryDialog = new BookHistoryDialog(this, true, actionListener, mouseListener);
+        bookHistoryDialog = new BookHistoryDialog(this, true, actionListener, mouseListener, properties);
         setLocationRelativeTo(null);
     }
 

@@ -96,4 +96,12 @@ public class SearchPanel extends JPanel {
     public void setActionCommandAddButton(String command) {
         addButton.setActionCommand(command);
     }
+
+    public void hidePlusButtons() {
+        addButton.setVisible(false);
+    }
+
+    public void showPlusButton() {
+        addButton.setVisible(true);
+    }
 }

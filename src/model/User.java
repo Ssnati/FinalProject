@@ -92,4 +92,12 @@ public class User {
         }
         return rentedBooks;
     }
+
+    public void addRentedCopy(Copy copy) {
+        rentedCopies.add(copy);
+    }
+
+    public void removeRentedCopy(Copy copy) {
+        rentedCopies.remove(copy);
+    }
 }

@@ -1,5 +1,7 @@
 package view.books.BookInfo;
 
+import persistence.PrivateProperties;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -10,7 +12,7 @@ public class BookInfoPanel extends JPanel {
     private JLabel bookTitleLabel, bookDescriptionLabel, bookAuthorLabel, bookYearLabel, bookISBNLabel, bookAvailableCopiesLabel, bookTotalCopiesLabel;
     private JButton coverButton, deleteButton, historyButton, addCopyButton, removeCopyButton;
 
-    public BookInfoPanel(ActionListener actionListener, MouseListener mouseListener) {
+    public BookInfoPanel(ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) {
         setLayout(new GridBagLayout());
         initComponents(actionListener, mouseListener);
         setBackground(Color.WHITE);

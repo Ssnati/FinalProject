@@ -1,23 +1,46 @@
 package view.user;
 
-import view.books.BooksPanel;
+import persistence.PrivateProperties;
 import view.user.addUser.AddUserDialog;
 import view.user.userInfo.UserInfoDialog;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.util.List;
-
+@SuppressWarnings("unused")
 public class UsersDialog extends JDialog {
     private UsersPanel usersPanel;
     private UserInfoDialog userInfoDialog;
     private AddUserDialog addUserDialog;
     private JScrollPane scrollPane;
 
-    public UsersDialog(JFrame frame, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+    public void setUsersPanel(UsersPanel usersPanel) {
+        this.usersPanel = usersPanel;
+    }
+
+    public UserInfoDialog getUserInfoDialog() {
+        return userInfoDialog;
+    }
+
+    public void setUserInfoDialog(UserInfoDialog userInfoDialog) {
+        this.userInfoDialog = userInfoDialog;
+    }
+
+    public void setAddUserDialog(AddUserDialog addUserDialog) {
+        this.addUserDialog = addUserDialog;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public void setScrollPane(JScrollPane scrollPane) {
+        this.scrollPane = scrollPane;
+    }
+
+    public UsersDialog(JFrame frame, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener, PrivateProperties properties) {
         super(frame, modal);
         setTitle("Users");
         setSize(382, 723);
@@ -129,5 +152,9 @@ public class UsersDialog extends JDialog {
 
     public UsersPanel getUsersPanel() {
         return usersPanel;
+    }
+
+    public void updateUsersPanel() {
+        usersPanel.updateUI();
     }
 }

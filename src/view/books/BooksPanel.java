@@ -1,5 +1,6 @@
 package view.books;
 
+import persistence.PrivateProperties;
 import view.SearchPanel;
 
 import javax.swing.*;
@@ -20,7 +21,7 @@ public class BooksPanel extends JPanel {
     private int bookIndex;
     private HashMap<String, String> bookInfo;
 
-    public BooksPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
+    public BooksPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener, PrivateProperties properties) {
         bookButtons = new ArrayList<>();
         bookInfo = new HashMap<>();
         this.actionListener = actionListener;
@@ -122,6 +123,7 @@ public class BooksPanel extends JPanel {
     public void loadBooks(List<String> books) {
         bookButtons.forEach(this::remove);
         bookButtons.clear();
+        bookInfo = new HashMap<>();
         for (int i = 0; i < books.size(); i++) {
             addBooksListPanel(books.get(i), i);
         }
@@ -168,7 +170,8 @@ public class BooksPanel extends JPanel {
     }
 
     public String getBookName(String actionCommand) {
-        String[] bookArray = bookInfo.get(actionCommand).split(";");
+        String a =bookInfo.get(actionCommand);
+        String[] bookArray = a.split(";");
         return bookArray[1];
     }
 
@@ -184,5 +187,13 @@ public class BooksPanel extends JPanel {
     public void loadNewBook(String newBookInfo) {
         addBooksListPanel(newBookInfo, bookButtons.size());
         setBookCoordinates();
+    }
+
+    public void hidePlusButtons() {
+        searchPanel.hidePlusButtons();
+    }
+
+    public void showPlusButton() {
+        searchPanel.showPlusButton();
     }
 }

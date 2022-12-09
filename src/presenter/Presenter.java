@@ -1,6 +1,7 @@
 package presenter;
 
 import model.Library;
+import persistence.PrivateProperties;
 import view.View;
 
 import javax.swing.*;
@@ -8,17 +9,16 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class Presenter implements ActionListener, MouseListener, KeyListener {
+public class Presenter implements ActionListener, MouseListener, KeyListener, WindowListener {
     private Library library;
     private View view;
 
     public Presenter() {
         try {
             library = new Library();
-            view = new View(this, this, this);
+            view = new View(this, this, this, this, new PrivateProperties());
         } catch (IOException e) {
             view.showMessage("Error " + e.getMessage());
         }
@@ -37,57 +37,40 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
         }
         if (e.getActionCommand().equals("USERS")) {
             view.showUsersDialog();
-
         }
         if (e.getActionCommand().equals("BOOKS")) {
             view.showBooksDialog();
         }
-        view.loadBooks(library.getBooksToView());
+        view.showPlusButton();
+        view.loadUsers(library.getUsersToView());
         if (view.selectionDialogIsVisible()) selectionMenu(e);
         else if (view.usersDialogIsVisible()) usersMenu(e);
         else if (view.booksDialogIsVisible()) booksMenu(e);
     }
 
     private void selectionMenu(ActionEvent e) {
+        view.hidePlusButtons();
         showSelectionMenu(e);
         if (view.operationPanelIsVisible()) operationMenu(e);
 
-        System.out.println("User: " + view.getUserIndex() + " Copy: " + view.getCopyId());
+        System.out.println("User: " + view.getUserIndex() + " Copy: " + view.getCopyId() + " Book: " + view.getBookIndex());
         if (e.getActionCommand().equals("RENT_BOOK")) {
             System.out.println("Action: " + view.getOperationDialog());
-            if ((view.getUserIndex() < 0) || view.getCopyId() == 0)view.showMessage("Select a user and a book");
-            else library.rentBook(view.getUserInfo(view.getUserIndex()), view.getBookName("BOOK_"+view.getBookIndex()), view.getCopyId());
+            if ((view.getUserIndex() < 0) || view.getCopyId() == 0) view.showMessage("Select a user and a book");
+            else {
+                library.rentBook(view.getUserInfo(view.getUserIndex()), view.getBookName("BOOK_" + view.getBookIndex()), view.getCopyId());
+                view.clearOperationPanel();
+                view.showMessage("Book rented");
+            }
         } else if (e.getActionCommand().equals("RETURN_BOOK")) {
             System.out.println("Action: " + view.getOperationDialog());
-            if ((view.getUserIndex() < 0) || view.getCopyId() == 0)view.showMessage("Select a user and a book");
-            else library.returnBook(view.getUserInfo(view.getUserIndex()), view.getBookName("BOOK_"+view.getBookIndex()), view.getCopyId());
-        }
-        //        else if (view.operationPanelIsVisible() && view.getOperationDialog().equals("RETURN_DIALOG")) returnMenu(e);
-    }
+            if ((view.getUserIndex() < 0) || view.getCopyId() == 0) view.showMessage("Select a user and a book");
+            else {
+                library.returnBook(view.getUserInfo(view.getUserIndex()), view.getBookName("BOOK_" + view.getBookIndex()), view.getCopyId());
 
-    private void returnMenu(ActionEvent e) {
-        view.showOperationUsersDialog();
-        System.out.println(e.getActionCommand() + " Esta en el rentMenu");
-        if (e.getActionCommand().equals("SELECT_USER_TO_RETURN")) view.showUsersDialog();
-        else if (e.getActionCommand().equals("SELECT_BOOK_TO_RENT")) view.showBooksDialog();
-        else if (e.getActionCommand().equals("RENT")) view.showOperationUsersDialog();
-        if (view.usersDialogIsVisible()) {
-            for (int i = 0; i < view.getUsersListSize(); i++) {
-                if (e.getActionCommand().equals("USER_" + i)) {
-                    view.setUserSelectedPath(library.getUserImageSource((view.getUserInfo(i))));
-                    view.closeUsersDialog();
-                    System.out.println("USER_" + i);
-                    break;
-                }
+                view.clearOperationPanel();
+                view.showMessage("Book returned");
             }
-        } else if (view.booksDialogIsVisible() && !e.getActionCommand().equals("ADD_BOOK")) {
-            view.setBookSelectedPath(library.getBookImageSource(view.getBookName(e.getActionCommand())));
-//            view.getIdToRent(library.getAvailableListCopies(view.getBookName(e.getActionCommand())));
-            int[] availableCopies = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-            ArrayList<Integer> copiesList = new ArrayList<>();
-            Arrays.stream(availableCopies).forEach(copiesList::add);
-            view.getIdToRent(copiesList);
-            view.closeBooksDialog();
         }
     }
 
@@ -104,16 +87,14 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
     }
 
     private void selectBookToRent(ActionEvent e) {
-        view.setBookSelectedPath(library.getBookImageSource(view.getBookName(e.getActionCommand())));
+        selectBook(e);
         List<Integer> copiesList = new ArrayList<>();
         if (view.getOperationDialog().equals("RENT_DIALOG")) {
             copiesList = library.getAvailableListCopies(view.getBookName(e.getActionCommand()));
         } else if (view.getOperationDialog().equals("RETURN_DIALOG")) {
             copiesList = library.getUserRentedListCopies(view.getUserInfo(view.getUserIndex()), view.getBookName(e.getActionCommand()));
+            System.out.println("Parametros lanzados al buscar User: " + view.getUserInfo(view.getUserIndex()) + " Copy: " + view.getCopyId() + " Book: " + view.getBookIndex());
         }
-//            view.getIdToRent(library.getAvailableListCopies(view.getBookName(e.getActionCommand())));
-//        int[] availableCopies = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-//        Arrays.stream(availableCopies).forEach(copiesList::add);
         int i = view.getIdToRent(copiesList);
         if (i != -1) {
             if (i == -2) {
@@ -125,10 +106,21 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
         }
     }
 
+    private void selectBook(ActionEvent e) {
+        for (int i = 0; i < view.getBooksListSize(); i++) {
+            if (e.getActionCommand().equals("BOOK_" + i)) {
+                view.setBookIndex(i);
+                view.setBookSelectedPath(library.getBookImageSource(view.getBookName(e.getActionCommand())));
+                break;
+            }
+        }
+    }
+
     private void selectUserToRent(ActionEvent e) {
         for (int i = 0; i < view.getUsersListSize(); i++) {
             if (e.getActionCommand().equals("USER_" + i)) {
                 view.setUserIndex(i);
+                System.out.println("UserIndex: " + view.getUserIndex());
                 view.setUserSelectedPath(library.getUserImageSource((view.getUserInfo(i))));
                 view.closeUsersDialog();
                 System.out.println("USER_" + i);
@@ -167,8 +159,10 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
             view.clearOperationPanel();
             view.setOperationCommand(e.getActionCommand());
 
-            if (e.getActionCommand().equals("RENT_DIALOG")) view.showRentDialog();
-            else if (e.getActionCommand().equals("RETURN_DIALOG")) view.showReturnDialog();
+            if (e.getActionCommand().equals("RENT_DIALOG")) {
+                view.showRentDialog();
+                view.loadBooks(library.getBooksToView());
+            } else if (e.getActionCommand().equals("RETURN_DIALOG")) view.showReturnDialog();
         }
     }
 
@@ -202,9 +196,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
     private void bookInfoMenu(ActionEvent e) {
         if (e.getActionCommand().equals("DELETE_BOOK")) deleteBookMenu();
         if (e.getActionCommand().equals("HISTORY_BOOK")) {
-//            view.showHistoryDialog(library.getRentHistory(view.getSelectedBook()));
-            String[] history = {"Santiago;1;12/12/2019;12/12/2019", "Daniel;2;12/12/2019;12/12/2019", "Camilo;3;12/12/2019;12/12/2019", "Julian;4;12/12/2019;12/12/2019", "Esteban;5;12/12/2019;12/12/2019", "Sebastian;6;12/12/2019;12/12/2019"};
-            view.showHistoryDialog(Arrays.asList(history));
+            view.showHistoryDialog(library.getRentHistory(view.getSelectedBook()));
         }
 
         if (e.getActionCommand().equals("ADD_COPY")) {
@@ -242,6 +234,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
             for (int i = 0; i < view.getBooksListSize(); i++) {
                 if (e.getActionCommand().equals("BOOK_" + i)) {
                     view.setBookIndex(i);
+                    System.out.println("Action comand: BOOK_" + i);
                     view.showBookInfo(library.getBookToView(view.getBookName("BOOK_" + i)));
                 }
             }
@@ -259,10 +252,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
     }
 
     private void usersMenu(ActionEvent e) {
-        //Para saber que usuario se selecciono
         if (view.usersDialogIsVisible()) selectUserMenu(e);
-
-        //Informacion del usuario seleccionado
         if (view.userInfoDialogIsVisible()) deleteUserMenu(e);
 
         if (e.getActionCommand().equals("ADD_USER")) {
@@ -289,8 +279,14 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
     private boolean newBookIsValid(String newBookInfo) {
         boolean isValid = false;
         try {
+            System.out.println(newBookInfo);
             String[] bookInfo = newBookInfo.split(";");
             isValid = !bookInfo[0].equals("") || bookInfo[1].equals("") || bookInfo[2].equals("") || bookInfo[3].equals("") || bookInfo[4].equals("") || bookInfo[5].equals("") || bookInfo[6].equals("");
+            if (isValid) {
+                int i = Integer.parseInt(bookInfo[4]);
+                int j = Integer.parseInt(bookInfo[6]);
+                isValid = i > 0 && j > 0;
+            }
         } catch (ArrayIndexOutOfBoundsException e) {
             view.showMessage("The book info is not valid");
         }
@@ -314,13 +310,41 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
     private boolean newUserIsValid(String newUserInfo) {
         boolean isValid = false;
         try {
+            System.out.println(newUserInfo);
             String[] userInfo = newUserInfo.split(";");
-            isValid = !(userInfo[0].equals("") || userInfo[1].equals("") || userInfo[2].equals("") || userInfo[3].equals("") || userInfo[4].equals(""));
+            if (isElectronicMailValid(userInfo[3])) throw new Exception();
+            if ((userInfo[0].equals("") || userInfo[1].equals("") || userInfo[2].equals("") || userInfo[3].equals("") || userInfo[4].equals(""))) {
+                throw new Exception();
+            } else {
+                int i = Integer.parseInt(userInfo[4]);
+                isValid = i > 0 && isElectronicMailValid(userInfo[2]);
+            }
         } catch (Exception e) {
             view.showMessage("La informacion del usuario no es valida");
         }
         return isValid;
     }
+
+    private boolean isElectronicMailValid(String mail) {
+        boolean isValid = false;
+        if (mail.contains("@")) {
+            String[] mailSplit = mail.split("@");
+            if (mailSplit.length == 2) {
+                if (mailSplit[0].length() > 0 && mailSplit[1].length() > 0) {
+                    if (mailSplit[1].contains(".")) {
+                        String[] domain = mailSplit[1].split("\\.");
+                        if (domain.length == 2) {
+                            if (domain[0].length() > 0 && domain[1].length() > 0) {
+                                isValid = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return isValid;
+    }
+
 
     @Override
     public void mouseEntered(MouseEvent e) {
@@ -342,56 +366,70 @@ public class Presenter implements ActionListener, MouseListener, KeyListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println("keyTyped");
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        int key = e.getKeyCode();
-        System.out.println(key);
-        if ((key == 18) || (key == 115)) {
-        } else {
-            if (view.usersDialogIsVisible()) {
-                view.setTextInSearchFieldUsers();
-                System.out.println("Usuarios Entrada: " + view.getSearchFieldTextUsers());
-            }
-            if (view.booksDialogIsVisible()) {
-                view.setTextInSearchFieldBooks();
-                System.out.println("Libros Entrada: " + view.getSearchFieldTextBooks());
-            }
+        if (view.usersDialogIsVisible()) {
+            view.setTextInSearchFieldUsers();
+            System.out.println("Usuarios Entrada: " + view.getSearchFieldTextUsers());
+        }
+        if (view.booksDialogIsVisible()) {
+            view.setTextInSearchFieldBooks();
+            System.out.println("Libros Entrada: " + view.getSearchFieldTextBooks());
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        int key = e.getKeyCode();
-        if ((key == 18) || (key == 115)) {
-        } else {
-            if (view.usersDialogIsVisible()) {
-                view.setTextInSearchFieldUsers();
-                view.loadUsers(library.searchUsersToView(view.getSearchFieldTextUsers()));
-                System.out.println("Usuarios Salida: " + view.getSearchFieldTextUsers());
-            }
-            if (view.booksDialogIsVisible()) {
-                view.setTextInSearchFieldBooks();
-                view.loadBooks(library.searchBooksToView(view.getSearchFieldTextBooks()));
-                System.out.println("Libros Salida: " + view.getSearchFieldTextBooks());
-            }
+        if (view.usersDialogIsVisible()) {
+            view.setTextInSearchFieldUsers();
+            view.loadUsers(library.searchUsersToView(view.getSearchFieldTextUsers()));
+            System.out.println("Usuarios Salida: " + view.getSearchFieldTextUsers());
+        }
+        if (view.booksDialogIsVisible()) {
+            view.setTextInSearchFieldBooks();
+            view.loadBooks(library.searchBooksToView(view.getSearchFieldTextBooks()));
+            System.out.println("Libros Salida: " + view.getSearchFieldTextBooks());
         }
     }
+
+    @Override
+    public void windowOpened(WindowEvent e) {}
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        try {
+            library.saveData();
+        } catch (IOException ex) {
+            view.showMessage("Error al guardar los datos");
+        }
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {}
+
+    @Override
+    public void windowIconified(WindowEvent e) {}
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {}
+
+    @Override
+    public void windowActivated(WindowEvent e) {}
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {}
 }

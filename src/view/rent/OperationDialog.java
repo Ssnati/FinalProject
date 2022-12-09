@@ -1,8 +1,5 @@
 package view.rent;
 
-import view.books.BooksDialog;
-import view.user.UsersDialog;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -11,12 +8,10 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 
 public class OperationDialog extends JDialog {
-    private UsersDialog usersDialog;
-    private BooksDialog booksDialog;
     private MidPanel midPanel;
     private String operation;
 
-    public OperationDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) throws IOException {
+    public OperationDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener){
         super(dialog, modal);
         setTitle("Operation");
         this.setSize(744, 338);
@@ -25,16 +20,9 @@ public class OperationDialog extends JDialog {
         setLocationRelativeTo(null);
     }
 
-    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) throws IOException {
+    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener){
         midPanel = new MidPanel(actionListener, mouseListener);
         addMidPanel();
-
-        usersDialog = new UsersDialog(this, true, actionListener, mouseListener, keyListener);
-        booksDialog = new BooksDialog(this, true, actionListener, mouseListener, keyListener);
-
-        usersDialog.setVisible(false);
-        booksDialog.setVisible(false);
-
     }
 
     private void addMidPanel() {
@@ -57,24 +45,12 @@ public class OperationDialog extends JDialog {
         midPanel.updateUI();
     }
 
-    public void showOperationUsersDialog() {
-        usersDialog.setVisible(true);
-    }
-
-    public void showOperationBooksDialog() {
-        booksDialog.setVisible(true);
-    }
-
     public boolean rentPanelIsVisible() {
         return midPanel.rentPanelIsVisible();
     }
 
     public boolean returnPanelIsVisible() {
         return midPanel.returnPanelIsVisible();
-    }
-
-    public boolean showRentDialogIsVisible() {
-        return usersDialog.isVisible();
     }
 
     public boolean operationPanelIsVisible() {

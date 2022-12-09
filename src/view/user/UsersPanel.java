@@ -145,4 +145,12 @@ public class UsersPanel extends JPanel {
     public JComponent getSearchPanel() {
         return searchPanel;
     }
+
+    public void hidePlusButtons() {
+        searchPanel.hidePlusButtons();
+    }
+
+    public void showPlusButton() {
+        searchPanel.showPlusButton();
+    }
 }

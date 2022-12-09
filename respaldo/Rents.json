@@ -23,4 +23,28 @@
       "rentedCopies": []
     }
   }
+  ,{
+    "rentDate": "01/01/2020",
+    "returnDate": "01/02/2020",
+    "associatedCopy": {
+      "associatedBook": {
+        "coverSource": "sources/covers/Cover9.jpg",
+        "title": "El Señor de los Anillos, la comunidad del anillo",
+        "author": "J.R.R. Tolkien",
+        "year": "1954",
+        "description": "En la adormecida e idílica Comarca, un joven hobbit recibe un encargo: custodiar el Anillo Único y emprender el viaje para su destrucción en la Grieta del Destino. Acompañado por magos, hombres, elfos y enanos, atravesará la Tierra Media y se internará en las sombras de Mordor, perseguido siempre por las huestes de Sauron, el Señor Oscuro, dispuesto a recuperar su creación para establecer el dominio definitivo del Mal.",
+        "ISBN": "978-84-7888-452-0"
+      },
+      "id": 1,
+      "available": false
+    },
+    "associatedUser": {
+      "iconSrc": "sources/userIcons/Male Icon 1.png",
+      "name": "John Doe",
+      "email": "jhonDoe@gmail.com",
+      "address": "1234 Main Street, New York, NY 10001",
+      "phone": 1234567890,
+      "rentedCopies": []
+    }
+  }
 ]

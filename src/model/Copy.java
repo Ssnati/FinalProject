@@ -12,6 +12,12 @@ public class Copy {
         this.available = true;
     }
 
+    public Copy(){
+        this.associatedBook = null;
+        this.id = 0;
+        this.available = true;
+    }
+
     public Copy(Book associatedBook, int id, boolean available) {
         this.associatedBook = associatedBook;
         this.id = id;

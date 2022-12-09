@@ -225,12 +225,11 @@ public class AddBookPanel extends JPanel {
     public void setPahCoverToNewBook(String bookName) {
         this.pathCover = bookName;
         System.out.println(pathCover);
-//        addCover.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\Intellj Project\\4 Semestre\\FinalProject\\sources\\covers\\Cover12.jpg").getImage().getScaledInstance(136, 219, Image.SCALE_SMOOTH)));
         addCover.setIcon(new ImageIcon(new ImageIcon(pathCover).getImage().getScaledInstance(136, 219, Image.SCALE_SMOOTH)));
     }
 
     public String getNewBookInfo() {
-        return pathCover + ";" + tittleField.getText() + ";" + authorField.getText() + ";" + yearField.getText() + ";" + descriptionArea.getText() + ";" + ISBNField.getText() + ";" + copiesField.getText();
+        return pathCover + ";" + tittleField.getText() + ";" + descriptionArea.getText() + ";" + authorField.getText() + ";" + yearField.getText() + ";" + ISBNField.getText() + ";" + copiesField.getText();
     }
     public void showFileChooser(int pathNumber){
         try {

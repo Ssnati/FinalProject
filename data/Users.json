@@ -4,7 +4,7 @@
     "name": "John Doe",
     "email": "jhonDoe@gmail.com",
     "address": "1234 Main Street, New York, NY 10001",
-    "phone": 1234567890,
+    "phone": "1234567890",
     "rentedCopies": []
   },
   {
@@ -12,7 +12,7 @@
     "name": "Jane Smith",
     "email": "janeSmith@gmail.com",
     "address": "4321 Park Avenue, Los Angeles, CA 90001",
-    "phone": 8765432,
+    "phone": "8765432",
     "rentedCopies": []
   },
   {
@@ -20,7 +20,7 @@
     "name": "James Johnson",
     "email": "jamesJohnson@gmail.com",
     "address": "1110 Willow Road, Chicago, IL 60606",
-    "phone": 5487210938,
+    "phone": "5487210938",
     "rentedCopies": []
   },
   {
@@ -28,7 +28,7 @@
     "name": "Emma Williams",
     "email": "emmaWilliams@gmail.com",
     "address": "2222 Cherry Lane, Houston, TX 77001",
-    "phone": 7418529630,
+    "phone": "7418529630",
     "rentedCopies": []
   },
   {
@@ -36,7 +36,7 @@
     "name": "David Brown",
     "email": "davidBrown@gmail.com",
     "address": "3333 Oak Street, Philadelphia, PA 19101",
-    "phone": 6574892103,
+    "phone": "6574892103",
     "rentedCopies": []
   },
   {
@@ -44,7 +44,7 @@
     "name": "Olivia Jones",
     "email": "oliviaJones@gmail.com",
     "address": "4444 Maple Avenue, Phoenix, AZ 85001",
-    "phone": 1209384765,
+    "phone": "1209384765",
     "rentedCopies": []
   },
   {
@@ -52,7 +52,7 @@
     "name": "William Taylor",
     "email": "williamTaylor@gmail.com",
     "address": "5555 Birch Road, San Antonio, TX 78201",
-    "phone": 1029384765,
+    "phone": "1029384765",
     "rentedCopies": []
   },
   {
@@ -60,7 +60,7 @@
     "name": "Sophia Johnson",
     "email": "sophiaJohnson@gmail.com",
     "address": "6666 Cedar Street, San Diego, CA 92201",
-    "phone": 987654321,
+    "phone": "987654321",
     "rentedCopies": []
   }
 ]

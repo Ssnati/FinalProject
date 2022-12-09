@@ -52,5 +52,4 @@ public class SelectionPanel extends JPanel {
         super.paint(g);
     }
 
-
 }

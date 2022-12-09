@@ -1,5 +1,9 @@
 package model;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 public class Rent {
     private String rentDate;
     private String returnDate;
@@ -12,7 +16,6 @@ public class Rent {
         this.associatedCopy = associatedCopy;
         this.associatedUser = associatedUser;
     }
-
 
     public Copy getAssociatedCopy() {
         return associatedCopy;
@@ -47,6 +50,6 @@ public class Rent {
     }
 
     public String toView() {
-        return associatedUser.getName()+ ";" + associatedCopy.getId() + ";" + rentDate + ";" + returnDate;
+        return associatedUser.getName() + ";" + associatedCopy.getId() + ";" + rentDate + ";" + returnDate;
     }
 }
