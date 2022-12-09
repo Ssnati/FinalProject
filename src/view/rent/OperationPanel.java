@@ -1,5 +1,6 @@
 package view.rent;
 
+import persistence.PrivateProperties;
 import view.OakButton;
 import view.OvalButton;
 
@@ -9,11 +10,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
 public class OperationPanel extends JPanel {
+    private final PrivateProperties properties;
     private ActionListener actionListener;
     private MouseListener mouseListener;
     private JButton selectUserButton, selectBookButton, rentButton, returnButton;
 
-    public OperationPanel(ActionListener actionListener, MouseListener mouseListener) {
+    public OperationPanel(ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) {
+        this.properties = properties;
         setLayout(new GridBagLayout());
         this.actionListener = actionListener;
         this.mouseListener = mouseListener;
@@ -22,17 +25,17 @@ public class OperationPanel extends JPanel {
     }
 
     private void initComponent() {
-        selectUserButton = new JButton("Select User");
-        selectBookButton = new JButton("Select Book");
+        selectUserButton = new JButton(properties.btn_txt_selectUserButton());
+        selectBookButton = new JButton(properties.btn_txt_selectBookButton());
 
-        rentButton = new JButton("  Rent   ");
-        returnButton = new JButton(" Return ");
+        rentButton = new JButton(properties.btn_txt_rentActionButton());
+        returnButton = new JButton(properties.btn_txt_returnActionButton());
 
-        selectButtonFeatures(selectUserButton, new Color(136, 164, 187), "sources/Add User.png","SELECT_USER_TO_RENT");
-        selectButtonFeatures(selectBookButton, new Color(108, 135, 126), "sources/Add Book.png","SELECT_BOOK_TO_RENT");
+        selectButtonFeatures(selectUserButton, new Color(136, 164, 187), properties.src_AddUserIcon(), properties.ac_selectUserButtonToRent());
+        selectButtonFeatures(selectBookButton, new Color(108, 135, 126), properties.src_AddCoverPath(), properties.ac_selectBookButtonToRent());
 
-        actionButtonFeatures(rentButton, true, false, true, false, "RENT_BOOK");
-        actionButtonFeatures(returnButton, false, true, false, true, "RETURN_BOOK");
+        actionButtonFeatures(rentButton, true, false, true, false, properties.ac_rentBookButton());
+        actionButtonFeatures(returnButton, false, true, false, true, properties.ac_returnBookButton());
 
         addComponents();
     }
@@ -60,7 +63,7 @@ public class OperationPanel extends JPanel {
         button.setIconTextGap(0);
         button.setHorizontalTextPosition(SwingConstants.CENTER);
         button.setVerticalTextPosition(SwingConstants.NORTH);
-        button.setFont(new Font("Sans Serif", Font.BOLD, 30));
+        button.setFont(new Font("Sans Serif", Font.BOLD, 17));
         button.setIcon(new ImageIcon(new ImageIcon(source).getImage().getScaledInstance(110, 165, Image.SCALE_DEFAULT)));
         button.setUI(new OvalButton(button.getPreferredSize().width, button.getPreferredSize().height,
                 25, 25, color));
@@ -124,7 +127,7 @@ public class OperationPanel extends JPanel {
     }
 
     public void clearFields() {
-        selectUserButton.setIcon(new ImageIcon(new ImageIcon("sources/Add User.png").getImage().getScaledInstance(110, 165, Image.SCALE_DEFAULT)));
-        selectBookButton.setIcon(new ImageIcon(new ImageIcon("sources/Add Book.png").getImage().getScaledInstance(110, 165, Image.SCALE_DEFAULT)));
+        selectUserButton.setIcon(new ImageIcon(new ImageIcon(properties.src_AddUserIcon()).getImage().getScaledInstance(110, 165, Image.SCALE_DEFAULT)));
+        selectBookButton.setIcon(new ImageIcon(new ImageIcon(properties.src_AddCoverPath()).getImage().getScaledInstance(110, 165, Image.SCALE_DEFAULT)));
     }
 }

@@ -1,5 +1,6 @@
 package view.books.BookInfo;
 
+import persistence.PrivateProperties;
 import view.OakButton;
 
 import javax.swing.*;
@@ -12,18 +13,20 @@ import java.util.List;
 
 public class BookHistoryPanel extends JPanel {
 
+    private final PrivateProperties properties;
     private JTable bookHistoryTable;
     private JButton bookHistoryLabel;
     private JScrollPane scrollPane;
     private DefaultTableModel tableModel;
 
-    public BookHistoryPanel(ActionListener listener, MouseListener mouseListener) {
+    public BookHistoryPanel(PrivateProperties properties) {
+        this.properties = properties;
         setLayout(new GridBagLayout());
         initComponent();
     }
 
     private void initComponent() {
-        bookHistoryLabel = new JButton("Book History");
+        bookHistoryLabel = new JButton(properties.getBookHistoryDialogTitle());
         bookHistoryLabelFeatures();
         bookHistoryTable = new JTable();
         tableModel = new DefaultTableModel();
@@ -55,7 +58,7 @@ public class BookHistoryPanel extends JPanel {
 
     private void setTableProperties() {
         bookHistoryTable.setModel(tableModel);
-        tableModel.setColumnIdentifiers(new String[]{"Usuario","Id de copia", "Fecha de prestamo", "Fecha de devolucion"});
+        tableModel.setColumnIdentifiers(new String[]{properties.tbl_0_column(), properties.tbl_1_column(), properties.tbl_2_column(), properties.tbl_3_column()});
         setTableHeaderProperties();
 
         bookHistoryTable.setRowHeight(30);
@@ -93,7 +96,7 @@ public class BookHistoryPanel extends JPanel {
 
     public void showHistory(List<String> rentHistory) {
         for (String s : rentHistory) {
-            String[] data = s.split(";");
+            String[] data = s.split(properties.getSplitter());
             tableModel.addRow(data);
         }
     }

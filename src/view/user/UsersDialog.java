@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.util.List;
-@SuppressWarnings("unused")
 public class UsersDialog extends JDialog {
     private UsersPanel usersPanel;
     private UserInfoDialog userInfoDialog;

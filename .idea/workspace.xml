@@ -3,35 +3,33 @@
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="3" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e47751a2-9ea6-4c63-b674-dff2985f7438" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/Properties.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/respaldo/Properties.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/persistence/PrivateProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/respaldo/Books.json" beforeDir="false" afterPath="$PROJECT_DIR$/respaldo/Books.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/respaldo/Rents.json" beforeDir="false" afterPath="$PROJECT_DIR$/respaldo/Rents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Copy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Copy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Rent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Rent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/persistence/Persistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistence/Persistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Copies.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/Copies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Properties.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data/Properties.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/respaldo/Properties.properties" beforeDir="false" afterPath="$PROJECT_DIR$/respaldo/Properties.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/PrivateProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistence/PrivateProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presenter/Presenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presenter/Presenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/SearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SearchPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/BookInfo/BookHistoryDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BookInfo/BookHistoryDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/books/BookInfo/BookHistoryPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BookInfo/BookHistoryPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/BookInfo/BookInfoDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BookInfo/BookInfoDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/BookInfo/BookInfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BookInfo/BookInfoPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/BooksDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BooksDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/BooksPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/BooksPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/addBook/AddBookDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/addBook/AddBookDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/books/addBook/AddBookPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/books/addBook/AddBookPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/rent/MidPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/MidPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/rent/OperationDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/OperationDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/rent/OperationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/OperationPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/rent/SelectionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/SelectionDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/rent/SelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/rent/SelectionPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/user/UsersDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/user/UsersDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/user/UsersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/user/UsersPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +66,13 @@
     "create.test.in.the.same.root": "true",
     "dart.analysis.tool.window.visible": "false",
     "last_opened_file_path": "C:/Users/ADMIN/Documents/Proyectos ZIP/4 Semestre",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.completion"
+    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -194,7 +197,9 @@
       <workItem from="1670364458730" duration="2613000" />
       <workItem from="1670385812696" duration="25734000" />
       <workItem from="1670425964711" duration="6122000" />
-      <workItem from="1670447108077" duration="46634000" />
+      <workItem from="1670447108077" duration="54325000" />
+      <workItem from="1670587765123" duration="133000" />
+      <workItem from="1670588035408" duration="2196000" />
     </task>
     <servers />
   </component>
@@ -292,7 +297,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/view/books/BooksPanel.java</url>
-          <line>173</line>
+          <line>143</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

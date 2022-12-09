@@ -21,24 +21,12 @@ public class BooksDialog extends JDialog {
         return booksPanel;
     }
 
-    public void setBooksPanel(BooksPanel booksPanel) {
-        this.booksPanel = booksPanel;
-    }
-
     public AddBookDialog getAddBookDialog() {
         return addBookDialog;
     }
 
-    public void setAddBookDialog(AddBookDialog addBookDialog) {
-        this.addBookDialog = addBookDialog;
-    }
-
     public BookInfoDialog getBookInfoDialog() {
         return bookInfoDialog;
-    }
-
-    public void setBookInfoDialog(BookInfoDialog bookInfoDialog) {
-        this.bookInfoDialog = bookInfoDialog;
     }
 
     public BooksDialog(JFrame frame, boolean modal, ActionListener listener, MouseListener mouseListener, KeyListener keyListener, PrivateProperties properties) throws IOException {

@@ -562,5 +562,53 @@
     },
     "id": 1,
     "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover1.jpg",
+      "title": "1984",
+      "author": "George Orwell",
+      "year": "1949",
+      "description": "En Londres, en el año 1984, Winston Smith trabaja en el Ministerio de la Verdad, encargado de manipular la historia para que coincida con la ideología del Partido. Winston se siente profundamente infeliz y decide rebelarse contra el sistema. Su vida se complica cuando conoce a Julia, una joven que pertenece a la Resistencia. Juntos intentarán huir de la ciudad y de la vigilancia del Partido.",
+      "ISBN": "978-84-206-0310-0"
+    },
+    "id": 2,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover1.jpg",
+      "title": "1984",
+      "author": "George Orwell",
+      "year": "1949",
+      "description": "En Londres, en el año 1984, Winston Smith trabaja en el Ministerio de la Verdad, encargado de manipular la historia para que coincida con la ideología del Partido. Winston se siente profundamente infeliz y decide rebelarse contra el sistema. Su vida se complica cuando conoce a Julia, una joven que pertenece a la Resistencia. Juntos intentarán huir de la ciudad y de la vigilancia del Partido.",
+      "ISBN": "978-84-206-0310-0"
+    },
+    "id": 3,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover1.jpg",
+      "title": "1984",
+      "author": "George Orwell",
+      "year": "1949",
+      "description": "En Londres, en el año 1984, Winston Smith trabaja en el Ministerio de la Verdad, encargado de manipular la historia para que coincida con la ideología del Partido. Winston se siente profundamente infeliz y decide rebelarse contra el sistema. Su vida se complica cuando conoce a Julia, una joven que pertenece a la Resistencia. Juntos intentarán huir de la ciudad y de la vigilancia del Partido.",
+      "ISBN": "978-84-206-0310-0"
+    },
+    "id": 4,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover1.jpg",
+      "title": "1984",
+      "author": "George Orwell",
+      "year": "1949",
+      "description": "En Londres, en el año 1984, Winston Smith trabaja en el Ministerio de la Verdad, encargado de manipular la historia para que coincida con la ideología del Partido. Winston se siente profundamente infeliz y decide rebelarse contra el sistema. Su vida se complica cuando conoce a Julia, una joven que pertenece a la Resistencia. Juntos intentarán huir de la ciudad y de la vigilancia del Partido.",
+      "ISBN": "978-84-206-0310-0"
+    },
+    "id": 5,
+    "available": true
   }
 ]

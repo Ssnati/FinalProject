@@ -1,7 +1,6 @@
 package view;
 
 import persistence.PrivateProperties;
-import presenter.Presenter;
 import view.books.BooksDialog;
 import view.rent.SelectionDialog;
 import view.user.UsersDialog;
@@ -244,19 +243,19 @@ public class View extends JFrame {
     }
 
     public boolean operationPanelIsVisible() {
-        return selectionDialog.operationPanelIsVisible();
+        return selectionDialog.getOperationDialog().operationPanelIsVisible();
     }
 
     public void setOperationCommand(String actionCommand) {
-        selectionDialog.setOperationCommand(actionCommand);
+        selectionDialog.getOperationDialog().setOperationCommand(actionCommand);
     }
 
-    public String getOperationDialog() {
-        return selectionDialog.getOperationDialog();
+    public String getOperationInDialog() {
+        return selectionDialog.getOperationDialog().getOperationCommand();
     }
 
     public void setUserSelectedPath(String userImageSource) {
-        selectionDialog.setUserSelectedPath(userImageSource);
+        selectionDialog.getOperationDialog().getMidPanel().setUserSelectedPath(userImageSource);
     }
 
     public void closeUsersDialog() {
@@ -264,7 +263,7 @@ public class View extends JFrame {
     }
 
     public void setBookSelectedPath(String bookImageSource) {
-        selectionDialog.setBookSelectedPath(bookImageSource);
+        selectionDialog.getOperationDialog().getMidPanel().setBookSelectedPath(bookImageSource);
     }
 
     public int getIdToRent(List<Integer> books) {
@@ -303,7 +302,7 @@ public class View extends JFrame {
     }
 
     public void clearOperationPanel() {
-        selectionDialog.clearOperationPanel();
+        selectionDialog.getOperationDialog().getMidPanel().clearOperationPanel();
     }
 
 

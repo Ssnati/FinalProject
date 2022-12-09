@@ -9,45 +9,47 @@ import java.awt.event.MouseListener;
 
 public class BookInfoPanel extends JPanel {
     private final Font font = new Font("Sans Serif", Font.BOLD, 20);
+    private final PrivateProperties properties;
     private JLabel bookTitleLabel, bookDescriptionLabel, bookAuthorLabel, bookYearLabel, bookISBNLabel, bookAvailableCopiesLabel, bookTotalCopiesLabel;
     private JButton coverButton, deleteButton, historyButton, addCopyButton, removeCopyButton;
 
     public BookInfoPanel(ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) {
+        this.properties = properties;
         setLayout(new GridBagLayout());
         initComponents(actionListener, mouseListener);
         setBackground(Color.WHITE);
     }
 
     private void initComponents(ActionListener actionListener, MouseListener mouseListener) {
-        bookTitleLabel = new JLabel("1984");
-        bookAuthorLabel = new JLabel("<html><body><b>Author:</b> George Orwell</body></html>");
+        bookTitleLabel = new JLabel();
+        bookAuthorLabel = new JLabel();
 
-        bookDescriptionLabel = new JLabel("<html><body><b>Book Description:</b> It is a dark and stormy night. Winston Smith, his chin nuzzled into his breast in an effort to escape the vile wind, slipped quickly through the glass doors of Victory Mansions, though not quickly enough to prevent a swirl of gritty dust from entering along with him.</body></html>");
+        bookDescriptionLabel = new JLabel();
         setBreakLines(bookDescriptionLabel);
 
-        bookYearLabel = new JLabel("<html><body><b>Year:</b> 1949</body></html>");
-        bookISBNLabel = new JLabel("<html><body><b>ISBN:</b> 978-0451524935</body></html>");
-        bookAvailableCopiesLabel = new JLabel("<html><body><b>Available Copies:</b> 9</body></html>");
-        bookTotalCopiesLabel = new JLabel("<html><body><b>Total Copies:</b> 18</body></html>");
+        bookYearLabel = new JLabel();
+        bookISBNLabel = new JLabel();
+        bookAvailableCopiesLabel = new JLabel();
+        bookTotalCopiesLabel = new JLabel();
 
-        coverButton = new JButton(new ImageIcon(new ImageIcon("sources/covers/Cover1.jpg").getImage().getScaledInstance(136, 219, Image.SCALE_AREA_AVERAGING)));
+        coverButton = new JButton(new ImageIcon(new ImageIcon("sources/covers/Add Book.png").getImage().getScaledInstance(136, 219, Image.SCALE_AREA_AVERAGING)));
         coverButtonFeatures();
-        deleteButton = new JButton("<html><body>Borrar Libro</body></html>");
+        deleteButton = new JButton("<html><body>"+properties.btn_txt_deleteBookButton()+"</body></html>");
         deleteButton.setActionCommand("DELETE_BOOK");
         deleteButton.addActionListener(actionListener);
         deleteButton.addMouseListener(mouseListener);
 
-        historyButton = new JButton("<html><body><center>Ver historial de <br>prestamos</center></body></html>");
+        historyButton = new JButton("<html><body><center>"+properties.btn_txt_historyBookButton()+"</center></body></html>");
         historyButton.setActionCommand("HISTORY_BOOK");
         historyButton.addActionListener(actionListener);
         historyButton.addMouseListener(mouseListener);
 
-        addCopyButton = new JButton("<html><body>Agregar copia</body></html>");
+        addCopyButton = new JButton("<html><body>"+properties.btn_txt_addCopyBookButton()+"</body></html>");
         addCopyButton.setActionCommand("ADD_COPY");
         addCopyButton.addActionListener(actionListener);
         addCopyButton.addMouseListener(mouseListener);
 
-        removeCopyButton = new JButton("<html><body>Eliminar copia</body></html>");
+        removeCopyButton = new JButton("<html><body>"+properties.btn_txt_removeCopyBookButton()+"</body></html>");
         removeCopyButton.setActionCommand("REMOVE_COPY");
         removeCopyButton.addActionListener(actionListener);
         removeCopyButton.addMouseListener(mouseListener);
@@ -66,7 +68,7 @@ public class BookInfoPanel extends JPanel {
         bookAvailableCopiesLabel.setFont(altFont);
         bookTotalCopiesLabel.setFont(altFont);
 
-        historyButton.setFont(new Font("Sans Serif", Font.BOLD, 20));
+        historyButton.setFont(font);
         historyButton.setBackground(new Color(90, 133, 64));
         historyButton.setForeground(Color.WHITE);
         historyButton.setFocusable(false);
@@ -74,11 +76,11 @@ public class BookInfoPanel extends JPanel {
         deleteButton.setBackground(new Color(255, 0, 0));
         deleteButton.setForeground(Color.WHITE);
         deleteButton.setFocusable(false);
-        addCopyButton.setFont(new Font("Sans Serif", Font.BOLD, 20));
+        addCopyButton.setFont(font);
         addCopyButton.setBackground(new Color(42, 108, 207));
         addCopyButton.setForeground(Color.WHITE);
         addCopyButton.setFocusable(false);
-        removeCopyButton.setFont(new Font("Sans Serif", Font.BOLD, 20));
+        removeCopyButton.setFont(font);
         removeCopyButton.setBackground(new Color(42, 108, 207));
         removeCopyButton.setForeground(Color.WHITE);
         removeCopyButton.setFocusable(false);
@@ -175,7 +177,7 @@ public class BookInfoPanel extends JPanel {
     }
 
     public void showBookInfo(String bookToView) {
-        String[] bookInfo = bookToView.split(";");
+        String[] bookInfo = bookToView.split(properties.getSplitter());
         coverButton.setIcon(new ImageIcon(new ImageIcon(bookInfo[0]).getImage().getScaledInstance(136, 219, Image.SCALE_AREA_AVERAGING)));
         bookTitleLabel.setText(bookInfo[1]);
         bookAuthorLabel.setText("<html><body><b>Author:</b> " + bookInfo[2] + "</body></html>");

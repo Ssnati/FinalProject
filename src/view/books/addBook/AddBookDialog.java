@@ -9,13 +9,15 @@ import java.io.IOException;
 
 public class AddBookDialog extends JDialog {
 
+    private final PrivateProperties properties;
     private AddBookPanel addBookPanel;
 
     public AddBookDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) throws IOException {
         super(dialog, modal);
-        setTitle("Add Book");
+        this.properties = properties;
+        setTitle(properties.getAddBookDialogTitle());
         this.setSize(431,749);
-        addBookPanel=new AddBookPanel(actionListener, mouseListener);
+        addBookPanel=new AddBookPanel(actionListener, mouseListener, properties);
         getContentPane().add(addBookPanel);
         setLocationRelativeTo(null);
     }

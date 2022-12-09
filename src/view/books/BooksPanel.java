@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class BooksPanel extends JPanel {
+    private final PrivateProperties properties;
     private ActionListener actionListener;
     private MouseListener mouseListener;
     private JLabel titleLabel;
@@ -22,6 +23,7 @@ public class BooksPanel extends JPanel {
     private HashMap<String, String> bookInfo;
 
     public BooksPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener, PrivateProperties properties) {
+        this.properties = properties;
         bookButtons = new ArrayList<>();
         bookInfo = new HashMap<>();
         this.actionListener = actionListener;
@@ -35,52 +37,25 @@ public class BooksPanel extends JPanel {
         return titleLabel;
     }
 
-    public void setTitleLabel(JLabel titleLabel) {
-        this.titleLabel = titleLabel;
-    }
-
-    public SearchPanel getSearchPanel() {
-        return searchPanel;
-    }
-
-    public void setSearchPanel(SearchPanel searchPanel) {
-        this.searchPanel = searchPanel;
-    }
-
-    public List<JButton> getBookButtons() {
-        return bookButtons;
-    }
-
-    public void setBookButtons(List<JButton> bookButtons) {
-        this.bookButtons = bookButtons;
-    }
-
     public int getBookIndex() {
         return bookIndex;
     }
 
-    public HashMap<String, String> getBookInfo() {
-        return bookInfo;
-    }
-
-    public void setBookInfo(HashMap<String, String> bookInfo) {
-        this.bookInfo = bookInfo;
-    }
 
     private void initComponents(KeyListener keyListener) {
-        titleLabel = new JLabel("Book List");
+        titleLabel = new JLabel(properties.lbl_txt_tittleBooksPanel());
         searchPanel = new SearchPanel(actionListener, mouseListener, keyListener);
-        searchPanel.setActionCommandAddButton("ADD_BOOK");
+        searchPanel.setActionCommandAddButton(properties.ac_pnl_addBook());
         addTitleLabel();
         addSearchPanel();
     }
 
     private void addBooksListPanel(String book, int index) {
-        String[] bookArray = book.split(";");
+        String[] bookArray = book.split(properties.getSplitter());
         JButton bookButton = new JButton(new ImageIcon(new ImageIcon(bookArray[0]).getImage().getScaledInstance(136, 219, Image.SCALE_DEFAULT)));
         bookButton.setPreferredSize(new Dimension(136, 219));
-        bookButton.setActionCommand("BOOK_" + index);
-        bookInfo.put("BOOK_" + index, book);
+        bookButton.setActionCommand(properties.ac_BookButtons_() + index);
+        bookInfo.put(properties.ac_BookButtons_()+ index, book);
         bookButton.addActionListener(actionListener);
         bookButton.addMouseListener(mouseListener);
         bookButton.setBackground(new Color(0, 0, 0));
@@ -164,24 +139,14 @@ public class BooksPanel extends JPanel {
         this.bookIndex = bookIndex;
     }
 
-    public String getIconPath(String actionCommand) {
-        String[] bookArray = bookInfo.get(actionCommand).split(";");
-        return bookArray[0];
-    }
-
     public String getBookName(String actionCommand) {
         String a =bookInfo.get(actionCommand);
-        String[] bookArray = a.split(";");
+        String[] bookArray = a.split(properties.getSplitter());
         return bookArray[1];
     }
 
     public String getSelectedBook() {
-        return getBookName("BOOK_" + bookIndex);
-    }
-
-    public void deleteBook() {
-        bookButtons.remove(bookIndex);
-        setBookCoordinates();
+        return getBookName(properties.ac_BookButtons_()+ bookIndex);
     }
 
     public void loadNewBook(String newBookInfo) {

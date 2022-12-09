@@ -49,7 +49,7 @@ public class MainPanel extends JPanel {
         rent = new JButton(new ImageIcon(properties.src_RentButtonImage()));
         rent.setBounds(867, 72, 290, 290);
         setButtonFeatures(rent);
-        rent.setActionCommand(properties.ac_getRentButton());
+        rent.setActionCommand(properties.ac_RentButton());
         rent.addActionListener(actionListener);
         rent.addMouseListener(mouseListener);
     }

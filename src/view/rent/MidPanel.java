@@ -1,5 +1,7 @@
 package view.rent;
 
+import persistence.PrivateProperties;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -8,14 +10,14 @@ import java.awt.event.MouseListener;
 public class MidPanel extends JPanel {
     private OperationPanel rentPanel, returnPanel;
 
-    public MidPanel(ActionListener actionListener, MouseListener mouseListener) {
+    public MidPanel(ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) {
         setBackground(new Color(158, 107, 189));
 
-        rentPanel = new OperationPanel(actionListener, mouseListener);
+        rentPanel = new OperationPanel(actionListener, mouseListener, properties);
         rentPanel.addRentButton();
         rentPanel.setVisible(false);
 
-        returnPanel = new OperationPanel(actionListener, mouseListener);
+        returnPanel = new OperationPanel(actionListener, mouseListener, properties);
         returnPanel.addReturnButton();
         returnPanel.setVisible(false);
 
@@ -31,14 +33,6 @@ public class MidPanel extends JPanel {
     public void showReturnPanel() {
         rentPanel.setVisible(false);
         returnPanel.setVisible(true);
-    }
-
-    public boolean rentPanelIsVisible() {
-        return rentPanel.isVisible();
-    }
-
-    public boolean returnPanelIsVisible() {
-        return returnPanel.isVisible();
     }
 
     public void setUserSelectedPath(String userImageSource) {

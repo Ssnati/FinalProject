@@ -1,5 +1,6 @@
 package view.books.addBook;
 
+import persistence.PrivateProperties;
 import view.OakButton;
 import view.OvalButton;
 
@@ -17,6 +18,7 @@ import java.nio.file.StandardCopyOption;
 
 public class AddBookPanel extends JPanel {
     private final Font defaultFont = new Font("SansSerif", Font.BOLD, 18);
+    private final PrivateProperties properties;
     private JButton addCover, saveBook;
     private JButton tittleLabel, descriptionLabel, authorLabel, yearLabel, ISBNLabel, copyNumberLabel;
     private JTextField tittleField, authorField, yearField, ISBNField, copiesField;
@@ -24,7 +26,8 @@ public class AddBookPanel extends JPanel {
     private JScrollPane scrollPane;
     private String pathCover;
 
-    public AddBookPanel(ActionListener actionListener, MouseListener mouseListener) throws IOException {
+    public AddBookPanel(ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) {
+        this.properties = properties;
         initComponents(actionListener, mouseListener);
         setBackground(new Color(233, 208, 208));
     }
@@ -33,24 +36,24 @@ public class AddBookPanel extends JPanel {
         return pathCover;
     }
 
-    private void initComponents(ActionListener actionListener, MouseListener mouseListener) throws IOException {
-        pathCover = "sources/covers/AddCover.png";
+    private void initComponents(ActionListener actionListener, MouseListener mouseListener) {
+        pathCover = properties.src_AddCoverPath();
         addCover = new JButton(new ImageIcon(pathCover));
         addCover.addActionListener(actionListener);
         addCover.addMouseListener(mouseListener);
-        addCover.setActionCommand("ADD_COVER");
+        addCover.setActionCommand(properties.ac_AddCover());
 
-        saveBook = new JButton("Agregar Libro");
+        saveBook = new JButton(properties.btn_txt_saveBookButton());
         saveBook.addActionListener(actionListener);
         saveBook.addMouseListener(mouseListener);
-        saveBook.setActionCommand("SAVE_BOOK");
+        saveBook.setActionCommand(properties.ac_SaveBook());
 
-        tittleLabel = new JButton("Titulo: ");
-        descriptionLabel = new JButton("Sinopsis: ");
-        authorLabel = new JButton("Autor: ");
-        yearLabel = new JButton("Año: ");
-        ISBNLabel = new JButton("ISBN: ");
-        copyNumberLabel = new JButton("<html>Cantidad de <br>ejemplares: </html>");
+        tittleLabel = new JButton(properties.btn_txt_addTittleLabel());
+        descriptionLabel = new JButton(properties.btn_txt_addDescriptionLabel());
+        authorLabel = new JButton(properties.btn_txt_addAuthorLabel());
+        yearLabel = new JButton(properties.btn_txt_addYearLabel());
+        ISBNLabel = new JButton(properties.btn_txt_addISBNLabel());
+        copyNumberLabel = new JButton("<html>"+properties.btn_txt_addCopyNumberLabel()+"</html>");
 
         tittleField = new JTextField(14);
         descriptionArea = new JTextArea(5, 14);
@@ -61,21 +64,20 @@ public class AddBookPanel extends JPanel {
         yearField = new JTextField(14);
         ISBNField = new JTextField(14);
         copiesField = new JTextField(14);
-
-
+        
         componentFeatures();
-        addComponents(actionListener);
+        addComponents();
     }
 
     private void addFileChooser(int pathNumber) throws IOException {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG Images", "jpg", "png");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(properties.fc_description(), properties.fc_extension_1(), properties.fc_extension_2());
         fileChooser.setFileFilter(filter);
         fileChooser.showOpenDialog(this);
         File file = fileChooser.getSelectedFile();
         if (file != null) {
-            String path = "sources/covers/Cover" + pathNumber+file.getName().substring(file.getName().lastIndexOf("."));
+            String path = properties.src_BasicCoverPath() + pathNumber+file.getName().substring(file.getName().lastIndexOf("."));
             Path pathDestiny = Paths.get(path);
             Path pathOrigen = Paths.get(file.getAbsolutePath());
             Files.copy(pathOrigen, pathDestiny, StandardCopyOption.REPLACE_EXISTING);
@@ -135,7 +137,7 @@ public class AddBookPanel extends JPanel {
 
     }
 
-    private void addComponents(ActionListener listener) {
+    private void addComponents() {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
@@ -229,7 +231,9 @@ public class AddBookPanel extends JPanel {
     }
 
     public String getNewBookInfo() {
-        return pathCover + ";" + tittleField.getText() + ";" + descriptionArea.getText() + ";" + authorField.getText() + ";" + yearField.getText() + ";" + ISBNField.getText() + ";" + copiesField.getText();
+        return pathCover + properties.getSplitter() + tittleField.getText() + properties.getSplitter() +
+                descriptionArea.getText() + properties.getSplitter() + authorField.getText() + properties.getSplitter() +
+                yearField.getText() + properties.getSplitter() + ISBNField.getText() + properties.getSplitter() + copiesField.getText();
     }
     public void showFileChooser(int pathNumber){
         try {
@@ -246,6 +250,6 @@ public class AddBookPanel extends JPanel {
         descriptionArea.setText("");
         ISBNField.setText("");
         copiesField.setText("");
-        addCover.setIcon(new ImageIcon("sources/covers/AddCover.png"));
+        addCover.setIcon(new ImageIcon(properties.ac_AddCover()));
     }
 }

@@ -55,7 +55,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
 
         System.out.println("User: " + view.getUserIndex() + " Copy: " + view.getCopyId() + " Book: " + view.getBookIndex());
         if (e.getActionCommand().equals("RENT_BOOK")) {
-            System.out.println("Action: " + view.getOperationDialog());
+            System.out.println("Action: " + view.getOperationInDialog());
             if ((view.getUserIndex() < 0) || view.getCopyId() == 0) view.showMessage("Select a user and a book");
             else {
                 library.rentBook(view.getUserInfo(view.getUserIndex()), view.getBookName("BOOK_" + view.getBookIndex()), view.getCopyId());
@@ -63,7 +63,7 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
                 view.showMessage("Book rented");
             }
         } else if (e.getActionCommand().equals("RETURN_BOOK")) {
-            System.out.println("Action: " + view.getOperationDialog());
+            System.out.println("Action: " + view.getOperationInDialog());
             if ((view.getUserIndex() < 0) || view.getCopyId() == 0) view.showMessage("Select a user and a book");
             else {
                 library.returnBook(view.getUserInfo(view.getUserIndex()), view.getBookName("BOOK_" + view.getBookIndex()), view.getCopyId());
@@ -89,9 +89,9 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
     private void selectBookToRent(ActionEvent e) {
         selectBook(e);
         List<Integer> copiesList = new ArrayList<>();
-        if (view.getOperationDialog().equals("RENT_DIALOG")) {
+        if (view.getOperationInDialog().equals("RENT_DIALOG")) {
             copiesList = library.getAvailableListCopies(view.getBookName(e.getActionCommand()));
-        } else if (view.getOperationDialog().equals("RETURN_DIALOG")) {
+        } else if (view.getOperationInDialog().equals("RETURN_DIALOG")) {
             copiesList = library.getUserRentedListCopies(view.getUserInfo(view.getUserIndex()), view.getBookName(e.getActionCommand()));
             System.out.println("Parametros lanzados al buscar User: " + view.getUserInfo(view.getUserIndex()) + " Copy: " + view.getCopyId() + " Book: " + view.getBookIndex());
         }
@@ -130,10 +130,10 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
     }
 
     private void selectData(ActionEvent e) {
-        System.out.println(e.getActionCommand() + " Esta en el operation Menu: " + view.getOperationDialog());
+        System.out.println(e.getActionCommand() + " Esta en el operation Menu: " + view.getOperationInDialog());
         if (e.getActionCommand().equals("SELECT_USER_TO_RENT")) view.showUsersDialog();
         else if (e.getActionCommand().equals("SELECT_BOOK_TO_RENT")) {
-            if (view.getOperationDialog().equals("RETURN_DIALOG")) {
+            if (view.getOperationInDialog().equals("RETURN_DIALOG")) {
                 int index = view.getUserIndex();
                 if (index != -1) {
                     List<String> books = library.getUserRentedBooksToView(view.getUserInfo(index));

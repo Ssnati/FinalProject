@@ -1,27 +1,41 @@
 package view.rent;
 
+import persistence.PrivateProperties;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 
 public class OperationDialog extends JDialog {
+    private final PrivateProperties properties;
     private MidPanel midPanel;
     private String operation;
 
-    public OperationDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener){
+    public MidPanel getMidPanel() {
+        return midPanel;
+    }
+
+    public String getOperationCommand() {
+        return operation;
+    }
+
+    public void setOperationCommand(String actionCommand) {
+        operation = actionCommand;
+    }
+
+    public OperationDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties){
         super(dialog, modal);
-        setTitle("Operation");
+        this.properties = properties;
+        setTitle(properties.getOperationDialogTitle());
         this.setSize(744, 338);
         setLayout(new GridBagLayout());
-        initContent(actionListener, mouseListener, keyListener);
+        initContent(actionListener, mouseListener);
         setLocationRelativeTo(null);
     }
 
-    private void initContent(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener){
-        midPanel = new MidPanel(actionListener, mouseListener);
+    private void initContent(ActionListener actionListener, MouseListener mouseListener){
+        midPanel = new MidPanel(actionListener, mouseListener, properties);
         addMidPanel();
     }
 
@@ -45,35 +59,7 @@ public class OperationDialog extends JDialog {
         midPanel.updateUI();
     }
 
-    public boolean rentPanelIsVisible() {
-        return midPanel.rentPanelIsVisible();
-    }
-
-    public boolean returnPanelIsVisible() {
-        return midPanel.returnPanelIsVisible();
-    }
-
     public boolean operationPanelIsVisible() {
         return midPanel.isVisible();
-    }
-
-    public void setOperationCommand(String actionCommand) {
-        operation = actionCommand;
-    }
-
-    public String getOperationDialog() {
-        return operation;
-    }
-
-    public void setUserSelectedPath(String userImageSource) {
-        midPanel.setUserSelectedPath(userImageSource);
-    }
-
-    public void setBookSelectedPath(String bookImageSource) {
-        midPanel.setBookSelectedPath(bookImageSource);
-    }
-
-    public void clearOperationPanel() {
-        midPanel.clearOperationPanel();
     }
 }
