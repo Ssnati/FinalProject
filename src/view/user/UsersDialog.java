@@ -89,4 +89,8 @@ public class UsersDialog extends JDialog {
     public void updateUsersPanel() {
         usersPanel.updateUI();
     }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
 }

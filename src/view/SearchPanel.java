@@ -100,4 +100,8 @@ public class SearchPanel extends JPanel {
     public void showPlusButton() {
         addButton.setVisible(true);
     }
+
+    public void clearFields() {
+        searchTextField.setText("");
+    }
 }

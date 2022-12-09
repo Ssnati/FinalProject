@@ -392,4 +392,76 @@ public class PrivateProperties {
     public String btn_txt_deleteUserButton() {
         return properties.getProperty("btn_txt_deleteUserButton");
     }
+
+    public String msg_Error() {
+        return properties.getProperty("msg_Error");
+    }
+
+    public String msg_selectUserAndBook() {
+        return properties.getProperty("msg_selectUserAndBook");
+    }
+
+    public String msg_BookRented() {
+        return properties.getProperty("msg_BookRented");
+    }
+
+    public String msg_BookReturned() {
+        return properties.getProperty("msg_BookReturned");
+    }
+
+    public String msg_NoCopies() {
+        return properties.getProperty("msg_NoCopies");
+    }
+
+    public String msg_NoBooks() {
+        return properties.getProperty("msg_NoBooks");
+    }
+
+    public String msg_SelectUserFirst() {
+        return properties.getProperty("msg_SelectUserFirst");
+    }
+
+    public String msg_BookAddedCorrectly() {
+        return properties.getProperty("msg_BookAddedCorrectly");
+    }
+
+    public String msg_DataIncorrectly() {
+        return properties.getProperty("msg_DataIncorrectly");
+    }
+
+    public String msg_IdNotValid() {
+        return properties.getProperty("msg_IdNotValid");
+    }
+
+    public String msg_IdAlreadyExist() {
+        return properties.getProperty("msg_IdAlreadyExist");
+    }
+
+    public String msg_BookDeletedCorrectly() {
+        return properties.getProperty("msg_BookDeletedCorrectly");
+    }
+
+    public String msg_BookHasRentals() {
+        return properties.getProperty("msg_BookHasRentals");
+    }
+
+    public String msg_UserAddedCorrectly() {
+        return properties.getProperty("msg_UserAddedCorrectly");
+    }
+
+    public String msg_UserHasBooks() {
+        return properties.getProperty("msg_UserHasBooks");
+    }
+
+    public String msg_UserDeletedCorrectly() {
+        return properties.getProperty("msg_UserDeletedCorrectly");
+    }
+
+    public String msg_ErrorSavingData() {
+        return properties.getProperty("msg_ErrorSavingData");
+    }
+
+    public String getMailAt() {
+        return properties.getProperty("mailAt");
+    }
 }

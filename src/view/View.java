@@ -59,10 +59,14 @@ public class View extends JFrame {
     }
 
     public void showBooksDialog() {
+        booksDialog.getScrollPane().getVerticalScrollBar().setValue(0);
+        booksDialog.getBooksPanel().clearFields();
         booksDialog.setVisible(true);
     }
 
     public void showUsersDialog() {
+        usersDialog.getScrollPane().getVerticalScrollBar().setValue(0);
+        usersDialog.getUsersPanel().clearFields();
         usersDialog.setVisible(true);
     }
 

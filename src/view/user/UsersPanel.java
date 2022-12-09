@@ -149,4 +149,8 @@ public class UsersPanel extends JPanel {
     public void clearByOperationPanel() {
         userIndex = -1;
     }
+
+    public void clearFields() {
+        searchPanel.clearFields();
+    }
 }

@@ -17,6 +17,7 @@ public class BooksDialog extends JDialog {
     private AddBookDialog addBookDialog;
 
     private BookInfoDialog bookInfoDialog;
+    private JScrollPane scrollPane;
 
     public BooksPanel getBooksPanel() {
         return booksPanel;
@@ -57,8 +58,12 @@ public class BooksDialog extends JDialog {
 
     private void addBooksPanel(ActionListener actionListener, MouseListener mouseListener, KeyListener keyListener) {
         booksPanel = new BooksPanel(actionListener, mouseListener, keyListener, properties);
-        JScrollPane scrollPane = new JScrollPane(booksPanel);
+        scrollPane = new JScrollPane(booksPanel);
         scrollPane.getVerticalScrollBar().setUnitIncrement(8);
         getContentPane().add(scrollPane);
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
     }
 }

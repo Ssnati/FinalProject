@@ -165,4 +165,8 @@ public class BooksPanel extends JPanel {
     public void clearByOperationPanel() {
         bookIndex = 0;
     }
+
+    public void clearFields() {
+        searchPanel.clearFields();
+    }
 }
