@@ -345,4 +345,8 @@ public class Library {
     public void saveData() throws IOException {
         new Persistence(properties).saveData(users, books, copies, rents);
     }
+
+    public boolean maxRent(String userName) {
+        return searchUser(userName).getRentedCopies().size() >= 3;
+    }
 }

@@ -464,4 +464,8 @@ public class PrivateProperties {
     public String getMailAt() {
         return properties.getProperty("mailAt");
     }
+
+    public String msg_UserHasMaxBooks() {
+        return properties.getProperty("msg_UserHasMaxBooks");
+    }
 }

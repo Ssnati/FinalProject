@@ -297,7 +297,7 @@
       "ISBN": "978-84-7888-449-0"
     },
     "id": 1,
-    "available": true
+    "available": false
   },
   {
     "associatedBook": {
@@ -309,7 +309,7 @@
       "ISBN": "978-84-7888-449-0"
     },
     "id": 2,
-    "available": true
+    "available": false
   },
   {
     "associatedBook": {
@@ -453,7 +453,7 @@
       "ISBN": "978-84-7888-447-6"
     },
     "id": 1,
-    "available": true
+    "available": false
   },
   {
     "associatedBook": {
@@ -501,7 +501,7 @@
       "ISBN": "978-84-7888-446-9"
     },
     "id": 1,
-    "available": true
+    "available": false
   },
   {
     "associatedBook": {
@@ -537,7 +537,7 @@
       "ISBN": "978-84-7888-445-2"
     },
     "id": 1,
-    "available": true
+    "available": false
   },
   {
     "associatedBook": {
@@ -549,7 +549,7 @@
       "ISBN": "978-84-7888-445-2"
     },
     "id": 2,
-    "available": false
+    "available": true
   },
   {
     "associatedBook": {
@@ -657,6 +657,150 @@
       "ISBN": "978-84-7888-453-7"
     },
     "id": 1,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 1,
+    "available": false
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 2,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 3,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 4,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 5,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 6,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 7,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 8,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 9,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 10,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 11,
+    "available": true
+  },
+  {
+    "associatedBook": {
+      "coverSource": "sources/covers/Cover12.jpg",
+      "title": "Soy el numero 4",
+      "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+      "year": "Pittacus Lore",
+      "description": "2011",
+      "ISBN": " 9788427200708"
+    },
+    "id": 12,
     "available": true
   }
 ]

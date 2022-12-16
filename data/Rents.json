@@ -30,7 +30,31 @@
             "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
             "ISBN": "978-84-7888-445-2"
           },
-          "id": 2,
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover4.jpg",
+            "title": "Harry Potter y el prisionero de Azkaban",
+            "author": "J.K. Rowling",
+            "year": "1999",
+            "description": "El tercer año de estudios de Harry en Hogwarts se ve amenazado por la fuga de Sirius Black de la prisión de Azkaban. Al parecer, se trata de un peligroso mago que fue cómplice de Lord Voldemort y que intentará vengarse de Harry Potter.",
+            "ISBN": "978-84-7888-447-6"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover6.jpg",
+            "title": "Harry Potter y la orden del Fénix",
+            "author": "J.K. Rowling",
+            "year": "2003",
+            "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+            "ISBN": "978-84-7888-449-0"
+          },
+          "id": 1,
           "available": false
         }
       ]
@@ -57,12 +81,49 @@
       "email": "janeSmith@gmail.com",
       "address": "4321 Park Avenue, Los Angeles, CA 90001",
       "phone": "8765432",
-      "rentedCopies": []
+      "rentedCopies": [
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover3.jpg",
+            "title": "Harry Potter y la cámara secreta",
+            "author": "J.K. Rowling",
+            "year": "1998",
+            "description": "Harry Potter regresa a Hogwarts para comenzar su segundo curso de magia y hechicería. Pero el colegio está envuelto en una atmósfera de misterio y terror. Alguien o algo está atacando a los alumnos y los profesores, y la única pista que hay es una nota escrita en rúnico: «El que se atreve a entrar aquí, se atreve a morir».",
+            "ISBN": "978-84-7888-446-9"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover12.jpg",
+            "title": "Soy el numero 4",
+            "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+            "year": "Pittacus Lore",
+            "description": "2011",
+            "ISBN": " 9788427200708"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover6.jpg",
+            "title": "Harry Potter y la orden del Fénix",
+            "author": "J.K. Rowling",
+            "year": "2003",
+            "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+            "ISBN": "978-84-7888-449-0"
+          },
+          "id": 2,
+          "available": false
+        }
+      ]
     }
   },
   {
     "rentDate": "9/12/2022",
-    "returnDate": "En prestamo",
+    "returnDate": "9/12/2022",
     "associatedCopy": {
       "associatedBook": {
         "coverSource": "sources/covers/Cover2.jpg",
@@ -73,6 +134,91 @@
         "ISBN": "978-84-7888-445-2"
       },
       "id": 2,
+      "available": true
+    },
+    "associatedUser": {
+      "iconSrc": "sources/userIcons/Male Icon 1.png",
+      "name": "John Doe",
+      "email": "jhonDoe@gmail.com",
+      "address": "1234 Main Street, New York, NY 10001",
+      "phone": "1234567890",
+      "rentedCopies": [
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover2.jpg",
+            "title": "Harry Potter y la piedra filosofal",
+            "author": "J.K. Rowling",
+            "year": "1997",
+            "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
+            "ISBN": "978-84-7888-445-2"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover4.jpg",
+            "title": "Harry Potter y el prisionero de Azkaban",
+            "author": "J.K. Rowling",
+            "year": "1999",
+            "description": "El tercer año de estudios de Harry en Hogwarts se ve amenazado por la fuga de Sirius Black de la prisión de Azkaban. Al parecer, se trata de un peligroso mago que fue cómplice de Lord Voldemort y que intentará vengarse de Harry Potter.",
+            "ISBN": "978-84-7888-447-6"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover6.jpg",
+            "title": "Harry Potter y la orden del Fénix",
+            "author": "J.K. Rowling",
+            "year": "2003",
+            "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+            "ISBN": "978-84-7888-449-0"
+          },
+          "id": 1,
+          "available": false
+        }
+      ]
+    }
+  },
+  {
+    "rentDate": "9/12/2022",
+    "returnDate": "16/12/2022",
+    "associatedCopy": {
+      "associatedBook": {
+        "coverSource": "sources/covers/Cover3.jpg",
+        "title": "Harry Potter y la cámara secreta",
+        "author": "J.K. Rowling",
+        "year": "1998",
+        "description": "Harry Potter regresa a Hogwarts para comenzar su segundo curso de magia y hechicería. Pero el colegio está envuelto en una atmósfera de misterio y terror. Alguien o algo está atacando a los alumnos y los profesores, y la única pista que hay es una nota escrita en rúnico: «El que se atreve a entrar aquí, se atreve a morir».",
+        "ISBN": "978-84-7888-446-9"
+      },
+      "id": 1,
+      "available": false
+    },
+    "associatedUser": {
+      "iconSrc": "sources/userIcons/Male Icon 3.png",
+      "name": "James Johnson",
+      "email": "jamesJohnson@gmail.com",
+      "address": "1110 Willow Road, Chicago, IL 60606",
+      "phone": "5487210938",
+      "rentedCopies": []
+    }
+  },
+  {
+    "rentDate": "16/12/2022",
+    "returnDate": "En prestamo",
+    "associatedCopy": {
+      "associatedBook": {
+        "coverSource": "sources/covers/Cover2.jpg",
+        "title": "Harry Potter y la piedra filosofal",
+        "author": "J.K. Rowling",
+        "year": "1997",
+        "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
+        "ISBN": "978-84-7888-445-2"
+      },
+      "id": 1,
       "available": false
     },
     "associatedUser": {
@@ -90,6 +236,335 @@
             "year": "1997",
             "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
             "ISBN": "978-84-7888-445-2"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover4.jpg",
+            "title": "Harry Potter y el prisionero de Azkaban",
+            "author": "J.K. Rowling",
+            "year": "1999",
+            "description": "El tercer año de estudios de Harry en Hogwarts se ve amenazado por la fuga de Sirius Black de la prisión de Azkaban. Al parecer, se trata de un peligroso mago que fue cómplice de Lord Voldemort y que intentará vengarse de Harry Potter.",
+            "ISBN": "978-84-7888-447-6"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover6.jpg",
+            "title": "Harry Potter y la orden del Fénix",
+            "author": "J.K. Rowling",
+            "year": "2003",
+            "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+            "ISBN": "978-84-7888-449-0"
+          },
+          "id": 1,
+          "available": false
+        }
+      ]
+    }
+  },
+  {
+    "rentDate": "16/12/2022",
+    "returnDate": "En prestamo",
+    "associatedCopy": {
+      "associatedBook": {
+        "coverSource": "sources/covers/Cover4.jpg",
+        "title": "Harry Potter y el prisionero de Azkaban",
+        "author": "J.K. Rowling",
+        "year": "1999",
+        "description": "El tercer año de estudios de Harry en Hogwarts se ve amenazado por la fuga de Sirius Black de la prisión de Azkaban. Al parecer, se trata de un peligroso mago que fue cómplice de Lord Voldemort y que intentará vengarse de Harry Potter.",
+        "ISBN": "978-84-7888-447-6"
+      },
+      "id": 1,
+      "available": false
+    },
+    "associatedUser": {
+      "iconSrc": "sources/userIcons/Male Icon 1.png",
+      "name": "John Doe",
+      "email": "jhonDoe@gmail.com",
+      "address": "1234 Main Street, New York, NY 10001",
+      "phone": "1234567890",
+      "rentedCopies": [
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover2.jpg",
+            "title": "Harry Potter y la piedra filosofal",
+            "author": "J.K. Rowling",
+            "year": "1997",
+            "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
+            "ISBN": "978-84-7888-445-2"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover4.jpg",
+            "title": "Harry Potter y el prisionero de Azkaban",
+            "author": "J.K. Rowling",
+            "year": "1999",
+            "description": "El tercer año de estudios de Harry en Hogwarts se ve amenazado por la fuga de Sirius Black de la prisión de Azkaban. Al parecer, se trata de un peligroso mago que fue cómplice de Lord Voldemort y que intentará vengarse de Harry Potter.",
+            "ISBN": "978-84-7888-447-6"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover6.jpg",
+            "title": "Harry Potter y la orden del Fénix",
+            "author": "J.K. Rowling",
+            "year": "2003",
+            "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+            "ISBN": "978-84-7888-449-0"
+          },
+          "id": 1,
+          "available": false
+        }
+      ]
+    }
+  },
+  {
+    "rentDate": "16/12/2022",
+    "returnDate": "En prestamo",
+    "associatedCopy": {
+      "associatedBook": {
+        "coverSource": "sources/covers/Cover6.jpg",
+        "title": "Harry Potter y la orden del Fénix",
+        "author": "J.K. Rowling",
+        "year": "2003",
+        "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+        "ISBN": "978-84-7888-449-0"
+      },
+      "id": 1,
+      "available": false
+    },
+    "associatedUser": {
+      "iconSrc": "sources/userIcons/Male Icon 1.png",
+      "name": "John Doe",
+      "email": "jhonDoe@gmail.com",
+      "address": "1234 Main Street, New York, NY 10001",
+      "phone": "1234567890",
+      "rentedCopies": [
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover2.jpg",
+            "title": "Harry Potter y la piedra filosofal",
+            "author": "J.K. Rowling",
+            "year": "1997",
+            "description": "Harry Potter es un niño huérfano que vive con sus malvados tíos y su cruel prima, Petunia. Harry crece sintiéndose muy triste y solo, hasta el día en que recibe una carta que cambiará su vida para siempre. En ella, un mago le comunica que ha sido aceptado en el Colegio Hogwarts de Magia y Hechicería. Allí, Harry descubrirá que es un mago y emprenderá su aventura más increíble.",
+            "ISBN": "978-84-7888-445-2"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover4.jpg",
+            "title": "Harry Potter y el prisionero de Azkaban",
+            "author": "J.K. Rowling",
+            "year": "1999",
+            "description": "El tercer año de estudios de Harry en Hogwarts se ve amenazado por la fuga de Sirius Black de la prisión de Azkaban. Al parecer, se trata de un peligroso mago que fue cómplice de Lord Voldemort y que intentará vengarse de Harry Potter.",
+            "ISBN": "978-84-7888-447-6"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover6.jpg",
+            "title": "Harry Potter y la orden del Fénix",
+            "author": "J.K. Rowling",
+            "year": "2003",
+            "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+            "ISBN": "978-84-7888-449-0"
+          },
+          "id": 1,
+          "available": false
+        }
+      ]
+    }
+  },
+  {
+    "rentDate": "16/12/2022",
+    "returnDate": "En prestamo",
+    "associatedCopy": {
+      "associatedBook": {
+        "coverSource": "sources/covers/Cover3.jpg",
+        "title": "Harry Potter y la cámara secreta",
+        "author": "J.K. Rowling",
+        "year": "1998",
+        "description": "Harry Potter regresa a Hogwarts para comenzar su segundo curso de magia y hechicería. Pero el colegio está envuelto en una atmósfera de misterio y terror. Alguien o algo está atacando a los alumnos y los profesores, y la única pista que hay es una nota escrita en rúnico: «El que se atreve a entrar aquí, se atreve a morir».",
+        "ISBN": "978-84-7888-446-9"
+      },
+      "id": 1,
+      "available": false
+    },
+    "associatedUser": {
+      "iconSrc": "sources/userIcons/Female Icon 2.png",
+      "name": "Jane Smith",
+      "email": "janeSmith@gmail.com",
+      "address": "4321 Park Avenue, Los Angeles, CA 90001",
+      "phone": "8765432",
+      "rentedCopies": [
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover3.jpg",
+            "title": "Harry Potter y la cámara secreta",
+            "author": "J.K. Rowling",
+            "year": "1998",
+            "description": "Harry Potter regresa a Hogwarts para comenzar su segundo curso de magia y hechicería. Pero el colegio está envuelto en una atmósfera de misterio y terror. Alguien o algo está atacando a los alumnos y los profesores, y la única pista que hay es una nota escrita en rúnico: «El que se atreve a entrar aquí, se atreve a morir».",
+            "ISBN": "978-84-7888-446-9"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover12.jpg",
+            "title": "Soy el numero 4",
+            "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+            "year": "Pittacus Lore",
+            "description": "2011",
+            "ISBN": " 9788427200708"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover6.jpg",
+            "title": "Harry Potter y la orden del Fénix",
+            "author": "J.K. Rowling",
+            "year": "2003",
+            "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+            "ISBN": "978-84-7888-449-0"
+          },
+          "id": 2,
+          "available": false
+        }
+      ]
+    }
+  },
+  {
+    "rentDate": "16/12/2022",
+    "returnDate": "En prestamo",
+    "associatedCopy": {
+      "associatedBook": {
+        "coverSource": "sources/covers/Cover12.jpg",
+        "title": "Soy el numero 4",
+        "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+        "year": "Pittacus Lore",
+        "description": "2011",
+        "ISBN": " 9788427200708"
+      },
+      "id": 1,
+      "available": false
+    },
+    "associatedUser": {
+      "iconSrc": "sources/userIcons/Female Icon 2.png",
+      "name": "Jane Smith",
+      "email": "janeSmith@gmail.com",
+      "address": "4321 Park Avenue, Los Angeles, CA 90001",
+      "phone": "8765432",
+      "rentedCopies": [
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover3.jpg",
+            "title": "Harry Potter y la cámara secreta",
+            "author": "J.K. Rowling",
+            "year": "1998",
+            "description": "Harry Potter regresa a Hogwarts para comenzar su segundo curso de magia y hechicería. Pero el colegio está envuelto en una atmósfera de misterio y terror. Alguien o algo está atacando a los alumnos y los profesores, y la única pista que hay es una nota escrita en rúnico: «El que se atreve a entrar aquí, se atreve a morir».",
+            "ISBN": "978-84-7888-446-9"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover12.jpg",
+            "title": "Soy el numero 4",
+            "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+            "year": "Pittacus Lore",
+            "description": "2011",
+            "ISBN": " 9788427200708"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover6.jpg",
+            "title": "Harry Potter y la orden del Fénix",
+            "author": "J.K. Rowling",
+            "year": "2003",
+            "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+            "ISBN": "978-84-7888-449-0"
+          },
+          "id": 2,
+          "available": false
+        }
+      ]
+    }
+  },
+  {
+    "rentDate": "16/12/2022",
+    "returnDate": "En prestamo",
+    "associatedCopy": {
+      "associatedBook": {
+        "coverSource": "sources/covers/Cover6.jpg",
+        "title": "Harry Potter y la orden del Fénix",
+        "author": "J.K. Rowling",
+        "year": "2003",
+        "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+        "ISBN": "978-84-7888-449-0"
+      },
+      "id": 2,
+      "available": false
+    },
+    "associatedUser": {
+      "iconSrc": "sources/userIcons/Female Icon 2.png",
+      "name": "Jane Smith",
+      "email": "janeSmith@gmail.com",
+      "address": "4321 Park Avenue, Los Angeles, CA 90001",
+      "phone": "8765432",
+      "rentedCopies": [
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover3.jpg",
+            "title": "Harry Potter y la cámara secreta",
+            "author": "J.K. Rowling",
+            "year": "1998",
+            "description": "Harry Potter regresa a Hogwarts para comenzar su segundo curso de magia y hechicería. Pero el colegio está envuelto en una atmósfera de misterio y terror. Alguien o algo está atacando a los alumnos y los profesores, y la única pista que hay es una nota escrita en rúnico: «El que se atreve a entrar aquí, se atreve a morir».",
+            "ISBN": "978-84-7888-446-9"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover12.jpg",
+            "title": "Soy el numero 4",
+            "author": "Los últimos Lorienses en el universo se acobijan en La Tierra después de la atroz aniquilación de su planeta. Algún día serán lo suficientemente fuertes como para vengarse. Descubre cómo empieza todo desde la perspectiva de John Smith, el número 4.",
+            "year": "Pittacus Lore",
+            "description": "2011",
+            "ISBN": " 9788427200708"
+          },
+          "id": 1,
+          "available": false
+        },
+        {
+          "associatedBook": {
+            "coverSource": "sources/covers/Cover6.jpg",
+            "title": "Harry Potter y la orden del Fénix",
+            "author": "J.K. Rowling",
+            "year": "2003",
+            "description": "Las vacaciones de verano aún no han acabado y Harry se encuentra más inquieto que nunca. Apenas ha tenido noticias de Ron y Hermione, y presiente que algo extraño está sucediendo en Hogwarts. No bien empieza el nuevo curso, sus temores se vuelven realidad: el Ministerio de Magia ha iniciado una campaña de desprestigio contra él y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar sus movimientos. Y por si fuera poco, Harry sospecha que Voldemort es capaz de adivinar sus pensamientos con el fin de apoderarse de un objeto secreto que le permitiría recuperar su poder destructivo.",
+            "ISBN": "978-84-7888-449-0"
           },
           "id": 2,
           "available": false

@@ -14,7 +14,7 @@ public class BookInfoDialog extends JDialog {
     public BookInfoDialog(JDialog dialog, boolean modal, ActionListener actionListener, MouseListener mouseListener, PrivateProperties properties) {
         super(dialog, modal);
         setTitle(properties.getBookInfoDialogTitle());
-        this.setSize(803,402);
+        this.setSize(923,452);
         bookInfoPanel = new BookInfoPanel(actionListener, mouseListener, properties);
         getContentPane().add(bookInfoPanel);
         bookHistoryDialog = new BookHistoryDialog(this, true, properties);

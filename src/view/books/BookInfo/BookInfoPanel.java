@@ -94,7 +94,7 @@ public class BookInfoPanel extends JPanel {
         for (String word : words) {
             newText += word + " ";
             lineLength += word.length();
-            if (lineLength > 70) {
+            if (lineLength > 90) {
                 newText += "<br>";
                 lineLength = 0;
             }

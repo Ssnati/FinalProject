@@ -76,9 +76,11 @@ public class Presenter implements ActionListener, MouseListener, KeyListener, Wi
     private void rentBook() {
         if ((view.getUserIndex() < 0) || view.getCopyId() == 0) view.showMessage(properties.msg_selectUserAndBook());
         else {
-            library.rentBook(view.getUserInfo(view.getUserIndex()), view.getBookName(properties.ac_BookButtons_() + view.getBookIndex()), view.getCopyId());
-            view.clearOperationPanel();
-            view.showMessage(properties.msg_BookRented());
+            if (!library.maxRent(view.getUserInfo(view.getUserIndex()))){
+                library.rentBook(view.getUserInfo(view.getUserIndex()), view.getBookName(properties.ac_BookButtons_() + view.getBookIndex()), view.getCopyId());
+                view.clearOperationPanel();
+                view.showMessage(properties.msg_BookRented());
+            }else view.showMessage(properties.msg_UserHasMaxBooks());
         }
     }
 
